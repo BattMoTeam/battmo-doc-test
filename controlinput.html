@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Control models &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -11,16 +10,13 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Battery Geometries" href="geometryinput.html" />
-    <link rel="prev" title="Battery cell" href="batteryinput.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -28,59 +24,21 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            BattMo
-              <img src="_static/battmologo.png" class="logo" alt="Logo"/>
+            <a href="index.html" class="icon icon-home"> BattMo
+            <img src="_static/battmologo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Getting started</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="inputs.html">BattMo Li-ion battery</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html">Battery cell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#electrode">Electrode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#coating">Coating</a></li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#active-material">Active Material</a></li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#binder">Binder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#conducting-additive">Conducting Additive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#interface">Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#solid-diffusion-models">Solid Diffusion Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#electrolyte">Electrolyte</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Control</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#base-control-model">Base Control Model</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Utilities.ControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">ControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#ieswitch-control">IESwitch Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Utilities.IEswitchControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">IEswitchControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#constant-current-constant-voltage-control">Constant Current Constant Voltage Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Utilities.CcCvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#constant-voltage">Constant Voltage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Utilities.CvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">BattMo Li-ion battery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
 </ul>
@@ -98,9 +56,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="inputs.html">Input Parameter Classes</a></li>
-      <li class="breadcrumb-item active">Control models</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Control models</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/controlinput.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,58 +67,55 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-Utilities">
-<span id="control-models"></span><h1>Control models<a class="headerlink" href="#module-Utilities" title="Link to this heading"></a></h1>
+  <div class="section" id="module-Utilities">
+<span id="control-models"></span><h1>Control models<a class="headerlink" href="#module-Utilities" title="Permalink to this headline"></a></h1>
 <p>Description of the input parameter classes for the control models</p>
-<section id="base-control-model">
-<h2>Base Control Model<a class="headerlink" href="#base-control-model" title="Link to this heading"></a></h2>
+<div class="section" id="base-control-model">
+<h2>Base Control Model<a class="headerlink" href="#base-control-model" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="Utilities.ControlModelInputParams">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ControlModelInputParams</span></span><a class="headerlink" href="#Utilities.ControlModelInputParams" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ControlModelInputParams</span></span><a class="headerlink" href="#Utilities.ControlModelInputParams" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="ieswitch-control">
-<h2>IESwitch Control<a class="headerlink" href="#ieswitch-control" title="Link to this heading"></a></h2>
+</div>
+<div class="section" id="ieswitch-control">
+<h2>IESwitch Control<a class="headerlink" href="#ieswitch-control" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="Utilities.IEswitchControlModelInputParams">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IEswitchControlModelInputParams</span></span><a class="headerlink" href="#Utilities.IEswitchControlModelInputParams" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">IEswitchControlModelInputParams</span></span><a class="headerlink" href="#Utilities.IEswitchControlModelInputParams" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="constant-current-constant-voltage-control">
-<h2>Constant Current Constant Voltage Control<a class="headerlink" href="#constant-current-constant-voltage-control" title="Link to this heading"></a></h2>
+</div>
+<div class="section" id="constant-current-constant-voltage-control">
+<h2>Constant Current Constant Voltage Control<a class="headerlink" href="#constant-current-constant-voltage-control" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="Utilities.CcCvControlModelInputParams">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CcCvControlModelInputParams</span></span><a class="headerlink" href="#Utilities.CcCvControlModelInputParams" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CcCvControlModelInputParams</span></span><a class="headerlink" href="#Utilities.CcCvControlModelInputParams" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="constant-voltage">
-<h2>Constant Voltage<a class="headerlink" href="#constant-voltage" title="Link to this heading"></a></h2>
+</div>
+<div class="section" id="constant-voltage">
+<h2>Constant Voltage<a class="headerlink" href="#constant-voltage" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="Utilities.CvControlModelInputParams">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CvControlModelInputParams</span></span><a class="headerlink" href="#Utilities.CvControlModelInputParams" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CvControlModelInputParams</span></span><a class="headerlink" href="#Utilities.CvControlModelInputParams" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="constant-current">
-<h2>Constant Current<a class="headerlink" href="#constant-current" title="Link to this heading"></a></h2>
+</div>
+<div class="section" id="constant-current">
+<h2>Constant Current<a class="headerlink" href="#constant-current" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="id0">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CcCvControlModelInputParams</span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CcCvControlModelInputParams</span></span><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="batteryinput.html" class="btn btn-neutral float-left" title="Battery cell" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="geometryinput.html" class="btn btn-neutral float-right" title="Battery Geometries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

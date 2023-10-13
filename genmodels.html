@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generic models &mdash; BattMo  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            BattMo
+              <img src="_static/battmologo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">BattMo API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BattMo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Generic models</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/genmodels.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="generic-models">
+<h1>Generic models<a class="headerlink" href="#generic-models" title="Permalink to this heading"></a></h1>
+<p>Two generic models for charge conservation (<a class="reference internal" href="#Electrochemistry.ElectronicComponent" title="Electrochemistry.ElectronicComponent"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">ElectronicComponent</span></code></a>) and charge and mass
+conservation (<a class="reference internal" href="#Electrochemistry.ElectroChemicalComponent" title="Electrochemistry.ElectroChemicalComponent"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">ElectroChemicalComponent</span></code></a>)</p>
+<span class="target" id="module-Electrochemistry"></span><dl class="mat class">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectronicComponent">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ElectronicComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">paramobj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Electrochemistry.ElectronicComponent" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Utilities.BaseModel" title="Utilities.BaseModel"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Utilities.BaseModel</span></code></a></p>
+<p>The ElectronicComponent class is model to assemble charge conservation equation</p>
+<p>Here, <code class="code docutils literal notranslate"><span class="pre">paramobj</span></code> is instance of <code class="xref mat mat-class docutils literal notranslate"><span class="pre">ElectronicComponentInputParams</span></code></p>
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectronicComponent.EffectiveElectricalConductivity">
+<span class="sig-name descname"><span class="pre">EffectiveElectricalConductivity</span></span><a class="headerlink" href="#Electrochemistry.ElectronicComponent.EffectiveElectricalConductivity" title="Permalink to this definition"></a></dt>
+<dd><p>Effective electrical conductivity</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectronicComponent.ElectronicComponent">
+<span class="sig-name descname"><span class="pre">ElectronicComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">paramobj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Electrochemistry.ElectronicComponent.ElectronicComponent" title="Permalink to this definition"></a></dt>
+<dd><p>Here, <code class="code docutils literal notranslate"><span class="pre">paramobj</span></code> is instance of <code class="xref mat mat-class docutils literal notranslate"><span class="pre">ElectronicComponentInputParams</span></code></p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectronicComponent.registerVarAndPropfuncNames">
+<span class="sig-name descname"><span class="pre">registerVarAndPropfuncNames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Electrochemistry.ElectronicComponent.registerVarAndPropfuncNames" title="Permalink to this definition"></a></dt>
+<dd><p>Declaration of the Dynamical Variables and Function of the model
+(setup of varnameList and propertyFunctionList)</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectronicComponent.updateConductivity">
+<span class="sig-name descname"><span class="pre">updateConductivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">state</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Electrochemistry.ElectronicComponent.updateConductivity" title="Permalink to this definition"></a></dt>
+<dd><p>default function to update conductivity</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectronicComponent.updateCurrent">
+<span class="sig-name descname"><span class="pre">updateCurrent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">state</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Electrochemistry.ElectronicComponent.updateCurrent" title="Permalink to this definition"></a></dt>
+<dd><p>Assemble electrical current which is stored in <code class="code docutils literal notranslate"><span class="pre">state.j</span></code></p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectronicComponent.updateChargeConservation">
+<span class="sig-name descname"><span class="pre">updateChargeConservation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">state</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Electrochemistry.ElectronicComponent.updateChargeConservation" title="Permalink to this definition"></a></dt>
+<dd><p>Assemble residual of the charge conservation equation which is stored in <code class="code docutils literal notranslate"><span class="pre">state.chargeCons</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="mat class">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectroChemicalComponent">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ElectroChemicalComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">paramobj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Electrochemistry.ElectroChemicalComponent" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Electrochemistry.ElectronicComponent" title="Electrochemistry.ElectronicComponent"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Electrochemistry.ElectronicComponent</span></code></a></p>
+<p>Here, <code class="code docutils literal notranslate"><span class="pre">paramobj</span></code> is instance of <code class="xref mat mat-class docutils literal notranslate"><span class="pre">ElectronicChemicalInputParams</span></code></p>
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectroChemicalComponent.EffectiveDiffusionCoefficient">
+<span class="sig-name descname"><span class="pre">EffectiveDiffusionCoefficient</span></span><a class="headerlink" href="#Electrochemistry.ElectroChemicalComponent.EffectiveDiffusionCoefficient" title="Permalink to this definition"></a></dt>
+<dd><p>Effective diffusion coefficient</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectroChemicalComponent.registerVarAndPropfuncNames">
+<span class="sig-name descname"><span class="pre">registerVarAndPropfuncNames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Electrochemistry.ElectroChemicalComponent.registerVarAndPropfuncNames" title="Permalink to this definition"></a></dt>
+<dd><p>Declaration of the Dynamical Variables and Function of the model
+(setup of varnameList and propertyFunctionList)</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectroChemicalComponent.updateMassFlux">
+<span class="sig-name descname"><span class="pre">updateMassFlux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">state</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Electrochemistry.ElectroChemicalComponent.updateMassFlux" title="Permalink to this definition"></a></dt>
+<dd><p>Assemble diffusion flux which is stored in <code class="code docutils literal notranslate"><span class="pre">state.Flux</span></code></p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Electrochemistry.ElectroChemicalComponent.updateMassConservation">
+<span class="sig-name descname"><span class="pre">updateMassConservation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">state</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Electrochemistry.ElectroChemicalComponent.updateMassConservation" title="Permalink to this definition"></a></dt>
+<dd><p>Assemble residual of the mass conservation equation which is stored in <code class="code docutils literal notranslate"><span class="pre">state.massCons</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-Utilities"></span><dl class="mat class">
+<dt class="sig sig-object mat" id="Utilities.BaseModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">BaseModel</span></span><a class="headerlink" href="#Utilities.BaseModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref mat mat-class docutils literal notranslate"><span class="pre">home.francesca.battmo-github.BattMo-dev.MRST.mrst-autodiff.ad-core.models.PhysicalModel</span></code></p>
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Utilities.BaseModel.staticVarNameList">
+<span class="sig-name descname"><span class="pre">staticVarNameList</span></span><a class="headerlink" href="#Utilities.BaseModel.staticVarNameList" title="Permalink to this definition"></a></dt>
+<dd><p>some variables are declared as static (they are not depending on the primarty variables and are updated
+separatly)</p>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Utilities.BaseModel.extraVarNameList">
+<span class="sig-name descname"><span class="pre">extraVarNameList</span></span><a class="headerlink" href="#Utilities.BaseModel.extraVarNameList" title="Permalink to this definition"></a></dt>
+<dd><p>properties that are not used in assembly of the residuals, those has been typically introduced for post-processing.</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Utilities.BaseModel.initStateAD">
+<span class="sig-name descname"><span class="pre">initStateAD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">state</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Utilities.BaseModel.initStateAD" title="Permalink to this definition"></a></dt>
+<dd><p>initialize a new cleaned-up state with AD variables</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Utilities.BaseModel.addStaticVariables">
+<span class="sig-name descname"><span class="pre">addStaticVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">cleanState</span></em>, <em class="sig-param"><span class="pre">state</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Utilities.BaseModel.addStaticVariables" title="Permalink to this definition"></a></dt>
+<dd><p>function to add static variables (not AD) on the cleanState, called in updateAfterConvergence and
+initStateAD. Time is added by default here</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Utilities.BaseModel.evalVarName">
+<span class="sig-name descname"><span class="pre">evalVarName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">state</span></em>, <em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Utilities.BaseModel.evalVarName" title="Permalink to this definition"></a></dt>
+<dd><p>varname is valid input to method ComputationalGraphTool.getPropFunctionCallList</p>
+</dd></dl>
+
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="Utilities.BaseModel.getCleanedUpVarName">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">getCleanedUpVarName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rvarname</span></em>, <em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Utilities.BaseModel.getCleanedUpVarName" title="Permalink to this definition"></a></dt>
+<dd><p>This function supports index, meaning, it handles the case where the rvarname and varname has same name but
+different indices where the indices of rvarname make a subset of those of varname.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Simon Clark.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

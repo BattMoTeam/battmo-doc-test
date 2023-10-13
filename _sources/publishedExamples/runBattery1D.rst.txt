@@ -3,6 +3,7 @@ Pseudo-Two-Dimensional (P2D) Lithium-Ion Battery Model
 ------------------------------------------------------
 *Generated from runBattery1D.m*
 
+.. include:: runBattery1DPreamble.rst
 
 This example demonstrates how to setup a P2D model of a Li-ion battery and run a simple simulation.
 

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Installation instruction and requirements &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -11,11 +10,10 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -28,16 +26,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            BattMo
-              <img src="_static/battmologo.png" class="logo" alt="Logo"/>
+            <a href="index.html" class="icon icon-home"> BattMo
+            <img src="_static/battmologo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -64,8 +58,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Installation instruction and requirements</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Installation instruction and requirements</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -75,25 +69,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="installation-instruction-and-requirements">
-<h1>Installation instruction and requirements<a class="headerlink" href="#installation-instruction-and-requirements" title="Link to this heading"></a></h1>
+  <div class="section" id="installation-instruction-and-requirements">
+<h1>Installation instruction and requirements<a class="headerlink" href="#installation-instruction-and-requirements" title="Permalink to this headline"></a></h1>
 <p id="installation">BattMo is based on <a class="reference external" href="https://www.sintef.no/Projectweb/MRST/">MRST</a> which provides a general unstructured grid format, generic MATLAB automatic differentiation
 tools and Newton solvers.</p>
 <p>The MRST code source can be installed directlu using git submodules:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/BattMoTeam/BattMo.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone --recurse-submodules https://github.com/BattMoTeam/BattMo.git
 </pre></div>
 </div>
 <p>Then start Matlab and in the directory <code class="code docutils literal notranslate"><span class="pre">battmo</span></code> where you cloned the repo, run:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">startupBattMo</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">startupBattMo</span><span class="w"></span>
 </pre></div>
 </div>
 <p>You can check that that your installation is setup correctly by running one of the example scripts</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">runBattery1D</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">runBattery1D</span><span class="w"></span>
 </pre></div>
 </div>
 <p>For large models, iterative solvers are necessary. The <strong>open source</strong> version from 2012 of the <a class="reference external" href="http://agmg.eu/">AGMG</a> iterative solver from <strong>2012</strong> is provided as a <a class="reference external" href="https://github.com/batmoTeam/agmg">submodule</a>. We
 plan to integrate newer open source iterative solvers such as <a class="reference external" href="https://github.com/ddemidov/amgcl">AMGCL</a></p>
-</section>
+</div>
 
 
            </div>

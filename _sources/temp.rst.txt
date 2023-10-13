@@ -1,0 +1,5 @@
+.. toctree::
+
+   Battery <batteryinput>
+   Control <controlinput>
+   Geometry <geometryinput>

@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Input Parameter Classes &mdash; BattMo  documentation</title>
+  <title>Model hierarchy &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -28,16 +26,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            BattMo
-              <img src="_static/battmologo.png" class="logo" alt="Logo"/>
+            <a href="index.html" class="icon icon-home"> BattMo
+            <img src="_static/battmologo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -58,6 +52,7 @@
 <li class="toctree-l2"><a class="reference internal" href="batteryinput.html#electrolyte">Electrolyte</a></li>
 <li class="toctree-l2"><a class="reference internal" href="batteryinput.html#current-collector">Current Collector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="batteryinput.html#electronic-component">Electronic Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html">hello</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a></li>
@@ -77,8 +72,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Input Parameter Classes</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Model hierarchy</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/inputs.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -88,9 +83,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="input-parameter-classes">
-<h1>Input Parameter Classes<a class="headerlink" href="#input-parameter-classes" title="Link to this heading"></a></h1>
-<p>We need to propagate inputs in each of submodels. To do that we use a hierarchy of input classes that is sent
+  <div class="section" id="model-hierarchy">
+<h1>Model hierarchy<a class="headerlink" href="#model-hierarchy" title="Permalink to this headline"></a></h1>
+<p>We use a multi-model approach. The models are organized in a hierarchy
 recursively to the models. The input class is named accordingly to the model it corresponds to and its source is located
 in the same folder.</p>
 <div class="toctree-wrapper compound">
@@ -106,9 +101,13 @@ in the same folder.</p>
 <li class="toctree-l1"><a class="reference internal" href="batteryinput.html#electrolyte">Electrolyte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="batteryinput.html#current-collector">Current Collector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="batteryinput.html#electronic-component">Electronic Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">hello</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test.html#test">test</a></li>
+</ul>
+</li>
 </ul>
 </div>
-</section>
+</div>
 
 
            </div>

@@ -1,16 +1,15 @@
 =======================
-Input Parameter Classes
+Model hierarchy
 =======================
 
-We need to propagate inputs in each of submodels. To do that we use a hierarchy of input classes that is sent
+We use a multi-model approach. The models are organized in a hierarchy
 recursively to the models. The input class is named accordingly to the model it corresponds to and its source is located
 in the same folder.
 
 .. toctree::
-   :maxdepth: 1
-              
-   Battery <batteryinput>
 
+   Battery <batteryinput>
+   test
 
 
 
