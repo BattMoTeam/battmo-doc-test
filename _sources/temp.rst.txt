@@ -1,5 +1,16 @@
-.. toctree::
+===============
+Advanced topics
+===============
 
-   Battery <batteryinput>
-   Control <controlinput>
-   Geometry <geometryinput>
+asd
+
+.. toctree::
+   :hidden:
+      
+    MRST <mrst>
+    Model initialisation <modelinitialisation>
+    Control models <controls>
+    Thermal model <thermal>
+    controlinput
+    Optimisation <optimisation>
+    Parameter sets <parsets>
