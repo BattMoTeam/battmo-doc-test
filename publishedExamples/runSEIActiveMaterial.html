@@ -90,8 +90,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#setup-the-properties-of-li-ion-battery-materials-and-cell-design">Setup the properties of Li-ion battery materials and cell design</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#setup-the-model">Setup the model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#setup-initial-state">Setup initial state</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#setup-schedule">setup schedule</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#setup-non-linear-solver">setup non-linear solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-schedule">Setup schedule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-non-linear-solver">Setup non-linear solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#run-simulation">Run simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#plotting">Plotting</a></li>
 </ul>
@@ -443,7 +443,7 @@
 </div>
 </section>
 <section id="setup-schedule">
-<h2>setup schedule<a class="headerlink" href="#setup-schedule" title="Link to this heading"></a></h2>
+<h2>Setup schedule<a class="headerlink" href="#setup-schedule" title="Link to this heading"></a></h2>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Reference rate which roughly corresponds to 1 hour for the data of this example</span>
 <span class="n">Iref</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.3e-4</span><span class="o">*</span><span class="n">ampere</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">centi</span><span class="o">*</span><span class="n">meter</span><span class="p">)</span>^<span class="mi">2</span><span class="p">;</span>
 
@@ -467,7 +467,7 @@
 </div>
 </section>
 <section id="setup-non-linear-solver">
-<h2>setup non-linear solver<a class="headerlink" href="#setup-non-linear-solver" title="Link to this heading"></a></h2>
+<h2>Setup non-linear solver<a class="headerlink" href="#setup-non-linear-solver" title="Link to this heading"></a></h2>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">nls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">NonLinearSolver</span><span class="p">();</span>
 <span class="n">nls</span><span class="p">.</span><span class="n">errorOnFailure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 

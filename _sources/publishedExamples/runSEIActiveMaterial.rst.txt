@@ -110,7 +110,7 @@ Setup initial state
   initState.(sei).cExternal      = cECexternal;
 
 
-setup schedule
+Setup schedule
 ^^^^^^^^^^^^^^
 
 .. code-block:: matlab
@@ -136,7 +136,7 @@ setup schedule
   schedule = struct('control', control, 'step', step);
 
 
-setup non-linear solver
+Setup non-linear solver
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: matlab
