@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BattMo example Json input &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/battmologo.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -18,7 +20,9 @@
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="BattMo Tutorial" href="battMoTutorial.html" />
+    <link rel="prev" title="Getting Started" href="../tutorials.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,10 +45,28 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">BattMo example Json input</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-the-environment">Setting up the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#we-load-the-json-files">We load the json files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#material-properties">Material properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geometry">Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#control">Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-parameters">Simulation parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ouput-specificiations">Ouput specificiations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#we-start-the-simulation">We start the simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="battMoTutorial.html">BattMo Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runBattery1D.html">Pseudo-Two-Dimensional (P2D) Lithium-Ion Battery Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery.html">Gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inputs.html">BattMo Li-ion battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../json.html">Json input description</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../geometryinput.html">Battery Geometries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
 </ul>
@@ -63,6 +85,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../tutorials.html">Getting Started</a></li>
       <li class="breadcrumb-item active">BattMo example Json input</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/publishedExamples/runJsonScript.rst.txt" rel="nofollow"> View page source</a>
@@ -74,13 +97,13 @@
            <div itemprop="articleBody">
              
   <section id="battmo-example-json-input">
-<h1>BattMo example Json input<a class="headerlink" href="#battmo-example-json-input" title="Link to this heading"></a></h1>
+<span id="runjsonscript"></span><h1>BattMo example Json input<a class="headerlink" href="#battmo-example-json-input" title="Link to this heading"></a></h1>
 <p><em>Generated from runJsonScript.m</em></p>
 <p>This script shows an example where we setup a simulation using exclusively json input files.</p>
 <section id="setting-up-the-environment">
 <h2>Setting up the environment<a class="headerlink" href="#setting-up-the-environment" title="Link to this heading"></a></h2>
 <p>BattMo uses functionality from <code class="xref py py-mod docutils literal notranslate"><span class="pre">MRST</span></code>. This functionality is collected into modules where each module contains code for doing specific things. To use this functionality we must add these modules to the matlab path by running:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">mrstModule</span><span class="w"> </span><span class="s">add</span><span class="w"> </span><span class="s">ad-core</span><span class="w"> </span><span class="s">mrst-gui</span><span class="w"> </span><span class="s">mpfa</span><span class="w"> </span><span class="s">agmg</span><span class="w"> </span><span class="s">linearsolvers</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">mrstModule</span><span class="w"> </span><span class="s">add</span><span class="w"> </span><span class="s">ad-core</span><span class="w"> </span><span class="s">mrst-gui</span>
 </pre></div>
 </div>
 </section>
@@ -100,7 +123,7 @@
 <section id="geometry">
 <h2>Geometry<a class="headerlink" href="#geometry" title="Link to this heading"></a></h2>
 <p>We load the json structure for the geometrical properties</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="s">&#39;utils&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;data&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;geometry1d.json&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;jsondatafiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;geometry1d.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct_geometry</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">jsonfilename</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -108,7 +131,7 @@
 <section id="control">
 <h2>Control<a class="headerlink" href="#control" title="Link to this heading"></a></h2>
 <p>We load the json structure for the geometrical properties</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="s">&#39;utils&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;data&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;ie_control.json&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;jsondatafiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;ie_control.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct_control</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">jsonfilename</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -116,7 +139,7 @@
 <section id="simulation-parameters">
 <h2>Simulation parameters<a class="headerlink" href="#simulation-parameters" title="Link to this heading"></a></h2>
 <p>We load the json structure for the simulation parameters</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="s">&#39;utils&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;data&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;simulation_parameters.json&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;jsondatafiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;simulation_parameters.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct_simparams</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">jsonfilename</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -124,7 +147,7 @@
 <section id="ouput-specificiations">
 <h2>Ouput specificiations<a class="headerlink" href="#ouput-specificiations" title="Link to this heading"></a></h2>
 <p>We load the json structure for output extra specifications.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="s">&#39;utils&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;data&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;extra_output.json&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;jsondatafiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;extra_output.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct_output</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">jsonfilename</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -135,9 +158,6 @@
 <span class="w">                               </span><span class="n">jsonstruct_simparams</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
 <span class="w">                               </span><span class="n">jsonstruct_output</span><span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
 <span class="w">                              </span><span class="p">});</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>parameter Control.lowerCutoffVoltage is assigned twice with different values. we use the value from first jsonstruct.
 </pre></div>
 </div>
 <p>We adjust the total time with respect to the given CRate.</p>
@@ -194,7 +214,10 @@ Solving timestep 08/45: 252 Seconds          -&gt; 378 Seconds
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../tutorials.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="battMoTutorial.html" class="btn btn-neutral float-right" title="BattMo Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

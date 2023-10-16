@@ -1,5 +1,4 @@
 
-
 Battery cell
 ============
 
@@ -104,7 +103,7 @@ Active Material
 
 .. figure:: img/activematerialgraph.png
    :target: _images/activematerialgraph.png
-   :width: 70%
+   :width: 50%
    :align: center
            
 .. class:: ActiveMaterialInputParams

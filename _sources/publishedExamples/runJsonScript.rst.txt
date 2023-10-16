@@ -1,6 +1,8 @@
 
+.. _runJsonScript:
+
 BattMo example Json input
--------------------------
+---------------------------------------------
 *Generated from runJsonScript.m*
 
 
@@ -12,7 +14,7 @@ BattMo uses functionality from :mod:`MRST <MRSTBattMo>`. This functionality is c
 
 .. code-block:: matlab
 
-  mrstModule add ad-core mrst-gui mpfa agmg linearsolvers
+  mrstModule add ad-core mrst-gui
 
 
 We load the json files
@@ -36,7 +38,7 @@ We load the json structure for the geometrical properties
 
 .. code-block:: matlab
 
-  jsonfilename = fullfile('Examples','utils', 'data', 'geometry1d.json');
+  jsonfilename = fullfile('Examples', 'jsondatafiles', 'geometry1d.json');
   jsonstruct_geometry = parseBattmoJson(jsonfilename);
 
 
@@ -46,7 +48,7 @@ We load the json structure for the geometrical properties
 
 .. code-block:: matlab
 
-  jsonfilename = fullfile('Examples','utils', 'data', 'ie_control.json');
+  jsonfilename = fullfile('Examples', 'jsondatafiles', 'ie_control.json');
   jsonstruct_control = parseBattmoJson(jsonfilename);
 
 
@@ -56,7 +58,7 @@ We load the json structure for the simulation parameters
 
 .. code-block:: matlab
 
-  jsonfilename = fullfile('Examples','utils', 'data', 'simulation_parameters.json');
+  jsonfilename = fullfile('Examples', 'jsondatafiles', 'simulation_parameters.json');
   jsonstruct_simparams = parseBattmoJson(jsonfilename);
 
 
@@ -66,7 +68,7 @@ We load the json structure for output extra specifications.
 
 .. code-block:: matlab
 
-  jsonfilename = fullfile('Examples','utils', 'data', 'extra_output.json');
+  jsonfilename = fullfile('Examples', 'jsondatafiles', 'extra_output.json');
   jsonstruct_output = parseBattmoJson(jsonfilename);
 
 We merge the json structures. The function issues a warning if a parameter is set with different values in the given structures. The rule is that the first value takes precedence.
@@ -79,12 +81,6 @@ We merge the json structures. The function issues a warning if a parameter is se
                                  jsonstruct_simparams, ...
                                  jsonstruct_output   , ...
                                 });
-
-
-.. code-block:: none
-
-  parameter Control.lowerCutoffVoltage is assigned twice with different values. we use the value from first jsonstruct.
-
 
 We adjust the total time with respect to the given CRate.
 

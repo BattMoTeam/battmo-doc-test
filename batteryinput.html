@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Battery cell &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/battmologo.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="hello" href="test.html" />
-    <link rel="prev" title="Model hierarchy" href="inputs.html" /> 
+    <link rel="next" title="Json input" href="json.html" />
+    <link rel="prev" title="BattMo Li-ion battery" href="inputs.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -26,35 +30,27 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> BattMo
-            <img src="_static/battmologo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            BattMo
+              <img src="_static/battmologo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Getting started</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="inputs.html">BattMo Li-ion battery</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Battery cell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#electrode">Electrode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#coating">Coating</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#active-material">Active Material</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#binder">Binder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#conducting-additive">Conducting Additive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#interface">Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#solid-diffusion-models">Solid Diffusion Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#electrolyte">Electrolyte</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#current-collector">Current Collector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#electronic-component">Electronic Component</a></li>
-<li class="toctree-l2"><a class="reference internal" href="test.html">hello</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">BattMo Li-ion battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Json input description</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
 </ul>
@@ -72,9 +68,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="inputs.html">Model hierarchy</a> &raquo;</li>
-      <li>Battery cell</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="inputs.html">BattMo Li-ion battery</a></li>
+      <li class="breadcrumb-item active">Battery cell</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/batteryinput.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -84,368 +80,368 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="battery-cell">
-<h1>Battery cell<a class="headerlink" href="#battery-cell" title="Permalink to this headline"></a></h1>
+  <section id="battery-cell">
+<h1>Battery cell<a class="headerlink" href="#battery-cell" title="Link to this heading"></a></h1>
 <p>A battery consists of two electrodes and an electrolyte.</p>
 <p>Each are implemented by a model which takes its own set of input parameters.</p>
 <p>The convention for the input model class names is to write them using the model name followed by the suffix
 <code class="code docutils literal notranslate"><span class="pre">InputParams</span></code>. In the graph below, we can see that the battery model has submodel instances as properties. The
 property names are in black color while the model they belong to is in blue.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference external image-reference" href="_images/cutbatterygraph.png"><img alt="_images/cutbatterygraph.png" src="_images/cutbatterygraph.png" /></a>
-</div>
+</figure>
 <dl class="py class">
 <dt class="sig sig-object py" id="BatteryInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">BatteryInputParams</span></span><a class="headerlink" href="#BatteryInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BatteryInputParams</span></span><a class="headerlink" href="#BatteryInputParams" title="Link to this definition"></a></dt>
 <dd><p>This class is used to set up the battery model input parameters</p>
 <p class="rubric">Sub Models:</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BatteryInputParams.NegativeElectrode">
-<span class="sig-name descname"><span class="pre">NegativeElectrode</span></span><a class="headerlink" href="#BatteryInputParams.NegativeElectrode" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">NegativeElectrode</span></span><a class="headerlink" href="#BatteryInputParams.NegativeElectrode" title="Link to this definition"></a></dt>
 <dd><p>Negative Electrode Model, instance of <a class="reference internal" href="#ElectrodeInputParams" title="ElectrodeInputParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElectrodeInputParams</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BatteryInputParams.PositiveElectrode">
-<span class="sig-name descname"><span class="pre">PositiveElectrode</span></span><a class="headerlink" href="#BatteryInputParams.PositiveElectrode" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">PositiveElectrode</span></span><a class="headerlink" href="#BatteryInputParams.PositiveElectrode" title="Link to this definition"></a></dt>
 <dd><p>Positive Electrode Model, instance of <a class="reference internal" href="#ElectrodeInputParams" title="ElectrodeInputParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElectrodeInputParams</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BatteryInputParams.Electrolyte">
-<span class="sig-name descname"><span class="pre">Electrolyte</span></span><a class="headerlink" href="#BatteryInputParams.Electrolyte" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Electrolyte</span></span><a class="headerlink" href="#BatteryInputParams.Electrolyte" title="Link to this definition"></a></dt>
 <dd><p>Electrolyte model, instance of <a class="reference internal" href="#ElectrolyteInputParams" title="ElectrolyteInputParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElectrolyteInputParams</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BatteryInputParams.Separator">
-<span class="sig-name descname"><span class="pre">Separator</span></span><a class="headerlink" href="#BatteryInputParams.Separator" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Separator</span></span><a class="headerlink" href="#BatteryInputParams.Separator" title="Link to this definition"></a></dt>
 <dd><p>Separator model, instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">SeparatorInputParams</span></code></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BatteryInputParams.ThermalModel">
-<span class="sig-name descname"><span class="pre">ThermalModel</span></span><a class="headerlink" href="#BatteryInputParams.ThermalModel" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ThermalModel</span></span><a class="headerlink" href="#BatteryInputParams.ThermalModel" title="Link to this definition"></a></dt>
 <dd><p>Thermal model, instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">ThermalComponentInputParams</span></code></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BatteryInputParams.Control">
-<span class="sig-name descname"><span class="pre">Control</span></span><a class="headerlink" href="#BatteryInputParams.Control" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Control</span></span><a class="headerlink" href="#BatteryInputParams.Control" title="Link to this definition"></a></dt>
 <dd><p>Control Model, instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">ControlInputParams</span></code></p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="electrode">
-<h1>Electrode<a class="headerlink" href="#electrode" title="Permalink to this headline"></a></h1>
+</section>
+<section id="electrode">
+<h1>Electrode<a class="headerlink" href="#electrode" title="Link to this heading"></a></h1>
 <p>An electrode consists of an active material, which contains an interface model and a solid diffusion model, and a
 current collector. Each of those components have a own set of input parameters.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference external image-reference" href="_images/electrodegraph.png"><img alt="_images/electrodegraph.png" src="_images/electrodegraph.png" style="width: 50%;" /></a>
-</div>
+</figure>
 <dl class="py class">
 <dt class="sig sig-object py" id="ElectrodeInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ElectrodeInputParams</span></span><a class="headerlink" href="#ElectrodeInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ElectrodeInputParams</span></span><a class="headerlink" href="#ElectrodeInputParams" title="Link to this definition"></a></dt>
 <dd><p>Class used to setup the parameters for the electrode</p>
 <p class="rubric">Sub Models</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ElectrodeInputParams.Coating">
-<span class="sig-name descname"><span class="pre">Coating</span></span><a class="headerlink" href="#ElectrodeInputParams.Coating" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Coating</span></span><a class="headerlink" href="#ElectrodeInputParams.Coating" title="Link to this definition"></a></dt>
 <dd><p>Instance of <a class="reference internal" href="#CoatingInputParams" title="CoatingInputParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoatingInputParams</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ElectrodeInputParams.CurrentCollector">
-<span class="sig-name descname"><span class="pre">CurrentCollector</span></span><a class="headerlink" href="#ElectrodeInputParams.CurrentCollector" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">CurrentCollector</span></span><a class="headerlink" href="#ElectrodeInputParams.CurrentCollector" title="Link to this definition"></a></dt>
 <dd><p>Instance of <a class="reference internal" href="#CurrentCollectorInputParams" title="CurrentCollectorInputParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurrentCollectorInputParams</span></code></a></p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="coating">
-<h1>Coating<a class="headerlink" href="#coating" title="Permalink to this headline"></a></h1>
+</section>
+<section id="coating">
+<h1>Coating<a class="headerlink" href="#coating" title="Link to this heading"></a></h1>
 <p>The coating contains three components : The active material, a binder and a conductive additive</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference external image-reference" href="_images/coatinggraph.png"><img alt="_images/coatinggraph.png" src="_images/coatinggraph.png" style="width: 70%;" /></a>
-</div>
+</figure>
 <dl class="py class">
 <dt class="sig sig-object py" id="CoatingInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CoatingInputParams</span></span><a class="headerlink" href="#CoatingInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CoatingInputParams</span></span><a class="headerlink" href="#CoatingInputParams" title="Link to this definition"></a></dt>
 <dd><p>Class used to set the parameters for the coating material</p>
 <p class="rubric">Sub Models:</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="CoatingInputParams.ActiveMaterial">
-<span class="sig-name descname"><span class="pre">ActiveMaterial</span></span><a class="headerlink" href="#CoatingInputParams.ActiveMaterial" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ActiveMaterial</span></span><a class="headerlink" href="#CoatingInputParams.ActiveMaterial" title="Link to this definition"></a></dt>
 <dd><p>Instance of <a class="reference internal" href="#ActiveMaterialInputParams" title="ActiveMaterialInputParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveMaterialInputParams</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="CoatingInputParams.Binder">
-<span class="sig-name descname"><span class="pre">Binder</span></span><a class="headerlink" href="#CoatingInputParams.Binder" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Binder</span></span><a class="headerlink" href="#CoatingInputParams.Binder" title="Link to this definition"></a></dt>
 <dd><p>Instance of <a class="reference internal" href="#BinderInputParams" title="BinderInputParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">BinderInputParams</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="CoatingInputParams.ConductingAdditive">
-<span class="sig-name descname"><span class="pre">ConductingAdditive</span></span><a class="headerlink" href="#CoatingInputParams.ConductingAdditive" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ConductingAdditive</span></span><a class="headerlink" href="#CoatingInputParams.ConductingAdditive" title="Link to this definition"></a></dt>
 <dd><p>Instance of <a class="reference internal" href="#ConductingAdditiveInputParams" title="ConductingAdditiveInputParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConductingAdditiveInputParams</span></code></a></p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="active-material">
-<h1>Active Material<a class="headerlink" href="#active-material" title="Permalink to this headline"></a></h1>
-<div class="figure align-center">
-<a class="reference external image-reference" href="_images/activematerialgraph.png"><img alt="_images/activematerialgraph.png" src="_images/activematerialgraph.png" style="width: 70%;" /></a>
-</div>
+</section>
+<section id="active-material">
+<h1>Active Material<a class="headerlink" href="#active-material" title="Link to this heading"></a></h1>
+<figure class="align-center">
+<a class="reference external image-reference" href="_images/activematerialgraph.png"><img alt="_images/activematerialgraph.png" src="_images/activematerialgraph.png" style="width: 50%;" /></a>
+</figure>
 <dl class="py class">
 <dt class="sig sig-object py" id="ActiveMaterialInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ActiveMaterialInputParams</span></span><a class="headerlink" href="#ActiveMaterialInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ActiveMaterialInputParams</span></span><a class="headerlink" href="#ActiveMaterialInputParams" title="Link to this definition"></a></dt>
 <dd><p>Class used to setup the active material parameters</p>
 <p class="rubric">Sub Models:</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ActiveMaterialInputParams.Interface">
-<span class="sig-name descname"><span class="pre">Interface</span></span><a class="headerlink" href="#ActiveMaterialInputParams.Interface" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Interface</span></span><a class="headerlink" href="#ActiveMaterialInputParams.Interface" title="Link to this definition"></a></dt>
 <dd><p>Instance of <a class="reference internal" href="#InterfaceInputParams" title="InterfaceInputParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">InterfaceInputParams</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ActiveMaterialInputParams.SolidDiffusion">
-<span class="sig-name descname"><span class="pre">SolidDiffusion</span></span><a class="headerlink" href="#ActiveMaterialInputParams.SolidDiffusion" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">SolidDiffusion</span></span><a class="headerlink" href="#ActiveMaterialInputParams.SolidDiffusion" title="Link to this definition"></a></dt>
 <dd><p>Instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">FullSolidDiffusionInputParams</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSolidDiffusionInputParams</span></code></p>
 </dd></dl>
 
 <p class="rubric">Input parameters:</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ActiveMaterialInputParams.electronicConductivity">
-<span class="sig-name descname"><span class="pre">electronicConductivity</span></span><a class="headerlink" href="#ActiveMaterialInputParams.electronicConductivity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">electronicConductivity</span></span><a class="headerlink" href="#ActiveMaterialInputParams.electronicConductivity" title="Link to this definition"></a></dt>
 <dd><p>the electronic conductivity of the material (symbol: sigma)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ActiveMaterialInputParams.density">
-<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#ActiveMaterialInputParams.density" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#ActiveMaterialInputParams.density" title="Link to this definition"></a></dt>
 <dd><p>the mass density of the material (symbol: rho)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ActiveMaterialInputParams.massFraction">
-<span class="sig-name descname"><span class="pre">massFraction</span></span><a class="headerlink" href="#ActiveMaterialInputParams.massFraction" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">massFraction</span></span><a class="headerlink" href="#ActiveMaterialInputParams.massFraction" title="Link to this definition"></a></dt>
 <dd><p>the ratio of the mass of the material to the total mass of the phase or mixture (symbol: gamma)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ActiveMaterialInputParams.thermalConductivity">
-<span class="sig-name descname"><span class="pre">thermalConductivity</span></span><a class="headerlink" href="#ActiveMaterialInputParams.thermalConductivity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">thermalConductivity</span></span><a class="headerlink" href="#ActiveMaterialInputParams.thermalConductivity" title="Link to this definition"></a></dt>
 <dd><p>the intrinsic Thermal conductivity of the active component</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ActiveMaterialInputParams.specificHeatCapacity">
-<span class="sig-name descname"><span class="pre">specificHeatCapacity</span></span><a class="headerlink" href="#ActiveMaterialInputParams.specificHeatCapacity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">specificHeatCapacity</span></span><a class="headerlink" href="#ActiveMaterialInputParams.specificHeatCapacity" title="Link to this definition"></a></dt>
 <dd><p>Specific Heat capacity of the active component</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ActiveMaterialInputParams.diffusionModelType">
-<span class="sig-name descname"><span class="pre">diffusionModelType</span></span><a class="headerlink" href="#ActiveMaterialInputParams.diffusionModelType" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">diffusionModelType</span></span><a class="headerlink" href="#ActiveMaterialInputParams.diffusionModelType" title="Link to this definition"></a></dt>
 <dd><p>diffusion model type, either ‘full’ or ‘simplified’</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="binder">
-<h1>Binder<a class="headerlink" href="#binder" title="Permalink to this headline"></a></h1>
+</section>
+<section id="binder">
+<h1>Binder<a class="headerlink" href="#binder" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="BinderInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">BinderInputParams</span></span><a class="headerlink" href="#BinderInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BinderInputParams</span></span><a class="headerlink" href="#BinderInputParams" title="Link to this definition"></a></dt>
 <dd><p>Class used to setup the binder parameters</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BinderInputParams.electronicConductivity">
-<span class="sig-name descname"><span class="pre">electronicConductivity</span></span><a class="headerlink" href="#BinderInputParams.electronicConductivity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">electronicConductivity</span></span><a class="headerlink" href="#BinderInputParams.electronicConductivity" title="Link to this definition"></a></dt>
 <dd><p>the electronic conductivity of the material (symbol: sigma)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BinderInputParams.density">
-<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#BinderInputParams.density" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#BinderInputParams.density" title="Link to this definition"></a></dt>
 <dd><p>the mass density of the material (symbol: rho)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BinderInputParams.massFraction">
-<span class="sig-name descname"><span class="pre">massFraction</span></span><a class="headerlink" href="#BinderInputParams.massFraction" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">massFraction</span></span><a class="headerlink" href="#BinderInputParams.massFraction" title="Link to this definition"></a></dt>
 <dd><p>the ratio of the mass of the material to the total mass of the phase or mixture (symbol: gamma)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BinderInputParams.thermalConductivity">
-<span class="sig-name descname"><span class="pre">thermalConductivity</span></span><a class="headerlink" href="#BinderInputParams.thermalConductivity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">thermalConductivity</span></span><a class="headerlink" href="#BinderInputParams.thermalConductivity" title="Link to this definition"></a></dt>
 <dd><p>Thermal conductivity of current collector</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BinderInputParams.specificHeatCapacity">
-<span class="sig-name descname"><span class="pre">specificHeatCapacity</span></span><a class="headerlink" href="#BinderInputParams.specificHeatCapacity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">specificHeatCapacity</span></span><a class="headerlink" href="#BinderInputParams.specificHeatCapacity" title="Link to this definition"></a></dt>
 <dd><p>Heat capacity of current collector</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="conducting-additive">
-<h1>Conducting Additive<a class="headerlink" href="#conducting-additive" title="Permalink to this headline"></a></h1>
+</section>
+<section id="conducting-additive">
+<h1>Conducting Additive<a class="headerlink" href="#conducting-additive" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="ConductingAdditiveInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ConductingAdditiveInputParams</span></span><a class="headerlink" href="#ConductingAdditiveInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConductingAdditiveInputParams</span></span><a class="headerlink" href="#ConductingAdditiveInputParams" title="Link to this definition"></a></dt>
 <dd><p>Class used to setup the binder parameters</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ConductingAdditiveInputParams.electronicConductivity">
-<span class="sig-name descname"><span class="pre">electronicConductivity</span></span><a class="headerlink" href="#ConductingAdditiveInputParams.electronicConductivity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">electronicConductivity</span></span><a class="headerlink" href="#ConductingAdditiveInputParams.electronicConductivity" title="Link to this definition"></a></dt>
 <dd><p>the electronic conductivity of the material (symbol: sigma)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ConductingAdditiveInputParams.density">
-<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#ConductingAdditiveInputParams.density" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#ConductingAdditiveInputParams.density" title="Link to this definition"></a></dt>
 <dd><p>the mass density of the material (symbol: rho)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ConductingAdditiveInputParams.massFraction">
-<span class="sig-name descname"><span class="pre">massFraction</span></span><a class="headerlink" href="#ConductingAdditiveInputParams.massFraction" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">massFraction</span></span><a class="headerlink" href="#ConductingAdditiveInputParams.massFraction" title="Link to this definition"></a></dt>
 <dd><p>the ratio of the mass of the material to the total mass of the phase or mixture (symbol: gamma)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ConductingAdditiveInputParams.thermalConductivity">
-<span class="sig-name descname"><span class="pre">thermalConductivity</span></span><a class="headerlink" href="#ConductingAdditiveInputParams.thermalConductivity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">thermalConductivity</span></span><a class="headerlink" href="#ConductingAdditiveInputParams.thermalConductivity" title="Link to this definition"></a></dt>
 <dd><p>Thermal conductivity of current collector</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ConductingAdditiveInputParams.specificHeatCapacity">
-<span class="sig-name descname"><span class="pre">specificHeatCapacity</span></span><a class="headerlink" href="#ConductingAdditiveInputParams.specificHeatCapacity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">specificHeatCapacity</span></span><a class="headerlink" href="#ConductingAdditiveInputParams.specificHeatCapacity" title="Link to this definition"></a></dt>
 <dd><p>Heat capacity of current collector</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="interface">
-<h1>Interface<a class="headerlink" href="#interface" title="Permalink to this headline"></a></h1>
+</section>
+<section id="interface">
+<h1>Interface<a class="headerlink" href="#interface" title="Link to this heading"></a></h1>
 <p>The interface model is used to compute the quantities that arise from the chemical reaction between the solid electrode
 and electrolyte.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="InterfaceInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">InterfaceInputParams</span></span><a class="headerlink" href="#InterfaceInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InterfaceInputParams</span></span><a class="headerlink" href="#InterfaceInputParams" title="Link to this definition"></a></dt>
 <dd><p>Class used to setup parameters for the interface</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.saturationConcentration">
-<span class="sig-name descname"><span class="pre">saturationConcentration</span></span><a class="headerlink" href="#InterfaceInputParams.saturationConcentration" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">saturationConcentration</span></span><a class="headerlink" href="#InterfaceInputParams.saturationConcentration" title="Link to this definition"></a></dt>
 <dd><p>the saturation concentration of the guest molecule in the host material</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.numberOfElectronsTransferred">
-<span class="sig-name descname"><span class="pre">numberOfElectronsTransferred</span></span><a class="headerlink" href="#InterfaceInputParams.numberOfElectronsTransferred" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">numberOfElectronsTransferred</span></span><a class="headerlink" href="#InterfaceInputParams.numberOfElectronsTransferred" title="Link to this definition"></a></dt>
 <dd><p>stoichiometric number of electrons transferred in the electrochemical reaction</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.volumeFraction">
-<span class="sig-name descname"><span class="pre">volumeFraction</span></span><a class="headerlink" href="#InterfaceInputParams.volumeFraction" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">volumeFraction</span></span><a class="headerlink" href="#InterfaceInputParams.volumeFraction" title="Link to this definition"></a></dt>
 <dd><p>volume fraction of the active material</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.volumetricSurfaceArea">
-<span class="sig-name descname"><span class="pre">volumetricSurfaceArea</span></span><a class="headerlink" href="#InterfaceInputParams.volumetricSurfaceArea" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">volumetricSurfaceArea</span></span><a class="headerlink" href="#InterfaceInputParams.volumetricSurfaceArea" title="Link to this definition"></a></dt>
 <dd><p>surface area of the active material - electrolyte interface per volume of electrode</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.activationEnergyOfReaction">
-<span class="sig-name descname"><span class="pre">activationEnergyOfReaction</span></span><a class="headerlink" href="#InterfaceInputParams.activationEnergyOfReaction" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">activationEnergyOfReaction</span></span><a class="headerlink" href="#InterfaceInputParams.activationEnergyOfReaction" title="Link to this definition"></a></dt>
 <dd><p>the activation energy of the electrochemical reaction</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.reactionRateConstant">
-<span class="sig-name descname"><span class="pre">reactionRateConstant</span></span><a class="headerlink" href="#InterfaceInputParams.reactionRateConstant" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reactionRateConstant</span></span><a class="headerlink" href="#InterfaceInputParams.reactionRateConstant" title="Link to this definition"></a></dt>
 <dd><p>the reaction rate constant of the electrochemical reaction</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.exchangeCurrentDensity">
-<span class="sig-name descname"><span class="pre">exchangeCurrentDensity</span></span><a class="headerlink" href="#InterfaceInputParams.exchangeCurrentDensity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">exchangeCurrentDensity</span></span><a class="headerlink" href="#InterfaceInputParams.exchangeCurrentDensity" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.guestStoichiometry100">
-<span class="sig-name descname"><span class="pre">guestStoichiometry100</span></span><a class="headerlink" href="#InterfaceInputParams.guestStoichiometry100" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">guestStoichiometry100</span></span><a class="headerlink" href="#InterfaceInputParams.guestStoichiometry100" title="Link to this definition"></a></dt>
 <dd><p>the ratio of the concentration of the guest molecule to the saturation concentration of the guest molecule in a phase at a cell voltage that is defined as 100% SOC</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.guestStoichiometry0">
-<span class="sig-name descname"><span class="pre">guestStoichiometry0</span></span><a class="headerlink" href="#InterfaceInputParams.guestStoichiometry0" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">guestStoichiometry0</span></span><a class="headerlink" href="#InterfaceInputParams.guestStoichiometry0" title="Link to this definition"></a></dt>
 <dd><p>the ratio of the concentration of the guest molecule to the saturation concentration of the guest molecule in a phase at a cell voltage that is defined as 0% SOC</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.density">
-<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#InterfaceInputParams.density" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#InterfaceInputParams.density" title="Link to this definition"></a></dt>
 <dd><p>the mass density of the active material</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.openCircuitPotential">
-<span class="sig-name descname"><span class="pre">openCircuitPotential</span></span><a class="headerlink" href="#InterfaceInputParams.openCircuitPotential" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">openCircuitPotential</span></span><a class="headerlink" href="#InterfaceInputParams.openCircuitPotential" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="InterfaceInputParams.chargeTransferCoefficient">
-<span class="sig-name descname"><span class="pre">chargeTransferCoefficient</span></span><a class="headerlink" href="#InterfaceInputParams.chargeTransferCoefficient" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">chargeTransferCoefficient</span></span><a class="headerlink" href="#InterfaceInputParams.chargeTransferCoefficient" title="Link to this definition"></a></dt>
 <dd><p>the charge transfer coefficient that enters in the Butler-Volmer equation (symbol: alpha)</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="solid-diffusion-models">
-<h1>Solid Diffusion Models<a class="headerlink" href="#solid-diffusion-models" title="Permalink to this headline"></a></h1>
+</section>
+<section id="solid-diffusion-models">
+<h1>Solid Diffusion Models<a class="headerlink" href="#solid-diffusion-models" title="Link to this heading"></a></h1>
 <p>Two solid diffusion models are implemented: full and simplified.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="SolidDiffusionModelInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">SolidDiffusionModelInputParams</span></span><a class="headerlink" href="#SolidDiffusionModelInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SolidDiffusionModelInputParams</span></span><a class="headerlink" href="#SolidDiffusionModelInputParams" title="Link to this definition"></a></dt>
 <dd><p>Parent class shared shared by both <code class="xref py py-class docutils literal notranslate"><span class="pre">FullSolidDiffusionInputParams</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">SimplifiedSolidDiffusionInputParams</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="SolidDiffusionModelInputParams.particleRadius">
-<span class="sig-name descname"><span class="pre">particleRadius</span></span><a class="headerlink" href="#SolidDiffusionModelInputParams.particleRadius" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">particleRadius</span></span><a class="headerlink" href="#SolidDiffusionModelInputParams.particleRadius" title="Link to this definition"></a></dt>
 <dd><p>the characteristic radius of the particle (symbol: rp)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="SolidDiffusionModelInputParams.activationEnergyOfDiffusion">
-<span class="sig-name descname"><span class="pre">activationEnergyOfDiffusion</span></span><a class="headerlink" href="#SolidDiffusionModelInputParams.activationEnergyOfDiffusion" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">activationEnergyOfDiffusion</span></span><a class="headerlink" href="#SolidDiffusionModelInputParams.activationEnergyOfDiffusion" title="Link to this definition"></a></dt>
 <dd><p>the Arrhenius-type activation energy for diffusion (symbol: EaD)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="SolidDiffusionModelInputParams.referenceDiffusionCoefficient">
-<span class="sig-name descname"><span class="pre">referenceDiffusionCoefficient</span></span><a class="headerlink" href="#SolidDiffusionModelInputParams.referenceDiffusionCoefficient" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">referenceDiffusionCoefficient</span></span><a class="headerlink" href="#SolidDiffusionModelInputParams.referenceDiffusionCoefficient" title="Link to this definition"></a></dt>
 <dd><p>the pre-exponential reference diffusion coefficient in an Arrhenius-type equation (symbol: D0)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="SolidDiffusionModelInputParams.volumetricSurfaceArea">
-<span class="sig-name descname"><span class="pre">volumetricSurfaceArea</span></span><a class="headerlink" href="#SolidDiffusionModelInputParams.volumetricSurfaceArea" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">volumetricSurfaceArea</span></span><a class="headerlink" href="#SolidDiffusionModelInputParams.volumetricSurfaceArea" title="Link to this definition"></a></dt>
 <dd><p>surface area of the active material - electrolyte interface per volume of electrode</p>
 </dd></dl>
 
@@ -453,29 +449,29 @@ and electrolyte.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="FullSolidDiffusionModelInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">FullSolidDiffusionModelInputParams</span></span><a class="headerlink" href="#FullSolidDiffusionModelInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FullSolidDiffusionModelInputParams</span></span><a class="headerlink" href="#FullSolidDiffusionModelInputParams" title="Link to this definition"></a></dt>
 <dd><p>Class used to setup the parameter for the solid diffusion model</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="FullSolidDiffusionModelInputParams.diffusionCoefficient">
-<span class="sig-name descname"><span class="pre">diffusionCoefficient</span></span><a class="headerlink" href="#FullSolidDiffusionModelInputParams.diffusionCoefficient" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">diffusionCoefficient</span></span><a class="headerlink" href="#FullSolidDiffusionModelInputParams.diffusionCoefficient" title="Link to this definition"></a></dt>
 <dd><p>the solid diffusion coefficient</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="FullSolidDiffusionModelInputParams.saturationConcentration">
-<span class="sig-name descname"><span class="pre">saturationConcentration</span></span><a class="headerlink" href="#FullSolidDiffusionModelInputParams.saturationConcentration" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">saturationConcentration</span></span><a class="headerlink" href="#FullSolidDiffusionModelInputParams.saturationConcentration" title="Link to this definition"></a></dt>
 <dd><p>the saturation concentration of the guest molecule in the host material (symbol: cmax)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="FullSolidDiffusionModelInputParams.guestStoichiometry100">
-<span class="sig-name descname"><span class="pre">guestStoichiometry100</span></span><a class="headerlink" href="#FullSolidDiffusionModelInputParams.guestStoichiometry100" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">guestStoichiometry100</span></span><a class="headerlink" href="#FullSolidDiffusionModelInputParams.guestStoichiometry100" title="Link to this definition"></a></dt>
 <dd><p>the ratio of the concentration of the guest molecule to the saturation concentration of the guest molecule in a phase at a cell voltage that is defined as 100% SOC(symbol: theta100)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="FullSolidDiffusionModelInputParams.guestStoichiometry0">
-<span class="sig-name descname"><span class="pre">guestStoichiometry0</span></span><a class="headerlink" href="#FullSolidDiffusionModelInputParams.guestStoichiometry0" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">guestStoichiometry0</span></span><a class="headerlink" href="#FullSolidDiffusionModelInputParams.guestStoichiometry0" title="Link to this definition"></a></dt>
 <dd><p>the ratio of the concentration of the guest molecule to the saturation concentration of the guest molecule in a phase at a cell voltage that is defined as 0% SOC (symbol: theta0)</p>
 </dd></dl>
 
@@ -483,106 +479,106 @@ and electrolyte.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="SimplifiedSolidDiffusionModelInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">SimplifiedSolidDiffusionModelInputParams</span></span><a class="headerlink" href="#SimplifiedSolidDiffusionModelInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SimplifiedSolidDiffusionModelInputParams</span></span><a class="headerlink" href="#SimplifiedSolidDiffusionModelInputParams" title="Link to this definition"></a></dt>
 <dd><p>Class to setup the parameters for the simplified solid diffusion model. It does not have more properties than the parent class <a class="reference internal" href="#SolidDiffusionModelInputParams" title="SolidDiffusionModelInputParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SolidDiffusionModelInputParams</span></code></a></p>
 </dd></dl>
 
-</div>
-<div class="section" id="electrolyte">
-<h1>Electrolyte<a class="headerlink" href="#electrolyte" title="Permalink to this headline"></a></h1>
+</section>
+<section id="electrolyte">
+<h1>Electrolyte<a class="headerlink" href="#electrolyte" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="ElectrolyteInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ElectrolyteInputParams</span></span><a class="headerlink" href="#ElectrolyteInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ElectrolyteInputParams</span></span><a class="headerlink" href="#ElectrolyteInputParams" title="Link to this definition"></a></dt>
 <dd><p>Class used to setup the input parameters for the electrolyte.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ElectrolyteInputParams.density">
-<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#ElectrolyteInputParams.density" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#ElectrolyteInputParams.density" title="Link to this definition"></a></dt>
 <dd><p>the mass density of the material (symbol: rho)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ElectrolyteInputParams.ionicConductivity">
-<span class="sig-name descname"><span class="pre">ionicConductivity</span></span><a class="headerlink" href="#ElectrolyteInputParams.ionicConductivity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ionicConductivity</span></span><a class="headerlink" href="#ElectrolyteInputParams.ionicConductivity" title="Link to this definition"></a></dt>
 <dd><p>a function to determine the ionic conductivity of the electrolyte under given conditions (symbol: kappa)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ElectrolyteInputParams.diffusionCoefficient">
-<span class="sig-name descname"><span class="pre">diffusionCoefficient</span></span><a class="headerlink" href="#ElectrolyteInputParams.diffusionCoefficient" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">diffusionCoefficient</span></span><a class="headerlink" href="#ElectrolyteInputParams.diffusionCoefficient" title="Link to this definition"></a></dt>
 <dd><p>a function to determine the diffusion coefficient of a molecule in the electrolyte under given conditions (symbol: D)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ElectrolyteInputParams.bruggemanCoefficient">
-<span class="sig-name descname"><span class="pre">bruggemanCoefficient</span></span><a class="headerlink" href="#ElectrolyteInputParams.bruggemanCoefficient" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">bruggemanCoefficient</span></span><a class="headerlink" href="#ElectrolyteInputParams.bruggemanCoefficient" title="Link to this definition"></a></dt>
 <dd><p>the coefficient for determining effective transport parameters in porous media (symbol: beta)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ElectrolyteInputParams.thermalConductivity">
-<span class="sig-name descname"><span class="pre">thermalConductivity</span></span><a class="headerlink" href="#ElectrolyteInputParams.thermalConductivity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">thermalConductivity</span></span><a class="headerlink" href="#ElectrolyteInputParams.thermalConductivity" title="Link to this definition"></a></dt>
 <dd><p>Intrinsic Thermal conductivity of the electrolyte</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ElectrolyteInputParams.specificHeatCapacity">
-<span class="sig-name descname"><span class="pre">specificHeatCapacity</span></span><a class="headerlink" href="#ElectrolyteInputParams.specificHeatCapacity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">specificHeatCapacity</span></span><a class="headerlink" href="#ElectrolyteInputParams.specificHeatCapacity" title="Link to this definition"></a></dt>
 <dd><p>Specific Heat capacity of the electrolyte</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="current-collector">
-<h1>Current Collector<a class="headerlink" href="#current-collector" title="Permalink to this headline"></a></h1>
+</section>
+<section id="current-collector">
+<h1>Current Collector<a class="headerlink" href="#current-collector" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="CurrentCollectorInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CurrentCollectorInputParams</span></span><a class="headerlink" href="#CurrentCollectorInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CurrentCollectorInputParams</span></span><a class="headerlink" href="#CurrentCollectorInputParams" title="Link to this definition"></a></dt>
 <dd><p>Class used to setup the input parameters for the current collector.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="CurrentCollectorInputParams.thermalConductivity">
-<span class="sig-name descname"><span class="pre">thermalConductivity</span></span><a class="headerlink" href="#CurrentCollectorInputParams.thermalConductivity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">thermalConductivity</span></span><a class="headerlink" href="#CurrentCollectorInputParams.thermalConductivity" title="Link to this definition"></a></dt>
 <dd><p>Thermal conductivity of current collector</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="CurrentCollectorInputParams.specificHeatCapacity">
-<span class="sig-name descname"><span class="pre">specificHeatCapacity</span></span><a class="headerlink" href="#CurrentCollectorInputParams.specificHeatCapacity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">specificHeatCapacity</span></span><a class="headerlink" href="#CurrentCollectorInputParams.specificHeatCapacity" title="Link to this definition"></a></dt>
 <dd><p>Heat capacity of current collector</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="CurrentCollectorInputParams.density">
-<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#CurrentCollectorInputParams.density" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">density</span></span><a class="headerlink" href="#CurrentCollectorInputParams.density" title="Link to this definition"></a></dt>
 <dd><p>Density of current collector [kg m^-3]</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="electronic-component">
-<h1>Electronic Component<a class="headerlink" href="#electronic-component" title="Permalink to this headline"></a></h1>
+</section>
+<section id="electronic-component">
+<h1>Electronic Component<a class="headerlink" href="#electronic-component" title="Link to this heading"></a></h1>
 <p>Base model for all component with a electrical potential and a charge conservation equation</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ElectronicComponentInputParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ElectronicComponentInputParams</span></span><a class="headerlink" href="#ElectronicComponentInputParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ElectronicComponentInputParams</span></span><a class="headerlink" href="#ElectronicComponentInputParams" title="Link to this definition"></a></dt>
 <dd><p>Class to setup the parameter for a generic electronic component</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ElectronicComponentInputParams.electronicConductivity">
-<span class="sig-name descname"><span class="pre">electronicConductivity</span></span><a class="headerlink" href="#ElectronicComponentInputParams.electronicConductivity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">electronicConductivity</span></span><a class="headerlink" href="#ElectronicComponentInputParams.electronicConductivity" title="Link to this definition"></a></dt>
 <dd><p>electronic conductivity</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="inputs.html" class="btn btn-neutral float-left" title="Model hierarchy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="test.html" class="btn btn-neutral float-right" title="hello" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="inputs.html" class="btn btn-neutral float-left" title="BattMo Li-ion battery" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="json.html" class="btn btn-neutral float-right" title="Json input" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

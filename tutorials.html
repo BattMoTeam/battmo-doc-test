@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorials &mdash; BattMo  documentation</title>
+  <title>Getting Started &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/battmologo.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Input Parameter Classes" href="inputs.html" />
+    <link rel="next" title="BattMo example Json input" href="publishedExamples/runJsonScript.html" />
     <link rel="prev" title="Installation instruction and requirements" href="installation.html" /> 
 </head>
 
@@ -26,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> BattMo
-            <img src="_static/battmologo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            BattMo
+              <img src="_static/battmologo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -39,13 +47,15 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#tutorial-1">Tutorial 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tutorial-2">Tutorial 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#more-examples">More Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runJsonScript.html">BattMo example Json input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/battMoTutorial.html">BattMo Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runBattery1D.html">Pseudo-Two-Dimensional (P2D) Lithium-Ion Battery Model</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="gallery.html">Gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inputs.html">BattMo Li-ion battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Json input description</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
 </ul>
@@ -63,8 +73,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Tutorials</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting Started</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tutorials.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -74,22 +84,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="tutorials">
-<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline"></a></h1>
-<p>Here, we present some tutorials and give a short description of the example scripts that are available in <code class="code docutils literal notranslate"><span class="pre">BattMo</span></code>.</p>
-<div class="section" id="tutorial-1">
-<h2>Tutorial 1<a class="headerlink" href="#tutorial-1" title="Permalink to this headline"></a></h2>
-<p><a class="reference external" href="publishedExamples/battMoTutorial.html">A first BattMo simulation</a></p>
-<blockquote>
-<div><a class="reference internal image-reference" href="_images/battMoTutorial.png"><img alt="_images/battMoTutorial.png" src="_images/battMoTutorial.png" style="width: 80%;" /></a>
-</div></blockquote>
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
+<p>Here, we present some guidelines and tutorials to get started with and give a short description of the example scripts
+that are available in <strong>BattMo</strong></p>
+<ul>
+<li><p><strong>BattMo</strong> supports <strong>json inputs</strong>. The json input is specified in schemas, which also can be used to validate your input
+data. <span class="todo">Add page for schema and link it here</span>. Some standard data sets are included <span class="todo">add page on that and link it here</span>
+and add much more</p>
+<p>First, we load and parse the json input file using the commands</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;ParameterData&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;BatteryCellParameters&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;LithiumIonBatteryCell&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;lithium_ion_battery_nmc_graphite.json&#39;</span><span class="p">)</span>
+<span class="n">jsonstruct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="tutorial-2">
-<h2>Tutorial 2<a class="headerlink" href="#tutorial-2" title="Permalink to this headline"></a></h2>
-<p><a class="reference external" href="publishedExamples/runJsonScript.html">A first BattMo simulation based exclusively on json input</a></p>
+<p>Then, we run it as follows</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">runBatteryJson</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="more-examples">
-<h2>More Examples<a class="headerlink" href="#more-examples" title="Permalink to this headline"></a></h2>
+<p>To visualize the results, we refer to the <span class="todo">add link</span></p>
+</li>
+<li><p>In this <a class="reference internal" href="publishedExamples/runJsonScript.html#runjsonscript"><span class="std std-ref">json example</span></a>, we show how to combine different json files</p></li>
+<li><p>The <a class="reference internal" href="publishedExamples/battMoTutorial.html#battmotutorial"><span class="std std-ref">battMoTutorial</span></a> describes the different step of a simulation when it is set manually beyond the options that
+are given by the json input format. They consist of</p>
+<ul class="simple">
+<li><p>Setup model parameters (physical parameters and modeling choice)</p></li>
+<li><p>Setup the geometry (BattMo supports a variety of geometry)</p></li>
+<li><p>Initialise the model</p></li>
+<li><p>Setup a simulation schedule (time stepping and control)</p></li>
+<li><p>Setup the initial state</p></li>
+<li><p>Run the simulation</p></li>
+<li><p>Visualize the results</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/battMoTutorial.png"><img alt="_images/battMoTutorial.png" src="_images/battMoTutorial.png" style="width: 80%;" /></a>
+</li>
+<li><p>In this <a class="reference internal" href="publishedExamples/runBattery1D.html#runbattery1d"><span class="std std-ref">example</span></a>, more options are used such as some settings of the non-linear solver.</p></li>
+<li><p>Composite material example</p>
+<p><span class="todo">add here or maybe in gallery</span></p>
+</li>
+<li><p>More Examples</p>
 <p>In the <code class="code docutils literal notranslate"><span class="pre">Examples</span></code> directory examples, the following examples can be found. They should run out of the box (write
 the name of script after <a class="reference internal" href="installation.html#installation"><span class="std std-ref">installing BattMo</span></a>). If not, tell us!</p>
 <ul class="simple">
@@ -100,15 +132,18 @@ the name of script after <a class="reference internal" href="installation.html#i
 <li><p><code class="code docutils literal notranslate"><span class="pre">runGittTest</span></code> : Example running a Gitt test</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">runJellyRoll</span></code> : Example running a <a class="reference internal" href="geometryinput.html#jellyroll"><span class="std std-ref">jelly roll geometry</span></a></p></li>
 </ul>
+</li>
+</ul>
+<div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="installation.html" class="btn btn-neutral float-left" title="Installation instruction and requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="inputs.html" class="btn btn-neutral float-right" title="Input Parameter Classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="publishedExamples/runJsonScript.html" class="btn btn-neutral float-right" title="BattMo example Json input" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

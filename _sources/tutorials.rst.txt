@@ -1,33 +1,70 @@
-Tutorials
-=========
+===============
+Getting Started
+===============
+           
+Here, we present some guidelines and tutorials to get started with and give a short description of the example scripts
+that are available in |battmo|
 
-Here, we present some tutorials and give a short description of the example scripts that are available in :code:`BattMo`.
+* |battmo| supports **json inputs**. The json input is specified in schemas, which also can be used to validate your input
+  data. :todo:`Add page for schema and link it here`. Some standard data sets are included :todo:`add page on that and link it here`
+  and add much more
 
-   
+  First, we load and parse the json input file using the commands
 
-Tutorial 1
-----------
+  .. code:: matlab
 
-`A first BattMo simulation <publishedExamples/battMoTutorial.html>`_
+     filename = fullfile('ParameterData', 'BatteryCellParameters', 'LithiumIonBatteryCell', 'lithium_ion_battery_nmc_graphite.json')
+     jsonstruct = parseBattmoJson(filename)
 
-   .. image:: img/battMoTutorial.png
-              :width: 80%
+  Then, we run it as follows
+  
+  .. code:: matlab
 
-Tutorial 2
-----------
+     runBatteryJson(filename)
 
-`A first BattMo simulation based exclusively on json input <publishedExamples/runJsonScript.html>`_
+  To visualize the results, we refer to the :todo:`add link`
+     
+* In this :ref:`json example <runJsonScript>`, we show how to combine different json files
+  
+* The :ref:`battMoTutorial <battMoTutorial>` describes the different step of a simulation when it is set manually beyond the options that
+  are given by the json input format. They consist of
+
+  * Setup model parameters (physical parameters and modeling choice)
+  * Setup the geometry (BattMo supports a variety of geometry)
+  * Initialise the model
+  * Setup a simulation schedule (time stepping and control)
+  * Setup the initial state
+  * Run the simulation
+  * Visualize the results
+    
+
+  .. image:: img/battMoTutorial.png
+             :width: 80%
+
+* In this :ref:`example <runBattery1D>`, more options are used such as some settings of the non-linear solver.
+
+* Composite material example
+
+  :todo:`add here or maybe in gallery`
+
+* More Examples
+
+  In the :code:`Examples` directory examples, the following examples can be found. They should run out of the box (write
+  the name of script after :ref:`installing BattMo<installation>`). If not, tell us!
+  
+  - :code:`runBattery2D` : 2D example using :ref:`2D model geometry<2dgeometry>`
+  - :code:`runBattery3D` : 3D example using :ref:`3D model geometry<3dgeometry>`
+  - :code:`runChen2020` : Example using Chen data including a comparison with `pybamm <https://www.pybamm.org/>`_
+  - :code:`runCR` : Example running for a coin cell
+  - :code:`runGittTest` : Example running a Gitt test
+  - :code:`runJellyRoll` : Example running a :ref:`jelly roll geometry <jellyroll>`
 
 
-More Examples
--------------
+.. toctree::
+   :hidden:
 
-In the :code:`Examples` directory examples, the following examples can be found. They should run out of the box (write
-the name of script after :ref:`installing BattMo<installation>`). If not, tell us!
+   publishedExamples/runJsonScript   
+   publishedExamples/battMoTutorial
+   publishedExamples/runBattery1D
 
-- :code:`runBattery2D` : 2D example using :ref:`2D model geometry<2dgeometry>`
-- :code:`runBattery3D` : 3D example using :ref:`3D model geometry<3dgeometry>`
-- :code:`runChen2020` : Example using Chen data including a comparison with `pybamm <https://www.pybamm.org/>`_
-- :code:`runCR` : Example running for a coin cell
-- :code:`runGittTest` : Example running a Gitt test
-- :code:`runJellyRoll` : Example running a :ref:`jelly roll geometry <jellyroll>`
+
