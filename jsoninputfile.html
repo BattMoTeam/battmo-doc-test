@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Search &mdash; BattMo  documentation</title>
+  <title>Json Input file &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     <link rel="shortcut icon" href="_static/battmologo.ico"/>
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -19,10 +19,8 @@
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,7 +36,7 @@
               <img src="_static/battmologo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -349,8 +347,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Search</li>
+      <li class="breadcrumb-item active">Json Input file</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/jsoninputfile.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -358,18 +357,230 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <section id="json-input-file">
+<span id="jsoninputfile"></span><h1>Json Input file<a class="headerlink" href="#json-input-file" title="Link to this heading"></a></h1>
+<p>The full json input for the <a class="reference internal" href="runFirstJsonScript.html#runfirstjsonscript"><span class="std std-ref">first example</span></a></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Geometry&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;case&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1D&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;faceArea&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0001</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;NegativeElectrode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ActiveMaterial&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;thickness&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">6.4e-05</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;N&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Coating&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1900</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;bruggemanCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ActiveMaterial&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;massFraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.94</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2240</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">632</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.04</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Interface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;saturationConcentration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30555</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;volumetricSurfaceArea&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">723600</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2240</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;numberOfElectronsTransferred&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;activationEnergyOfReaction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;reactionRateConstant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.031e-11</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;guestStoichiometry100&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.88551</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;guestStoichiometry0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1429</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;chargeTransferCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;openCircuitPotential&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;functionname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;computeOCP_graphite&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;argumentlist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">              </span><span class="s2">&quot;cElectrode&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;T&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;cmax&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;diffusionModelType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;full&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;SolidDiffusion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;activationEnergyOfDiffusion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;referenceDiffusionCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.9e-14</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;particleRadius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1e-06</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;N&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;Binder&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gram/((centi*meter)^3)&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;massFraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.03</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">632</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.04</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;ConductingAdditive&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.95</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gram/((centi*meter)^3)&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;massFraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.03</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">632</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.04</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;CurrentCollector&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">59600000.0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">398</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">385</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8960</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;PositiveElectrode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ActiveMaterial&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;thickness&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.7e-05</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;N&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Coating&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3500</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;bruggemanCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ActiveMaterial&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;massFraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4650</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Interface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;saturationConcentration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">55554</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;volumetricSurfaceArea&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">885000</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4650</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;numberOfElectronsTransferred&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;activationEnergyOfReaction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;reactionRateConstant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.33e-11</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;guestStoichiometry100&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4955</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;guestStoichiometry0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99174</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;chargeTransferCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;openCircuitPotential&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;functionname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;computeOCP_nmc111&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;argumentlist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">              </span><span class="s2">&quot;cElectrode&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;T&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;cmax&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;diffusionModelType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;full&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;SolidDiffusion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;activationEnergyOfDiffusion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;referenceDiffusionCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1e-14</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;particleRadius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1e-06</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;N&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;Binder&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.75</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gram/((centi*meter)^3)&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;massFraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.025</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.1</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;ConductingAdditive&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.83</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gram/((centi*meter)^3)&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;massFraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.025</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.1</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;CurrentCollector&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">35500000.0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">170</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">875</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2700</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;Electrolyte&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Separator&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;thickness&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5e-05</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;N&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2055</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ionicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;functionname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;computeElectrolyteConductivity_default&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;argumentlist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;c&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;T&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;diffusionCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;functionname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;computeDiffusionCoefficient_default&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;argumentlist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;c&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;T&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;compnames&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;Li&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;PF6&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;sp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2594</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;bruggemanCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;G&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">&quot;SOC&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;initT&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">298.15</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;use_thermal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;include_current_collectors&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Control&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;controlPolicy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IEswitch&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;initialControl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;discharging&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;CRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;lowerCutoffVoltage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.4</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;upperCutoffVoltage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;dIdtLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;dEdtLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tup&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;Separator&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;porosity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1978</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.334</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">946</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;bruggemanCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;ThermalModel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;externalHeatTransferCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;externalTemperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">298.15</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;TimeStepping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;totalTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5040</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;N&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;useRampup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;rampupTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;Output&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;variables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;energy&quot;</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
@@ -395,14 +606,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-  <script>
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script id="searchindexloader"></script>
-   
-
+  </script> 
 
 </body>
 </html>

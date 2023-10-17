@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="BattMo example Json input" href="publishedExamples/runJsonScript.html" />
+    <link rel="next" title="First Example" href="runFirstJsonScript.html" />
     <link rel="prev" title="Installation instruction and requirements" href="installation.html" /> 
 </head>
 
@@ -48,6 +48,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runFirstJsonScript.html">First Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runJsonScript.html">BattMo example Json input</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="publishedExamples/runJsonScript.html#setting-up-the-environment">Setting up the environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="publishedExamples/runJsonScript.html#we-load-the-json-files">We load the json files</a></li>
@@ -266,7 +267,18 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced topics</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced examples and topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Alkaline Membrane Electrolyser</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-model">Setup model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-initial-condition">Setup the initial condition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-schedule-with-the-time-discretization">Setup the schedule with the time discretization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-non-linear-solver">Setup the non-linear solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#run-the-simulation">Run the simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#visualize-the-results">Visualize the results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#ph-distribution-plot">pH distribution plot</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="mrst.html">MRST</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mrst.html#id1">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mrst.html#id2">Grid Factory Tutorial</a></li>
@@ -318,6 +330,8 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
 </ul>
 
@@ -350,21 +364,8 @@
 <p>Here, we present some guidelines and tutorials to get started with and give a short description of the example scripts
 that are available in <strong>BattMo</strong></p>
 <ul>
-<li><p><strong>BattMo</strong> supports <strong>json inputs</strong>. The json input is specified in schemas, which also can be used to validate your input
-data. <span class="todo">Add page for schema and link it here</span>. Some standard data sets are included <span class="todo">add page on that and link it here</span>
-and add much more</p>
-<p>First, we load and parse the json input file using the commands</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;ParameterData&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;BatteryCellParameters&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;LithiumIonBatteryCell&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;lithium_ion_battery_nmc_graphite.json&#39;</span><span class="p">)</span>
-<span class="n">jsonstruct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Then, we run it as follows</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">runBatteryJson</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>To visualize the results, we refer to the <span class="todo">add link</span></p>
-</li>
-<li><p>In this <a class="reference internal" href="publishedExamples/runJsonScript.html#runjsonscript"><span class="std std-ref">json example</span></a>, we show how to combine different json files</p></li>
+<li><p><strong>BattMo</strong> is straightforward to run from a single json, as described in this <a class="reference internal" href="runFirstJsonScript.html#runfirstjsonscript"><span class="std std-ref">Example</span></a>.</p></li>
+<li><p>In this <a class="reference internal" href="publishedExamples/runJsonScript.html#runjsonscript"><span class="std std-ref">json example</span></a>, we show how to combine different json files from different sources</p></li>
 <li><p>The <a class="reference internal" href="publishedExamples/battMoTutorial.html#battmotutorial"><span class="std std-ref">battMoTutorial</span></a> describes the different step of a simulation when it is set manually beyond the options that
 are given by the json input format. They consist of</p>
 <ul class="simple">
@@ -404,7 +405,7 @@ the name of script after <a class="reference internal" href="installation.html#i
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="installation.html" class="btn btn-neutral float-left" title="Installation instruction and requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="publishedExamples/runJsonScript.html" class="btn btn-neutral float-right" title="BattMo example Json input" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="runFirstJsonScript.html" class="btn btn-neutral float-right" title="First Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
