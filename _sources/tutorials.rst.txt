@@ -51,4 +51,5 @@ that are available in |battmo|
    publishedExamples/battMoTutorial
    publishedExamples/runBattery1D
    publishedExamples/runSEIActiveMaterial
-   
+   publishedExamples/runSiliconGraphiteBattery
+      
