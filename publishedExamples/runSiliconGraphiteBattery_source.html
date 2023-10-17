@@ -98,9 +98,9 @@
 <li class="toctree-l2"><a class="reference internal" href="runSiliconGraphiteBattery.html">Composite Silicon Graphite electrode</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runSiliconGraphiteBattery.html#import-the-required-modules-from-mrst">Import the required modules from MRST</a></li>
 <li class="toctree-l3"><a class="reference internal" href="runSiliconGraphiteBattery.html#shortcuts">Shortcuts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="runSiliconGraphiteBattery.html#setup-the-properties-of-li-ion-battery-materials-and-cell-design">Setup the properties of Li-ion battery materials and cell design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runSiliconGraphiteBattery.html#setup-the-properties-of-the-battery">Setup the properties of the battery</a></li>
 <li class="toctree-l3"><a class="reference internal" href="runSiliconGraphiteBattery.html#model-instantiation">Model Instantiation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="runSiliconGraphiteBattery.html#setup-the-time-step-schedule">Setup the time step schedule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runSiliconGraphiteBattery.html#setup-schedule-control-and-time-stepping">Setup schedule (control and time stepping)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="runSiliconGraphiteBattery.html#setup-the-initial-state-of-the-model">Setup the initial state of the model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="runSiliconGraphiteBattery.html#setup-the-properties-of-the-nonlinear-solver">Setup the properties of the nonlinear solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="runSiliconGraphiteBattery.html#run-the-simulation-for-the-discharge">Run the simulation for the discharge</a></li>
@@ -395,9 +395,10 @@
 <span class="n">sd</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;SolidDiffusion&#39;</span><span class="p">;</span>
 <span class="n">itf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Interface&#39;</span><span class="p">;</span>
 
-<span class="c">%% Setup the properties of Li-ion battery materials and cell design</span>
+<span class="c">%% Setup the properties of the battery</span>
 <span class="c">%</span>
-<span class="c">%_We_load_the_property_of_a_composite silicon graphite electrode, see :ref:`compositeElectrode`</span>
+<span class="c">% We load the property of a composite silicon graphite electrode, see :ref:`compositeElectrode`</span>
+<span class="c">%</span>
 
 <span class="n">jsonstruct_composite_material</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="s">&#39;ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_silicon_graphite.json&#39;</span><span class="p">);</span>
 
@@ -449,13 +450,12 @@
 
 <span class="c">%% Model Instantiation</span>
 <span class="c">% We instantiate the model</span>
+
 <span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Battery</span><span class="p">(</span><span class="n">paramobj</span><span class="p">);</span>
 
 
-
-
-<span class="c">%% Setup the time step schedule</span>
-<span class="c">% We will run two period a discharge followed by a charge</span>
+<span class="c">%% Setup schedule (control and time stepping)</span>
+<span class="c">% We will simulate two consecutive periods: a discharge followed by a charge.</span>
 <span class="c">%</span>
 <span class="c">% We start with the charge period</span>
 
@@ -484,6 +484,7 @@
 <span class="c">%% Setup the properties of the nonlinear solver</span>
 <span class="c">% We adjust some settings for the nonlinear solver</span>
 <span class="n">nls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">NonLinearSolver</span><span class="p">();</span>
+
 <span class="c">%%</span>
 <span class="c">% Change default maximum iteration number in nonlinear solver</span>
 <span class="n">nls</span><span class="p">.</span><span class="n">maxIterations</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
@@ -500,7 +501,6 @@
 <span class="c">% We use verbosity</span>
 <span class="n">model</span><span class="p">.</span><span class="n">verbose</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 
-<span class="k">return</span>
 
 <span class="c">%% Run the simulation for the discharge</span>
 

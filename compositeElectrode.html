@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BattMo Li-ion battery &mdash; BattMo  documentation</title>
+  <title>Composite electrode json input file &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
@@ -20,9 +20,7 @@
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Battery cell" href="batteryinput.html" />
-    <link rel="prev" title="Gallery" href="gallery.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,7 +43,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="runFirstJsonScript.html">First Example</a></li>
@@ -117,7 +115,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gallery.html#coin-cell">Coin-cell</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">BattMo Li-ion battery</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">BattMo Li-ion battery</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="batteryinput.html">Battery cell</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="batteryinput.html#BatteryInputParams"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BatteryInputParams.NegativeElectrode"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams.NegativeElectrode</span></code></a></li>
@@ -363,9 +361,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">BattMo Li-ion battery</li>
+      <li class="breadcrumb-item active">Composite electrode json input file</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/inputs.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/compositeElectrode.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -373,45 +371,62 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="battmo-li-ion-battery">
-<h1>BattMo Li-ion battery<a class="headerlink" href="#battmo-li-ion-battery" title="Link to this heading"></a></h1>
-<p>We use a multi-model approach. The models are organized in a hierarchy, meaning that a given model can have
-sub-models. A model is supposed to define all the functions and variables that will be needed to simulate a physical
-system separately. At the top, we have a battery model with the submodels:</p>
-<ul class="simple">
-<li><p>Negative electrode model</p></li>
-<li><p>Positive electrode model</p></li>
-<li><p>Electrolyte model</p></li>
-<li><p>Separator model</p></li>
-<li><p>ThermalModel model</p></li>
-<li><p>Control model</p></li>
-</ul>
-<figure class="align-default">
-<a class="reference external image-reference" href="_images/cutbatterygraph.png"><img alt="_images/cutbatterygraph.png" src="_images/cutbatterygraph.png" /></a>
-</figure>
-<p>The negative and positive electrodes are instances of the same Electrode model. The electrode model has two sub-models:</p>
-<ul class="simple">
-<li><p>Coating model</p></li>
-<li><p>Current Collector model (optional)</p></li>
-</ul>
-<p>The coating model has four sub-models:</p>
-<ul class="simple">
-<li><p>Active material model</p></li>
-<li><p>Binder</p></li>
-<li><p>Conductive additive model</p></li>
-</ul>
-<p>In the case of a composite material, the coating model will have a different structure with two active material models (see )</p>
-<div class="toctree-wrapper compound">
+  <section id="composite-electrode-json-input-file">
+<span id="compositeelectrode"></span><h1>Composite electrode json input file<a class="headerlink" href="#composite-electrode-json-input-file" title="Link to this heading"></a></h1>
+<p>Here is json input for the composite electrode part, in <a class="reference internal" href="publishedExamples/runSiliconGraphiteBattery.html#runsilicongraphitebattery"><span class="std std-ref">Composite Silicon Graphite electrode</span></a></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;NegativeElectrode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Coating&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;active_material_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;composite&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ActiveMaterial1&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">632.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;heatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">632000.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.04</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;massFraction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2240</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Interface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;isFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ParameterData/MaterialProperties/Graphite/graphite.json&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;diffusionModelType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;full&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;SolidDiffusion&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;activationEnergyOfDiffusion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;referenceDiffusionCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.9e-14</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;particleRadius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1e-06</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;N&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;ActiveMaterial2&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">632.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;heatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">632000.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.04</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;massFraction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.08</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2330</span><span class="p">,</span><span class="w">        </span>
+<span class="w">        </span><span class="nt">&quot;Interface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;isFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ParameterData/MaterialProperties/Silicon/silicon.json&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;diffusionModelType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;full&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;SolidDiffusion&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;activationEnergyOfDiffusion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;referenceDiffusionCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1e-15</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;particleRadius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">6e-8</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;N&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="gallery.html" class="btn btn-neutral float-left" title="Gallery" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="batteryinput.html" class="btn btn-neutral float-right" title="Battery cell" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
