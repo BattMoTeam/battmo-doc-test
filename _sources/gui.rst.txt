@@ -4,3 +4,4 @@ BattMo GUI
 
 :todo:`fill in page`
 
+A fully featured Web Interface is available at `here <https://www.lemonde.fr/>`_  

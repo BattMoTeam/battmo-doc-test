@@ -374,7 +374,7 @@
   <section id="json-input-file">
 <span id="jsoninputfile"></span><h1>Json Input file<a class="headerlink" href="#json-input-file" title="Link to this heading"></a></h1>
 <p>The full json input for the <a class="reference internal" href="runFirstJsonScript.html#runfirstjsonscript"><span class="std std-ref">first example</span></a></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../Utilities/JsonSchemas/Simulation.schema.json&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;Geometry&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;case&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1D&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;faceArea&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0001</span>
@@ -385,7 +385,7 @@
 <span class="w">      </span><span class="nt">&quot;N&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;Coating&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1900</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;effectiveDensity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1900</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;bruggemanCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;ActiveMaterial&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;massFraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.94</span><span class="p">,</span>
@@ -455,7 +455,7 @@
 <span class="w">      </span><span class="nt">&quot;N&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;Coating&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3500</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;effectiveDensity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3500</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;bruggemanCoefficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;ActiveMaterial&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;massFraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95</span><span class="p">,</span>
@@ -581,7 +581,7 @@
 <span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="nt">&quot;TimeStepping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;totalTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5040</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;N&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;numberOfTimeSteps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;useRampup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;rampupTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
 <span class="w">  </span><span class="p">},</span>
