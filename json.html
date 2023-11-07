@@ -4,9 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Json input &mdash; BattMo  documentation</title>
+  <title>Json input specification &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     <link rel="shortcut icon" href="_static/battmologo.ico"/>
   <!--[if lt IE 9]>
@@ -249,7 +250,15 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Json input description</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Json input description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#geometry-setup">Geometry Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#material-parameters">Material Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation-control-parameters">Simulation Control Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#time-stepping-parameters">Time Stepping Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#solver-parameters">Solver Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-parameters">Output Parameters</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator1d">BatteryGenerator1D</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="geometryinput.html#Battery.BatteryGeometry.BatteryGenerator1D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator1D</span></code></a></li>
@@ -363,7 +372,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Json input</li>
+      <li class="breadcrumb-item active">Json input specification</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/json.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -373,9 +382,596 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="json-input">
-<h1>Json input<a class="headerlink" href="#json-input" title="Link to this heading"></a></h1>
-<p><span class="todo">work out this page</span></p>
+  <section id="json-input-specification">
+<h1>Json input specification<a class="headerlink" href="#json-input-specification" title="Link to this heading"></a></h1>
+<p>The specification of the json input is provided through <a class="reference external" href="https://json-schema.org/understanding-json-schema">JSON schemas</a>. In the Json schema, we added extra properties that are not part
+of the syntax but bring additional information such as a <code class="code docutils literal notranslate"><span class="pre">description</span></code> field and references to the onthology (work
+in progress <span class="todo">add more here</span>).</p>
+<p>The main Simulation schema contains schemas for</p>
+<ul class="simple">
+<li><p>A schema for the geometry</p></li>
+<li><p>A schema for the battery cell material parameters</p></li>
+<li><p>A schema for the initialization of the state of the battery</p></li>
+<li><p>A schema for the time stepping</p></li>
+<li><p>A schema for the solver parameters</p></li>
+<li><p>A schema for the output specification</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The schemas may have common property fields. In the validation process, each schema is handled parallelly.</p>
+</div>
+<p>For example a component (say the electolyte) has its geometrical and material properties specified in two separate
+schemas. We think it clarifies the presentation to separate the presentation of those properties and it corresponds also
+to a convenient way to organize the input. We can easily switch between different geometrical models while keeping the
+same material properties. For that, we use the <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Utilities/JsonUtils/mergeJsonStructs.m">mergeJsonStructs</a> function, see examples <span class="todo">add link</span>.</p>
+<div class="sphinx_collapse docutils container">
+<input class="sphinx_collapse__input" id="9fb69185-2ca8-40e3-a866-9d7d82708b89" name="9fb69185-2ca8-40e3-a866-9d7d82708b89" type="checkbox"><label class="sphinx_collapse__label" for="9fb69185-2ca8-40e3-a866-9d7d82708b89"><i class="sphinx_collapse__icon"></i>Simulation Schema</label><div class="sphinx_collapse__content docutils container">
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file://./Simulation.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Input description for a Battery simulation in BattMo&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;allOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ModelSpecification.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Overall model specification. Choice of physics and component that will be included in the model&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Battery.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Battery Physical Parameters&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ControlModel.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Input for the control type and the corresponding parameters&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Geometry.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Specification of the geometry including the discretization parameters&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;StateInitialization.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Input to setup the initial state of the battery&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TimeStepping.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Input for the time stepping&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Solver.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Options for the solver&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Output.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Input for the choice of outputs the will be returned&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;use_thermal&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;then&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;ThermalModel&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;include_current_collectors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;then&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;anyOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;NegativeElectrode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                  </span><span class="s2">&quot;CurrentCollector&quot;</span>
+<span class="w">                </span><span class="p">]</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;PositiveElectrode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                  </span><span class="s2">&quot;CurrentCollector&quot;</span>
+<span class="w">                </span><span class="p">]</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="geometry-setup">
+<h2>Geometry Setup<a class="headerlink" href="#geometry-setup" title="Link to this heading"></a></h2>
+<div class="sphinx_collapse docutils container">
+<input class="sphinx_collapse__input" id="73bc5183-fa1e-4d5e-9b21-8fef2de88805" name="73bc5183-fa1e-4d5e-9b21-8fef2de88805" type="checkbox"><label class="sphinx_collapse__label" for="73bc5183-fa1e-4d5e-9b21-8fef2de88805"><i class="sphinx_collapse__icon"></i>Geometry Schema</label><div class="sphinx_collapse__content docutils container">
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file://./Geometry.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Specification of the geometry including the discretization parameters&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;Geometry&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">                                </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;case&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                                                          </span><span class="nt">&quot;enum&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;1D&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;multiLayerPouch&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;2D-demo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;3D-demo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;jellyRoll&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sectorModel&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;coinCell&quot;</span><span class="p">]}}},</span>
+<span class="w">                  </span><span class="nt">&quot;NegativeElectrode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/particlediscretization&quot;</span><span class="p">},</span>
+<span class="w">                  </span><span class="nt">&quot;PositiveElectrode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/particlediscretization&quot;</span><span class="p">}</span>
+<span class="w">                 </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;anyOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;Geometry&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;case&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1D&quot;</span><span class="p">}}}},</span>
+<span class="w">              </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/1D&quot;</span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;Geometry&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;case&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multiLayerPouch&quot;</span><span class="p">}}}},</span>
+<span class="w">              </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/multiLayerPouch&quot;</span><span class="p">},</span><span class="w">            </span>
+<span class="w">             </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;Geometry&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;case&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2D-demo&quot;</span><span class="p">}}}},</span>
+<span class="w">              </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/2D-demo&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;Geometry&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;case&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3D-demo&quot;</span><span class="p">}}}},</span>
+<span class="w">              </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/3D-demo&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;Geometry&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;case&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jellyRoll&quot;</span><span class="p">}}}},</span>
+<span class="w">              </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/jellyRoll&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;Geometry&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;case&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sectorModel&quot;</span><span class="p">}}}},</span>
+<span class="w">              </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/sectorModel&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+
+<span class="w">  </span><span class="nt">&quot;$defs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">&quot;layerSpecs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;NegativeElectrode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Coating&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpec&quot;</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;CurrentCollector&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpec&quot;</span><span class="p">}}},</span>
+<span class="w">        </span><span class="nt">&quot;PositiveElectrode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Coating&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpec&quot;</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;CurrentCollector&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpec&quot;</span><span class="p">}}},</span>
+<span class="w">        </span><span class="nt">&quot;Separator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpec&quot;</span><span class="p">}}},</span>
+
+<span class="w">    </span><span class="nt">&quot;layerSpec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;thickness&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the thickness of the component&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;symbol&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;t&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;numberOfDiscreteCells&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;discretization parameter&quot;</span><span class="p">}}},</span>
+
+<span class="w">    </span><span class="nt">&quot;1D&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;allOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpecs&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;Geometry&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;faceArea&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;area of the cross-section&quot;</span><span class="p">}}}}}]},</span>
+
+<span class="w">    </span><span class="nt">&quot;multiLayerPouch&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;allOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpecs&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;Geometry&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;nLayers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number of layers in the pouch cells&quot;</span><span class="p">},</span>
+<span class="w">              </span><span class="nt">&quot;width&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">              </span><span class="nt">&quot;height&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">              </span><span class="nt">&quot;tab&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;parameters for the tabs&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;cap_tabs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+<span class="w">                                </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;If true, the tabs are removed and the parameters are only used to set the current collector external coupling&quot;</span><span class="p">},</span>
+<span class="w">                  </span><span class="nt">&quot;width&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">                  </span><span class="nt">&quot;Nx&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">                          </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Discretization parameter in the width direction&quot;</span><span class="p">},</span>
+<span class="w">                  </span><span class="nt">&quot;NegativeElectrode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tab parameter for the negative electrode&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                      </span><span class="nt">&quot;height&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">                      </span><span class="nt">&quot;Ny&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">                              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Discretization parameter in the height direction&quot;</span><span class="p">}</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                  </span><span class="p">},</span>
+<span class="w">                  </span><span class="nt">&quot;PositiveElectrode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tab parameter for the negative electrode&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                      </span><span class="nt">&quot;height&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">                      </span><span class="nt">&quot;Ny&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">                              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Discretization parameter in the height direction&quot;</span><span class="p">}}}}},</span>
+<span class="w">              </span><span class="nt">&quot;Electrolyte&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Discretization parameter for the electrolyte in the width and height directions&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;Nx&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">},</span>
+<span class="w">                  </span><span class="nt">&quot;Ny&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">}}}}}}}]},</span><span class="w">    </span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">&quot;2D-demo&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpecs&quot;</span><span class="p">,</span>
+<span class="w">                 </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGenerator2D&quot;</span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;3D-demo&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpecs&quot;</span><span class="p">,</span>
+<span class="w">                 </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGenerator3D&quot;</span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;particlediscretization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ActiveMaterial&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;anyOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;diffusionModelType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;full&quot;</span><span class="p">}},</span>
+<span class="w">             </span><span class="nt">&quot;dependentSchemas&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;SolidDiffusion&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                   </span><span class="nt">&quot;N&quot;</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;discretization parameter for the particle&quot;</span><span class="p">}}}}},</span>
+<span class="w">            </span><span class="p">{</span><span class="nt">&quot;not&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;diffusionModelType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;full&quot;</span><span class="p">}}}}]}}},</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">&quot;jellyRoll&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Geometry&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;outerRadius&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;outer radius&quot;</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;innerRadius&quot;</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inner radius&quot;</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;height&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;height of the battery&quot;</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;numberOfDiscreteCellsVertical&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;discretization parameter giving the number of grid cells in the vertical direction&quot;</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;numberOfDiscreteCellsAngular&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;discretisation parameter giving the number of angular sectors of the grid in the horizontal plane&quot;</span><span class="p">}}},</span>
+<span class="w">        </span><span class="nt">&quot;NegativeElectrode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;CurrentCollector&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;tabparams&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/tabparams&quot;</span><span class="p">}</span>
+<span class="w">              </span><span class="p">}}}},</span>
+<span class="w">        </span><span class="nt">&quot;PositiveElectrode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;CurrentCollector&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;tabparams&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/tabparams&quot;</span><span class="p">}</span>
+<span class="w">              </span><span class="p">}}}}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;allOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpecs&quot;</span><span class="p">}]},</span>
+
+<span class="w">    </span><span class="nt">&quot;sectorModel&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Geometry&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;outerRadius&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;outer radius&quot;</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;innerRadius&quot;</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inner radius&quot;</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;height&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;height of the battery&quot;</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;numberOfDiscreteCellsVertical&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;discretization parameter giving the number of grid cells in the vertical direction&quot;</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;numberOfDiscreteCellsAngular&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the angle of the sector is computed as 2*pi/nas&quot;</span><span class="p">}}}},</span>
+<span class="w">      </span><span class="nt">&quot;allOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpecs&quot;</span><span class="p">}]},</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">&quot;tabparams&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Parameters for the tabs&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;usetab&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;default&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}},</span>
+<span class="w">      </span><span class="nt">&quot;dependentSchemas&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;usetab&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;anyOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;usetab&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+<span class="w">              </span><span class="nt">&quot;fractions&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;items&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}},</span>
+<span class="w">              </span><span class="nt">&quot;width&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}}},</span>
+<span class="w">            </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;usetab&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}}}]}}},</span>
+
+<span class="w">    </span><span class="nt">&quot;sectortabparams&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Parameters for the tabs for the sector model&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;usetab&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;default&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">}},</span>
+<span class="w">      </span><span class="nt">&quot;dependentSchemas&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;usetab&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;anyOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;usetab&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+<span class="w">              </span><span class="nt">&quot;fractions&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;items&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}}}},</span>
+<span class="w">            </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;usetab&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}}}]}}}}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="material-parameters">
+<h2>Material Parameters<a class="headerlink" href="#material-parameters" title="Link to this heading"></a></h2>
+<div class="sphinx_collapse docutils container">
+<input class="sphinx_collapse__input" id="ca1cbbc1-8603-4e37-afd6-73aeaaf9b436" name="ca1cbbc1-8603-4e37-afd6-73aeaaf9b436" type="checkbox"><label class="sphinx_collapse__label" for="ca1cbbc1-8603-4e37-afd6-73aeaaf9b436"><i class="sphinx_collapse__icon"></i>Battery Schema</label><div class="sphinx_collapse__content docutils container">
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file://./Battery.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A standard battery&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span>
+
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nt">&quot;NegativeElectrode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Electrode.schema.json&quot;</span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;PositiveElectrode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Electrode.schema.json&quot;</span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;Electrolyte&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Electrolyte.schema.json&quot;</span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;Separator&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Separator.schema.json&quot;</span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;ThermalModel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ThermalComponent.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Battery Physical Parameters required for thermal modelling&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;NegativeElectrode&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;PositiveElectrode&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Electrolyte&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Separator&quot;</span><span class="p">]</span>
+
+
+<span class="w">  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulation-control-parameters">
+<h2>Simulation Control Parameters<a class="headerlink" href="#simulation-control-parameters" title="Link to this heading"></a></h2>
+<div class="sphinx_collapse docutils container">
+<input class="sphinx_collapse__input" id="0e477bbd-d030-41ff-a9bf-9e6deb8ffb24" name="0e477bbd-d030-41ff-a9bf-9e6deb8ffb24" type="checkbox"><label class="sphinx_collapse__label" for="0e477bbd-d030-41ff-a9bf-9e6deb8ffb24"><i class="sphinx_collapse__icon"></i>Control Schema</label><div class="sphinx_collapse__content docutils container">
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file://./ControlModel.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;Control&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">                               </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                 </span><span class="nt">&quot;controlPolicy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                                                   </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;IEswitch&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CCCV&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CV&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;powerControl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CC&quot;</span><span class="p">]},</span>
+<span class="w">                                 </span><span class="nt">&quot;CRate&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">                                 </span><span class="nt">&quot;initialControl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                                                     </span><span class="nt">&quot;enum&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;charging&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;discharging&quot;</span><span class="p">]},</span>
+<span class="w">                                 </span><span class="nt">&quot;lowerCutoffVoltage&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">                                 </span><span class="nt">&quot;upperCutoffVoltage&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}</span>
+<span class="w">                               </span><span class="p">},</span>
+<span class="w">                               </span><span class="nt">&quot;allOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                                </span><span class="p">{</span>
+<span class="w">                                </span><span class="nt">&quot;if&quot;</span><span class="p">:</span>
+<span class="w">                                 </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;controlPolicy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IEswitch&quot;</span><span class="p">}},</span>
+<span class="w">                                 </span><span class="nt">&quot;then&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                                 </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/IEswitchControlModel&quot;</span><span class="p">}}},</span>
+
+<span class="w">                                 </span><span class="p">{</span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;controlPolicy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CCCV&quot;</span><span class="p">}},</span>
+<span class="w">                                 </span><span class="nt">&quot;then&quot;</span><span class="p">:{</span>
+<span class="w">                                                 </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/CcCvControlModel&quot;</span><span class="p">}}},</span>
+
+
+<span class="w">                                 </span><span class="p">{</span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;controlPolicy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CV&quot;</span><span class="p">}},</span>
+<span class="w">                                 </span><span class="nt">&quot;then&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                                 </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/CvControlModel&quot;</span><span class="p">}}},</span>
+
+<span class="w">                                 </span><span class="p">{</span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;controlPolicy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CC&quot;</span><span class="p">}},</span>
+<span class="w">                                 </span><span class="nt">&quot;then&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                                 </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/CcControlModel&quot;</span><span class="p">}}},</span>
+
+<span class="w">                                 </span><span class="p">{</span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;controlPolicy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;powerControl&quot;</span><span class="p">}},</span>
+<span class="w">                                 </span><span class="nt">&quot;then&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                                 </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/powerControlModel&quot;</span><span class="p">}}}</span>
+<span class="w">                                </span>
+<span class="w">                               </span><span class="p">]</span>
+<span class="w">                              </span><span class="p">}</span>
+<span class="w">                 </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;$defs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;IEswitchControlModel&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;tup&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rampup time&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">}},</span>
+<span class="w">    </span><span class="nt">&quot;CcCvControlModel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;dEdtLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;dIdtLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">}},</span>
+<span class="w">    </span><span class="nt">&quot;CvControlModel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;inputVoltage&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}</span>
+<span class="w">    </span><span class="p">}},</span>
+<span class="w">    </span><span class="nt">&quot;CcControlModel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">    </span><span class="nt">&quot;powerControlModel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;case&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;enum&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;time limited&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;voltage limited&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CPCV&quot;</span><span class="p">]},</span>
+<span class="w">        </span><span class="nt">&quot;dischargingPower&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;chargingPower&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}},</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="nt">&quot;anyOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;powerControlCase&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;time limited&quot;</span><span class="p">},</span>
+<span class="w">                                   </span><span class="nt">&quot;dischargingTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">                                   </span><span class="nt">&quot;chargingTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}</span>
+<span class="w">                                  </span><span class="p">}},</span>
+<span class="w">                 </span>
+<span class="w">                 </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;powerControlCase&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;voltage limited&quot;</span><span class="p">}</span>
+<span class="w">                                  </span><span class="p">}},</span>
+<span class="w">                 </span>
+<span class="w">                 </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;powerControlCase&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CPCV&quot;</span><span class="p">},</span>
+<span class="w">                                   </span><span class="nt">&quot;lowerCutoffPower&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">                                   </span><span class="nt">&quot;upperCutoffPower&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}</span>
+<span class="w">                                  </span><span class="p">}</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="w">                </span><span class="p">]}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="time-stepping-parameters">
+<h2>Time Stepping Parameters<a class="headerlink" href="#time-stepping-parameters" title="Link to this heading"></a></h2>
+<div class="sphinx_collapse docutils container">
+<input class="sphinx_collapse__input" id="f2d26c86-c2ef-4fba-936b-057bd2762b40" name="f2d26c86-c2ef-4fba-936b-057bd2762b40" type="checkbox"><label class="sphinx_collapse__label" for="f2d26c86-c2ef-4fba-936b-057bd2762b40"><i class="sphinx_collapse__icon"></i>TimeStepping Schema</label><div class="sphinx_collapse__content docutils container">
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file://./TimeStepping.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Input for the time stepping&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;TimeStepping&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">                                    </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;totalTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">                                                    </span><span class="nt">&quot;timeStepDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">                                                    </span><span class="nt">&quot;numberOfTimeSteps&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">},</span>
+<span class="w">                                                    </span><span class="nt">&quot;useRampup&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
+<span class="w">                                                    </span><span class="nt">&quot;rampupTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}},</span>
+<span class="w">                                    </span><span class="nt">&quot;oneOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;required&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;numberOfTimeSteps&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;totalTime&quot;</span><span class="p">]},</span>
+<span class="w">                                               </span><span class="p">{</span><span class="nt">&quot;required&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;timeStepDuration&quot;</span><span class="p">]}]</span>
+<span class="w">                                   </span><span class="p">}</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solver-parameters">
+<h2>Solver Parameters<a class="headerlink" href="#solver-parameters" title="Link to this heading"></a></h2>
+<div class="sphinx_collapse docutils container">
+<input class="sphinx_collapse__input" id="cc055086-36b6-4527-92e8-4b2a74e26f89" name="cc055086-36b6-4527-92e8-4b2a74e26f89" type="checkbox"><label class="sphinx_collapse__label" for="cc055086-36b6-4527-92e8-4b2a74e26f89"><i class="sphinx_collapse__icon"></i>Solver Schema</label><div class="sphinx_collapse__content docutils container">
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file://./Solver.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Setting that can be given to the solver (only parts of those are avaible through json interface)&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;NonLinearSolver&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Some of the settings for the Newton non-linear solver. There are many more options available, see battmoDir()/MRST/mrst-autodiff/ad-core/solvers/NonLinearSolver&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;maxIterations&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;maximum number of Newton iterations&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;nonlinearTolerance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tolerance value for the nonlinear iteration&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;verbose&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;LinearSolver&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;linearSolverSetup&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;linearsolver.schema.json&quot;</span><span class="p">}}}}}}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="output-parameters">
+<h2>Output Parameters<a class="headerlink" href="#output-parameters" title="Link to this heading"></a></h2>
+<div class="sphinx_collapse docutils container">
+<input class="sphinx_collapse__input" id="2d1dccfd-f9ee-4ee9-bb17-9a4b2aa1c396" name="2d1dccfd-f9ee-4ee9-bb17-9a4b2aa1c396" type="checkbox"><label class="sphinx_collapse__label" for="2d1dccfd-f9ee-4ee9-bb17-9a4b2aa1c396"><i class="sphinx_collapse__icon"></i>Output Schema</label><div class="sphinx_collapse__content docutils container">
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file://./Ouput.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Specification of the outputs the will be returned&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">&quot;Output&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="nt">&quot;variables&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;list of extra variables that we want to get in output structure&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;enum&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;energyDensity&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;specificEnergy&quot;</span><span class="p">]}},</span>
+
+<span class="w">        </span><span class="nt">&quot;saveOutput&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;True if simulation data will be saved to disk (default is false)&quot;</span><span class="p">}},</span>
+
+<span class="w">      </span><span class="nt">&quot;dependentSchemas&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;saveOutput&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;anyOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;saveOutput&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+<span class="w">              </span><span class="nt">&quot;saveOptions&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;part of the input for battmoDir()/MRST/mrst-autodiff/ad-core/simulators/sim_runner/packSimulationProblem which deals with the place where the data is saved&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;outputDirectory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                                                     </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;name of the directory output where the output simulations will be saved&quot;</span><span class="p">},</span>
+<span class="w">                                </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                                          </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;name of the simulation. The output of the simulation will be saved in outputDirectory/name&quot;</span><span class="p">},</span>
+<span class="w">                                </span><span class="nt">&quot;clearSimulation&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+<span class="w">                                                     </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true if the data that has been saved in a previous run at the same location should be erased. False if it just should be loaded and used as the output of the simulation.&quot;</span><span class="p">}</span>
+<span class="w">                               </span><span class="p">}}}},</span>
+<span class="w">            </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;saveOutput&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}}}]}}}}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
 

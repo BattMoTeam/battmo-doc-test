@@ -7,6 +7,7 @@
   <title>BattMo Tutorial &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx_collapse.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/battmologo.ico"/>
   <!--[if lt IE 9]>
@@ -420,8 +421,8 @@ In this instance we will exclude temperature effects by setting use_thermal to f
 <span class="n">jsonstruct</span><span class="p">.(</span><span class="n">ne</span><span class="p">).(</span><span class="n">am</span><span class="p">).</span><span class="n">diffusionModelType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;full&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>To see which other types of diffusion model are available one can view <code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveMaterialInputParams</span> <span class="pre">&lt;Electrochemistry.ActiveMaterialInputParams&gt;.</span>
-<span class="pre">When</span> <span class="pre">running</span> <span class="pre">a</span> <span class="pre">simulation,</span> <span class="pre">BattMo</span> <span class="pre">requires</span> <span class="pre">that</span> <span class="pre">all</span> <span class="pre">model</span> <span class="pre">parameters</span> <span class="pre">are</span> <span class="pre">stored</span> <span class="pre">in</span> <span class="pre">an</span> <span class="pre">instance</span> <span class="pre">of</span> <span class="pre">:battmo:`BatteryInputParams</span></code>. This class is used to initialize the simulation and is accessed by various parts of the simulator during the simulation. This class is instantiated using the jsonstruct we just created:</p>
+<p>To see which other types of diffusion model are available one can view <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Electrochemistry/ActiveMaterialInputParams.m">ActiveMaterialInputParams</a>.
+When running a simulation, BattMo requires that all model parameters are stored in an instance of <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Battery/BatteryInputParams.m">BatteryInputParams</a>. This class is used to initialize the simulation and is accessed by various parts of the simulator during the simulation. This class is instantiated using the jsonstruct we just created:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">paramobj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BatteryInputParams</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
 <span class="n">paramobj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">paramobj</span><span class="p">.</span><span class="n">validateInputParams</span><span class="p">();</span>
 </pre></div>
