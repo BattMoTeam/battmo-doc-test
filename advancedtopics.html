@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Alkaline Membrane Electrolyser" href="publishedExamples/runElectrolyser.html" />
+    <link rel="next" title="MRST" href="mrst.html" />
     <link rel="prev" title="Battery Geometries" href="geometryinput.html" /> 
 </head>
 
@@ -241,6 +241,11 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced examples and topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mrst.html">MRST</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mrst.html#id1">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mrst.html#id2">Grid Factory Tutorial</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Alkaline Membrane Electrolyser</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
 <li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-model">Setup model</a></li>
@@ -250,11 +255,6 @@
 <li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#run-the-simulation">Run the simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#visualize-the-results">Visualize the results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#ph-distribution-plot">pH distribution plot</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mrst.html">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mrst.html#id1">Visualization Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mrst.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html">Model initialisation</a><ul>
@@ -289,7 +289,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#id0"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -335,54 +335,16 @@
   <section id="advanced-examples-and-topics">
 <h1>Advanced examples and topics<a class="headerlink" href="#advanced-examples-and-topics" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Alkaline Membrane Electrolyser</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-model">Setup model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-initial-condition">Setup the initial condition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-schedule-with-the-time-discretization">Setup the schedule with the time discretization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-non-linear-solver">Setup the non-linear solver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#run-the-simulation">Run the simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#visualize-the-results">Visualize the results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#ph-distribution-plot">pH distribution plot</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="mrst.html">MRST</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mrst.html#id1">Visualization Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mrst.html#id2">Grid Factory Tutorial</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="modelinitialisation.html">Model initialisation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html#how-to-initialise-the-model">How to initialise the model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html#calculating-intial-concentration">Calculating intial concentration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html#calculating-initial-potential">Calculating initial potential</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="controls.html">Control models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="controls.html#ieswitch">IESwitch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controls.html#cccv">CCCV</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controls.html#cc">CC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controls.html#cv">CV</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="thermal.html">Thermal model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlinput.html">Control models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="controlinput.html#base-control-model">Base Control Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controlinput.html#ieswitch-control">IESwitch Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controlinput.html#constant-current-constant-voltage-control">Constant Current Constant Voltage Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controlinput.html#constant-voltage">Constant Voltage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controlinput.html#constant-current">Constant Current</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parsets.html">Parameter sets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="parsets.html#chen-2020">Chen 2020</a></li>
-<li class="toctree-l2"><a class="reference internal" href="parsets.html#safari-2009">Safari 2009</a></li>
-<li class="toctree-l2"><a class="reference internal" href="parsets.html#xu-2015">Xu 2015</a></li>
-</ul>
-</li>
-</ul>
 </div>
+<ul class="simple">
+<li><p><a class="reference internal" href="mrst.html#mrst"><span class="std std-ref">MRST</span></a></p></li>
+<li><p><a class="reference internal" href="publishedExamples/runElectrolyser.html#alkaline-membrane-electrolyser"><span class="std std-ref">Alkaline Membrane Electrolyser</span></a></p></li>
+<li><p><a class="reference internal" href="modelinitialisation.html#model-initialisation"><span class="std std-ref">Model initialisation</span></a></p></li>
+<li><p><a class="reference internal" href="controls.html#control-models"><span class="std std-ref">Control models</span></a></p></li>
+<li><p><a class="reference internal" href="thermal.html#thermal-model"><span class="std std-ref">Thermal model</span></a></p></li>
+<li><p><a class="reference internal" href="optimisation.html#optimisation"><span class="std std-ref">Optimisation</span></a></p></li>
+<li><p><a class="reference internal" href="parsets.html#parameter-sets"><span class="std std-ref">Parameter sets</span></a></p></li>
+</ul>
 </section>
 
 
@@ -390,7 +352,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="geometryinput.html" class="btn btn-neutral float-left" title="Battery Geometries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="publishedExamples/runElectrolyser.html" class="btn btn-neutral float-right" title="Alkaline Membrane Electrolyser" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mrst.html" class="btn btn-neutral float-right" title="MRST" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
