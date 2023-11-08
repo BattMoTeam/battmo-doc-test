@@ -1,6 +1,0 @@
-More examples
--------------
-
-.. automodule:: Examples.advanced
-                
-.. autoscript:: runJellyRoll
