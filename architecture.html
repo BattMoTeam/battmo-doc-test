@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python Module Index &mdash; BattMo  documentation</title>
+  <title>BattMo Model Architecture &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
@@ -21,13 +22,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
- 
-
-    <script>
-      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
-    </script>
-
-
+    <link rel="next" title="Battery cell" href="batteryinput.html" />
+    <link rel="prev" title="Basic Usage" href="basicusage.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,7 +46,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="basicusage.html#standard-run">Standard Run</a></li>
@@ -62,7 +58,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BattMo Model Architecture</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="batteryinput.html">Battery cell</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="batteryinput.html#BatteryInputParams"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BatteryInputParams.NegativeElectrode"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams.NegativeElectrode</span></code></a></li>
@@ -326,8 +322,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Python Module Index</li>
+      <li class="breadcrumb-item active">BattMo Model Architecture</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/architecture.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -335,28 +332,62 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-
-   <h1>Python Module Index</h1>
-
-   <div class="modindex-jumpbox">
-   <a href="#cap-u"><strong>u</strong></a>
-   </div>
-
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-u"><td></td><td>
-       <strong>u</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="controlinput.html#module-Utilities"><code class="xref">Utilities</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+  <section id="battmo-model-architecture">
+<h1>BattMo Model Architecture<a class="headerlink" href="#battmo-model-architecture" title="Link to this heading"></a></h1>
+<p>We use a multi-model approach. The models are organized in a hierarchy, meaning that a given model can have
+sub-models. A model is supposed to define all the functions and variables that will be needed to simulate a physical
+system separately. At the top, we have a battery model with the submodels:</p>
+<ul class="simple">
+<li><p>Negative electrode model</p></li>
+<li><p>Positive electrode model</p></li>
+<li><p>Electrolyte model</p></li>
+<li><p>Separator model</p></li>
+<li><p>ThermalModel model</p></li>
+<li><p>Control model</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference external image-reference" href="_images/cutbatterygraph.png"><img alt="_images/cutbatterygraph.png" src="_images/cutbatterygraph.png" /></a>
+</figure>
+<p>The <strong>negative and positive electrodes</strong> are instances of the same electrode model. The electrode model has two sub-models:</p>
+<ul class="simple">
+<li><p>Coating model</p></li>
+<li><p>Current Collector model (optional)</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference external image-reference" href="_images/electrodegraph.png"><img alt="_images/electrodegraph.png" src="_images/electrodegraph.png" style="width: 50%;" /></a>
+</figure>
+<p>The <strong>coating model</strong> has four sub-models:</p>
+<ul class="simple">
+<li><p>Active material model</p></li>
+<li><p>Binder</p></li>
+<li><p>Conductive additive model</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference external image-reference" href="_images/coatinggraph.png"><img alt="_images/coatinggraph.png" class="with-border" src="_images/coatinggraph.png" style="width: 70%;" /></a>
+</figure>
+<p>In the case of a composite material, the coating model will have a different structure with two active material models
+(see <span class="todo">add link</span>)</p>
+<p>The <strong>Active Material</strong> is organized two sub-models</p>
+<ul class="simple">
+<li><p>Interface</p></li>
+<li><p>SolidDiffusion</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference external image-reference" href="_images/activematerialgraph.png"><img alt="_images/activematerialgraph.png" src="_images/activematerialgraph.png" style="width: 50%;" /></a>
+</figure>
+<p>We have implemented two solid diffusion model <span class="todo">add more</span></p>
+<p>The <strong>Control</strong>, <strong>Separator</strong> and <strong>Thermal</strong> models do not have sub-models.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="basicusage.html" class="btn btn-neutral float-left" title="Basic Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="batteryinput.html" class="btn btn-neutral float-right" title="Battery cell" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

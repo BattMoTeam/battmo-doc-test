@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python Module Index &mdash; BattMo  documentation</title>
+  <title>&lt;no title&gt; &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
@@ -20,14 +21,7 @@
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
- 
-
-    <script>
-      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
-    </script>
-
-
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -326,8 +320,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Python Module Index</li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/plotResult.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -335,23 +330,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
+  <p id="plotresult">This is a simple plot function that extracts the time and voltage variables in the <code class="code docutils literal notranslate"><span class="pre">states</span></code> cells for each time
+step. Then, the result is plotted.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">plotResult</span><span class="p">(</span>output<span class="p">)</span>
 
-   <h1>Python Module Index</h1>
+<span class="w">    </span><span class="n">states</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">states</span><span class="p">;</span>
 
-   <div class="modindex-jumpbox">
-   <a href="#cap-u"><strong>u</strong></a>
-   </div>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">ind</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">numel</span><span class="p">(</span><span class="n">states</span><span class="p">)</span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">states</span><span class="p">{</span><span class="n">ind</span><span class="p">};</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="nb">time</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">states</span><span class="p">{</span><span class="n">ind</span><span class="p">}.</span><span class="n">time</span><span class="p">;</span>
+<span class="w">        </span><span class="n">E</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">states</span><span class="p">{</span><span class="n">ind</span><span class="p">}.</span><span class="n">Control</span><span class="p">.</span><span class="n">E</span><span class="p">;</span>
+<span class="w">        </span>
+<span class="w">    </span><span class="k">end</span>
 
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-u"><td></td><td>
-       <strong>u</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="controlinput.html#module-Utilities"><code class="xref">Utilities</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+<span class="w">    </span><span class="nb">plot</span><span class="p">(</span><span class="nb">time</span><span class="o">/</span><span class="nb">hour</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time / h&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;voltage / V&#39;</span><span class="p">);</span>
+<span class="w">    </span>
+<span class="k">end</span>
+</pre></div>
+</div>
 
 
            </div>
