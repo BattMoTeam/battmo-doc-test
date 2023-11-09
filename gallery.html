@@ -47,13 +47,7 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#standard-run">Standard Run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#modifying-the-json-input-directly-from-matlab">Modifying the Json input directly from Matlab</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#combining-json-inputs">Combining Json inputs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="basicusage.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="basicusage.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#first-run">First Run</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a><ul>
@@ -189,18 +183,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="json.html">Json input specification</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="json.html#material-parameters">Material Parameters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="json.html#electrolyte">Electrolyte</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json.html#electrode">Electrode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json.html#coating">Coating</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json.html#interface">Interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json.html#solid-diffusion">Solid Diffusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json.html#current-collector">Current Collector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json.html#separator">Separator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json.html#thermal-model">Thermal Model</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="json.html#geometry-setup">Geometry Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html#material-parameters">Material Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html#simulation-control-parameters">Simulation Control Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html#time-stepping-parameters">Time Stepping Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html#solver-parameters">Solver Parameters</a></li>
@@ -209,23 +193,23 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator1d">BatteryGenerator1D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator1D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator1D</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#Battery.BatteryGeometry.BatteryGenerator1D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator1D</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator2d">BatteryGenerator2D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator2D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator2D</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#Battery.BatteryGeometry.BatteryGenerator2D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator2D</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator3d">BatteryGenerator3D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator3D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator3D</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#Battery.BatteryGeometry.BatteryGenerator3D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator3D</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#SpiralBatteryGenerator"><code class="docutils literal notranslate"><span class="pre">SpiralBatteryGenerator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#Battery.BatteryGeometry.SpiralBatteryGenerator"><code class="docutils literal notranslate"><span class="pre">SpiralBatteryGenerator</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#CoinCellBatteryGenerator"><code class="docutils literal notranslate"><span class="pre">CoinCellBatteryGenerator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#Battery.BatteryGeometry.CoinCellBatteryGenerator"><code class="docutils literal notranslate"><span class="pre">CoinCellBatteryGenerator</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#blockbatterygenerator">BlockBatteryGenerator</a></li>
@@ -233,7 +217,7 @@
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#flatbatterygenerator">FlatBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#sectorbatterygenerator">SectorBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#base-class">Base class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#Battery.BatteryGeometry.BatteryGenerator"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator</span></code></a></li>
 </ul>
 </li>
 </ul>

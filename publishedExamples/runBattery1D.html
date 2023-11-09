@@ -208,16 +208,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../geometryinput.html">Battery Geometries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygenerator1d">BatteryGenerator1D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGenerator1D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator1D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygeneratorp2d">BatteryGeneratorP2D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGeneratorP2D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP2D</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygenerator2d">BatteryGenerator2D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGenerator2D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator2D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygeneratorp3d">BatteryGeneratorP3D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGeneratorP3D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP3D</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygenerator3d">BatteryGenerator3D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGenerator3D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator3D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGeneratorP4D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP4D</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a><ul>
@@ -287,7 +287,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../controlinput.html#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#id0"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -301,7 +301,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../juliabridge.html">Julia bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../juliabridge.html">Julia bridge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../juliabridge.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../juliabridge.html#setup-and-use">Setup and Use</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
 </ul>
@@ -331,8 +335,8 @@
            <div itemprop="articleBody">
              
   <section id="pseudo-two-dimensional-p2d-lithium-ion-battery-model">
-<span id="runbattery1d"></span><h1>Pseudo-Two-Dimensional (P2D) Lithium-Ion Battery Model<a class="headerlink" href="#pseudo-two-dimensional-p2d-lithium-ion-battery-model" title="Link to this heading"></a></h1>
-<p><em>Generated from runBattery1D.m</em></p>
+<span id="runbatteryp2d"></span><h1>Pseudo-Two-Dimensional (P2D) Lithium-Ion Battery Model<a class="headerlink" href="#pseudo-two-dimensional-p2d-lithium-ion-battery-model" title="Link to this heading"></a></h1>
+<p><em>Generated from runBatteryP2D.m</em></p>
 <p>This example demonstrates how to setup a P2D model of a Li-ion battery and run a simple simulation.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Clear the workspace and close open figures</span>
 <span class="c">% clear all</span>
@@ -405,8 +409,8 @@
 </section>
 <section id="setup-the-geometry-and-computational-mesh">
 <h2>Setup the geometry and computational mesh<a class="headerlink" href="#setup-the-geometry-and-computational-mesh" title="Link to this heading"></a></h2>
-<p>Here, we setup the 1D computational mesh that will be used for the simulation. The required discretization parameters are already included in the class BatteryGenerator1D.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BatteryGenerator1D</span><span class="p">();</span>
+<p>Here, we setup the 1D computational mesh that will be used for the simulation. The required discretization parameters are already included in the class BatteryGeneratorP2D.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BatteryGeneratorP2D</span><span class="p">();</span>
 
 <span class="c">% Now, we update the paramobj with the properties of the mesh.</span>
 <span class="n">paramobj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gen</span><span class="p">.</span><span class="n">updateBatteryInputParams</span><span class="p">(</span><span class="n">paramobj</span><span class="p">);</span>
@@ -543,9 +547,9 @@
 </pre></div>
 </div>
 <figure class="align-default" style="width: 100%">
-<img alt="../_images/runBattery1D_01.png" src="../_images/runBattery1D_01.png" />
+<img alt="publishedExamples/runBatteryP2D_01.png" src="publishedExamples/runBatteryP2D_01.png" />
 </figure>
-<p>complete source code can be found <a class="reference internal" href="runBattery1D_source.html#runbattery1d-source"><span class="std std-ref">here</span></a></p>
+<p>complete source code can be found <a class="reference internal" href="runBattery1D_source.html#runbatteryp2d-source"><span class="std std-ref">here</span></a></p>
 </section>
 </section>
 
@@ -557,7 +561,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Simon Clark.</p>
+    <p>&#169; Copyright 2021-2023.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

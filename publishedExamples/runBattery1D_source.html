@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Source code for runBattery1D &mdash; BattMo  documentation</title>
+  <title>Source code for runBatteryP2D &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sphinx_collapse.css" type="text/css" />
@@ -208,16 +208,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../geometryinput.html">Battery Geometries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygenerator1d">BatteryGenerator1D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGenerator1D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator1D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygeneratorp2d">BatteryGeneratorP2D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGeneratorP2D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP2D</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygenerator2d">BatteryGenerator2D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGenerator2D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator2D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygeneratorp3d">BatteryGeneratorP3D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGeneratorP3D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP3D</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygenerator3d">BatteryGenerator3D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGenerator3D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator3D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../geometryinput.html#BatteryGeneratorP4D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP4D</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a><ul>
@@ -287,7 +287,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../controlinput.html#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#id0"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -320,7 +320,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Source code for runBattery1D</li>
+      <li class="breadcrumb-item active">Source code for runBatteryP2D</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/publishedExamples/runBattery1D_source.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -330,8 +330,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="source-code-for-runbattery1d">
-<span id="runbattery1d-source"></span><h1>Source code for runBattery1D<a class="headerlink" href="#source-code-for-runbattery1d" title="Link to this heading"></a></h1>
+  <section id="source-code-for-runbatteryp2d">
+<span id="runbatteryp2d-source"></span><h1>Source code for runBatteryP2D<a class="headerlink" href="#source-code-for-runbatteryp2d" title="Link to this heading"></a></h1>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% Pseudo-Two-Dimensional (P2D) Lithium-Ion Battery Model</span>
 <span class="c">% This example demonstrates how to setup a P2D model of a Li-ion battery</span>
 <span class="c">% and run a simple simulation.</span>
@@ -410,8 +410,8 @@
 <span class="c">%% Setup the geometry and computational mesh</span>
 <span class="c">% Here, we setup the 1D computational mesh that will be used for the</span>
 <span class="c">% simulation. The required discretization parameters are already included</span>
-<span class="c">% in the class BatteryGenerator1D.</span>
-<span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BatteryGenerator1D</span><span class="p">();</span>
+<span class="c">% in the class BatteryGeneratorP2D.</span>
+<span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BatteryGeneratorP2D</span><span class="p">();</span>
 
 <span class="c">% Now, we update the paramobj with the properties of the mesh.</span>
 <span class="n">paramobj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gen</span><span class="p">.</span><span class="n">updateBatteryInputParams</span><span class="p">(</span><span class="n">paramobj</span><span class="p">);</span>
@@ -565,7 +565,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Simon Clark.</p>
+    <p>&#169; Copyright 2021-2023.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

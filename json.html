@@ -210,16 +210,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator1d">BatteryGenerator1D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator1D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator1D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp2d">BatteryGeneratorP2D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP2D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP2D</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator2d">BatteryGenerator2D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator2D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator2D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp3d">BatteryGeneratorP3D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP3D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP3D</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator3d">BatteryGenerator3D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator3D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator3D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP4D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP4D</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a><ul>
@@ -289,7 +289,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#id0"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -946,10 +946,10 @@ important ones.</p>
 <span class="w">                  </span><span class="nt">&quot;Ny&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">}}}}}}}]},</span><span class="w">    </span>
 <span class="w">    </span>
 <span class="w">    </span><span class="nt">&quot;2D-demo&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpecs&quot;</span><span class="p">,</span>
-<span class="w">                 </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGenerator2D&quot;</span><span class="p">},</span>
+<span class="w">                 </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGeneratorP3D&quot;</span><span class="p">},</span>
 
 <span class="w">    </span><span class="nt">&quot;3D-demo&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGenerator3D&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGeneratorP4D&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;allOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpecs&quot;</span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span>
@@ -1330,7 +1330,7 @@ important ones.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Simon Clark.</p>
+    <p>&#169; Copyright 2021-2023.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
