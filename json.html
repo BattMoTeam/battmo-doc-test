@@ -357,7 +357,7 @@ in progress <span class="todo">add more here</span>).</p>
 <p>For example a component (say the electolyte) has its geometrical and material properties specified in two separate
 schemas. We think it clarifies the presentation to separate the presentation of those properties and it corresponds also
 to a convenient way to organize the input. We can easily switch between different geometrical models while keeping the
-same material properties. For that, we use the <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Utilities/JsonUtils/mergeJsonStructs.m">mergeJsonStructs</a> function, see example
+same material properties. For that, we use the <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonUtils/mergeJsonStructs.m">mergeJsonStructs</a> function, see example
 <a class="reference internal" href="basicusage.html#mergejsonstructs"><span class="std std-ref">here</span></a>.</p>
 <p>This is the schema for the input json file. It uses other separate schemas which takes care of specific parameter sets.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -402,7 +402,7 @@ same material properties. For that, we use the <a class="reference external" hre
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The schemas are available in the directory <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Utilities/JsonSchemas">JsonSchemas</a>. Here, we present the most
+<p>The schemas are available in the directory <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonSchemas">JsonSchemas</a>. Here, we present the most
 important ones.</p>
 <section id="material-parameters">
 <h2>Material Parameters<a class="headerlink" href="#material-parameters" title="Link to this heading"></a></h2>
@@ -1157,7 +1157,7 @@ important ones.</p>
 <span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;controlPolicy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;IEswitch&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CCCV&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CV&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;powerControl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CC&quot;</span><span class="p">]},</span>
+<span class="w">          </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;CCDischarge&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CCCHarge&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CCCHarge&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;powerControl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CCCV&quot;</span><span class="p">]},</span>
 <span class="w">        </span><span class="nt">&quot;CRate&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;initialControl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>

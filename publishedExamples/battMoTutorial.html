@@ -347,7 +347,7 @@
 </section>
 <section id="specifying-the-physical-model">
 <h2>Specifying the physical model<a class="headerlink" href="#specifying-the-physical-model" title="Link to this heading"></a></h2>
-<p>In this tutorial we will simulate a lithium-ion battery consisting of a negative electrode, a positive electrode and an electrolyte. BattMo comes with some pre-defined models which can be loaded from JSON files. Here we will load the basic lithium-ion model JSON file which comes with Battmo. We use <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Utilities/JsonUtils/parseBattmoJson.m">parseBattmoJson</a> to parse the file, see <span class="todo">add link to doc</span></p>
+<p>In this tutorial we will simulate a lithium-ion battery consisting of a negative electrode, a positive electrode and an electrolyte. BattMo comes with some pre-defined models which can be loaded from JSON files. Here we will load the basic lithium-ion model JSON file which comes with Battmo. We use <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonUtils/parseBattmoJson.m">parseBattmoJson</a> to parse the file, see <span class="todo">add link to doc</span></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;ParameterData&#39;</span><span class="p">,</span><span class="s">&#39;BatteryCellParameters&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">    </span><span class="s">&#39;LithiumIonBatteryCell&#39;</span><span class="p">,</span><span class="s">&#39;lithium_ion_battery_nmc_graphite.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">fname</span><span class="p">);</span>
@@ -386,7 +386,7 @@ In this instance we will exclude temperature effects by setting use_thermal to f
 <span class="n">paramobj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">paramobj</span><span class="p">.</span><span class="n">validateInputParams</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>It is also possible to update the properties of this paramobj in a similar way to updating the jsonstruct. Here we set the discretisation level for the diffusion model. Other input parameters for the full diffusion model can be found here: <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Electrochemistry/FullSolidDiffusionModelInputParams.m">FullSolidDiffusionModelInputParams</a>.</p>
+<p>It is also possible to update the properties of this paramobj in a similar way to updating the jsonstruct. Here we set the discretisation level for the diffusion model. Other input parameters for the full diffusion model can be found here: <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrochemistry/FullSolidDiffusionModelInputParams.m">FullSolidDiffusionModelInputParams</a>.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">paramobj</span><span class="p">.(</span><span class="n">ne</span><span class="p">).(</span><span class="n">co</span><span class="p">).(</span><span class="n">am</span><span class="p">).(</span><span class="n">sd</span><span class="p">).</span><span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
 <span class="n">paramobj</span><span class="p">.(</span><span class="n">pe</span><span class="p">).(</span><span class="n">co</span><span class="p">).(</span><span class="n">am</span><span class="p">).(</span><span class="n">sd</span><span class="p">).</span><span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
 </pre></div>
@@ -394,7 +394,7 @@ In this instance we will exclude temperature effects by setting use_thermal to f
 </section>
 <section id="setting-up-the-geometry">
 <h2>Setting up the geometry<a class="headerlink" href="#setting-up-the-geometry" title="Link to this heading"></a></h2>
-<p>Here, we setup the 1D computational mesh that will be used for the simulation. The required discretization parameters are already included in the class <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Battery/BatteryGeometry/BatteryGeneratorP2D.m">BatteryGeneratorP2D</a>. Classes for generating other geometries can be found in the BattMo/Battery/BatteryGeometry folder.</p>
+<p>Here, we setup the 1D computational mesh that will be used for the simulation. The required discretization parameters are already included in the class <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGeneratorP2D.m">BatteryGeneratorP2D</a>. Classes for generating other geometries can be found in the BattMo/Battery/BatteryGeometry folder.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BatteryGeneratorP2D</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -405,7 +405,7 @@ In this instance we will exclude temperature effects by setting use_thermal to f
 </section>
 <section id="initialising-the-battery-model-object">
 <h2>Initialising the battery model object<a class="headerlink" href="#initialising-the-battery-model-object" title="Link to this heading"></a></h2>
-<p>The battery model is initialized by sending paramobj to the Battery class constructor. see <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Battery/Battery.m">Battery</a>.</p>
+<p>The battery model is initialized by sending paramobj to the Battery class constructor. see <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/Battery.m">Battery</a>.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Battery</span><span class="p">(</span><span class="n">paramobj</span><span class="p">);</span>
 </pre></div>
 </div>

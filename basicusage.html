@@ -357,7 +357,7 @@ explicit names for a good readability.</p>
 <span class="n">states</span><span class="w"> </span><span class="s">:</span><span class="w"> </span><span class="s">[1x1</span><span class="w"> </span><span class="s">struct]</span>
 </pre></div>
 </div>
-<p>We can plot the results using <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Utilities/Visualization/plotDashboard.m">plotDashboard</a>. Here, for example at time step equal to 10,</p>
+<p>We can plot the results using <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/Visualization/plotDashboard.m">plotDashboard</a>. Here, for example at time step equal to 10,</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">plotDashboard</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;step&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -396,10 +396,10 @@ voltage values, see <a class="reference internal" href="plotResult.html#plotresu
 </ol>
 <section id="direct-insertion-using-parsebattmojson">
 <h3>Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code><a class="headerlink" href="#direct-insertion-using-parsebattmojson" title="Link to this heading"></a></h3>
-<p>The function <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Utilities/JsonUtils/parseBattmoJson.m">parseBattmoJson</a> parses the json input to create the corresponding matlab structure, basically
+<p>The function <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonUtils/parseBattmoJson.m">parseBattmoJson</a> parses the json input to create the corresponding matlab structure, basically
 relying on <a class="reference external" href="https://se.mathworks.com/help/matlab/ref/jsondecode.html">jsondecode</a>. In this process the reserved
 keyword properties <code class="code docutils literal notranslate"><span class="pre">isFile</span></code> combined with <code class="code docutils literal notranslate"><span class="pre">filename</span></code> are used to fetch and insert in place json data located
-in separate files. Here is an example, taken from <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json">lithium_ion_battery_nmc_graphite.json</a> where we have the following lines</p>
+in separate files. Here is an example, taken from <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json">lithium_ion_battery_nmc_graphite.json</a> where we have the following lines</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;NegativeElectrode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;Coating&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;ActiveMaterial&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -409,16 +409,16 @@ in separate files. Here is an example, taken from <a class="reference external" 
 <span class="w">      </span><span class="p">}}}}</span>
 </pre></div>
 </div>
-<p>The content of the file <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/ParameterData/MaterialProperties/Graphite/graphite.json">graphite.json</a> is then
+<p>The content of the file <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/ParameterData/MaterialProperties/Graphite/graphite.json">graphite.json</a> is then
 inserted in place. Hence, when we write</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fileread</span><span class="p">(</span><span class="s">&#39;ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json&#39;</span><span class="p">)</span>
 <span class="n">jsonstruct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>the <code class="code docutils literal notranslate"><span class="pre">jsonstruct</span></code> that is obtained is equivalent to the one where we would have copied and paste the content of
-<a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/ParameterData/MaterialProperties/Graphite/graphite.json">graphite.json</a>.</p>
+<a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/ParameterData/MaterialProperties/Graphite/graphite.json">graphite.json</a>.</p>
 <div class="sphinx_collapse docutils container">
-<input class="sphinx_collapse__input" id="08ae5a81-34a9-45b7-8bb5-17f949a77de3" name="08ae5a81-34a9-45b7-8bb5-17f949a77de3" type="checkbox"><label class="sphinx_collapse__label" for="08ae5a81-34a9-45b7-8bb5-17f949a77de3"><i class="sphinx_collapse__icon"></i>jsonstruct detail</label><div class="sphinx_collapse__content docutils container">
+<input class="sphinx_collapse__input" id="c6e7ac14-2866-4bcb-959f-7257a0275f97" name="c6e7ac14-2866-4bcb-959f-7257a0275f97" type="checkbox"><label class="sphinx_collapse__label" for="c6e7ac14-2866-4bcb-959f-7257a0275f97"><i class="sphinx_collapse__icon"></i>jsonstruct detail</label><div class="sphinx_collapse__content docutils container">
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;NegativeElectrode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;Coating&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;ActiveMaterial&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -444,7 +444,7 @@ inserted in place. Hence, when we write</p>
 <section id="merge-function-using-mergejsonstructs">
 <span id="mergejsonstructs"></span><h3>Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code><a class="headerlink" href="#merge-function-using-mergejsonstructs" title="Link to this heading"></a></h3>
 <p>We have implemented in Matlab a simple function that merge json files (feel free to implement it in your favorite
-languages). The function <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Utilities/JsonUtils/mergeJsonStructs.m">mergeJsonStructs</a> takes a cell array of json structure parsed with <a class="reference external" href="https://se.mathworks.com/help/matlab/ref/jsondecode.html">jsondecode</a> or <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Utilities/JsonUtils/parseBattmoJson.m">parseBattmoJson</a> and merge the fields.</p>
+languages). The function <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonUtils/mergeJsonStructs.m">mergeJsonStructs</a> takes a cell array of json structure parsed with <a class="reference external" href="https://se.mathworks.com/help/matlab/ref/jsondecode.html">jsondecode</a> or <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonUtils/parseBattmoJson.m">parseBattmoJson</a> and merge the fields.</p>
 <p>Let us look at an example where we change the geometry.  In <a class="reference internal" href="geometryinput.html#battery-geometries"><span class="std std-ref">Battery Geometries</span></a>, we give an overview
 of the various geometrical model we support.</p>
 <p>We use the same material parameters as in the previous case,</p>
@@ -452,9 +452,9 @@ of the various geometrical model we support.</p>
 <span class="n">jsonstruct_material</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">jsonfilename</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Let us consider the <code class="code docutils literal notranslate"><span class="pre">3d-demo</span></code> <a class="reference internal" href="geometryinput.html#id1"><span class="std std-ref">case</span></a>. The 3D model can be found in the <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Utilities/JsonSchemas/Geometry.schema.json#L113">Geometry
+<p>Let us consider the <code class="code docutils literal notranslate"><span class="pre">3d-demo</span></code> <a class="reference internal" href="geometryinput.html#id1"><span class="std std-ref">case</span></a>. The 3D model can be found in the <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonSchemas/Geometry.schema.json#L113">Geometry
 Schema</a>. We use the parameters given in
-<a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Examples/jsondatafiles/geometry3d.json">geometry3d.json</a> and fetch those using</p>
+<a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/jsondatafiles/geometry3d.json">geometry3d.json</a> and fetch those using</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Examples/jsondatafiles/geometry3d.json&#39;</span><span class="p">;</span>
 <span class="n">jsonstruct_geometry</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">jsonfilename</span><span class="p">);</span>
 </pre></div>
@@ -464,12 +464,12 @@ Schema</a>. We use the parameters given in
 </pre></div>
 </div>
 <p>Now we have a json structure <code class="code docutils literal notranslate"><span class="pre">jsonstruct</span></code> that contains material properties and geometry obtained from two
-separate files. After adding the rest of the simulation inputs as done in <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Examples/json_input/runJsonScript.m">runJsonScript</a>, the simulation can be
+separate files. After adding the rest of the simulation inputs as done in <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/json_input/runJsonScript.m">runJsonScript</a>, the simulation can be
 run as before by running</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">output</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">runBatteryJson</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>We plot the model using <a class="reference external" href="https://github.com/BattMoTeam/BattMo-dev/blob/modelrefac/Utilities/Visualization/plotBatteryMesh.m">plotBatteryMesh</a> (note that the different axis are scaled differently)</p>
+<p>We plot the model using <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/Visualization/plotBatteryMesh.m">plotBatteryMesh</a> (note that the different axis are scaled differently)</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">model</span>
 <span class="n">plotBatteryMesh</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
