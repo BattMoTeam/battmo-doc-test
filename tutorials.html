@@ -208,16 +208,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator1d">BatteryGenerator1D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator1D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator1D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp2d">BatteryGeneratorP2D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP2D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP2D</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator2d">BatteryGenerator2D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator2D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator2D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp3d">BatteryGeneratorP3D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP3D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP3D</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator3d">BatteryGenerator3D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator3D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator3D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP4D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP4D</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a><ul>
@@ -287,7 +287,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#id0"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -301,7 +301,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
 </ul>
@@ -339,14 +343,14 @@ that are available in <strong>BattMo</strong></p>
 <li><p>In this <a class="reference internal" href="publishedExamples/runJsonScript.html#runjsonscript"><span class="std std-ref">json example</span></a>, we show how to combine different json files from different sources</p></li>
 <li><p>The <a class="reference internal" href="publishedExamples/battMoTutorial.html#battmotutorial"><span class="std std-ref">battMoTutorial</span></a> describes the different step of a simulation when it is set manually beyond the options that
 are given by the json input format. They consist of</p></li>
-<li><p>In this <a class="reference internal" href="publishedExamples/runBattery1D.html#runbattery1d"><span class="std std-ref">example</span></a>, more options are used such as some settings of the non-linear solver.</p></li>
+<li><p>In this <a class="reference internal" href="publishedExamples/runBatteryP2D.html#runbatteryp2d"><span class="std std-ref">example</span></a>, more options are used such as some settings of the non-linear solver.</p></li>
 <li><p>More Examples</p>
 <p><span class="todo">fix this section</span></p>
 <p>In the <code class="code docutils literal notranslate"><span class="pre">Examples</span></code> directory examples, the following examples can be found. They should run out of the box (write
 the name of script after <a class="reference internal" href="installation.html#installation"><span class="std std-ref">installing BattMo</span></a>). If not, tell us!</p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">runBattery2D</span></code> : 2D example using <a class="reference internal" href="geometryinput.html#dgeometry"><span class="std std-ref">2D model geometry</span></a></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">runBattery3D</span></code> : 3D example using <a class="reference internal" href="geometryinput.html#id1"><span class="std std-ref">3D model geometry</span></a></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">runBatteryP3D</span></code> : 2D example using <a class="reference internal" href="geometryinput.html#dgeometry"><span class="std std-ref">2D model geometry</span></a></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">runBatteryP4D</span></code> : 3D example using <a class="reference internal" href="geometryinput.html#id1"><span class="std std-ref">3D model geometry</span></a></p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">runChen2020</span></code> : Example using Chen data including a comparison with <a class="reference external" href="https://www.pybamm.org/">pybamm</a></p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">runCR</span></code> : Example running for a coin cell</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">runGittTest</span></code> : Example running a Gitt test</p></li>
@@ -366,7 +370,7 @@ the name of script after <a class="reference internal" href="installation.html#i
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Simon Clark.</p>
+    <p>&#169; Copyright 2021-2023.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

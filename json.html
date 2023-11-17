@@ -210,16 +210,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator1d">BatteryGenerator1D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator1D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator1D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp2d">BatteryGeneratorP2D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP2D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP2D</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator2d">BatteryGenerator2D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator2D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator2D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp3d">BatteryGeneratorP3D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP3D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP3D</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygenerator3d">BatteryGenerator3D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator3D"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator3D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP4D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP4D</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a><ul>
@@ -289,7 +289,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#id0"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -303,7 +303,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
 </ul>
@@ -339,12 +343,12 @@ of the syntax but bring additional information such as a <code class="code docut
 in progress <span class="todo">add more here</span>).</p>
 <p>The main Simulation schema contains schemas for</p>
 <ul class="simple">
-<li><p>A schema for the geometry</p></li>
-<li><p>A schema for the battery cell material parameters</p></li>
-<li><p>A schema for the initialization of the state of the battery</p></li>
-<li><p>A schema for the time stepping</p></li>
-<li><p>A schema for the solver parameters</p></li>
-<li><p>A schema for the output specification</p></li>
+<li><p>A schema for the <strong>geometry</strong></p></li>
+<li><p>A schema for the <strong>battery cell material parameters</strong></p></li>
+<li><p>A schema for the <strong>initialization of the state of the battery</strong></p></li>
+<li><p>A schema for the <strong>time stepping</strong></p></li>
+<li><p>A schema for the <strong>solver parameters</strong></p></li>
+<li><p>A schema for the <strong>output specification</strong></p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -402,6 +406,7 @@ same material properties. For that, we use the <a class="reference external" hre
 important ones.</p>
 <section id="material-parameters">
 <h2>Material Parameters<a class="headerlink" href="#material-parameters" title="Link to this heading"></a></h2>
+<p>The main schema is given by</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file://./Battery.schema.json&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
@@ -438,6 +443,24 @@ important ones.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>It contains references to schemas that are written in separate files</p>
+<ul class="simple">
+<li><p>Electrolyte</p></li>
+<li><p>Electrode</p>
+<ul>
+<li><p>Coating</p>
+<ul>
+<li><p>Interface</p></li>
+<li><p>Solid Diffusion</p></li>
+</ul>
+</li>
+<li><p>Current Collector</p></li>
+</ul>
+</li>
+<li><p>Separator</p></li>
+<li><p>Thermal Model</p></li>
+</ul>
+<p>We give the listing of those here.</p>
 <section id="electrolyte">
 <h3>Electrolyte<a class="headerlink" href="#electrolyte" title="Link to this heading"></a></h3>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -946,10 +969,10 @@ important ones.</p>
 <span class="w">                  </span><span class="nt">&quot;Ny&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">}}}}}}}]},</span><span class="w">    </span>
 <span class="w">    </span>
 <span class="w">    </span><span class="nt">&quot;2D-demo&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpecs&quot;</span><span class="p">,</span>
-<span class="w">                 </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGenerator2D&quot;</span><span class="p">},</span>
+<span class="w">                 </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGeneratorP3D&quot;</span><span class="p">},</span>
 
 <span class="w">    </span><span class="nt">&quot;3D-demo&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGenerator3D&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGeneratorP4D&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;allOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpecs&quot;</span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span>
@@ -1330,7 +1353,7 @@ important ones.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Simon Clark.</p>
+    <p>&#169; Copyright 2021-2023.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
