@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation instruction and requirements &mdash; BattMo  documentation</title>
+  <title>Installation and First Steps &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Basic Usage" href="basicusage.html" />
-    <link rel="prev" title="Introduction" href="index.html" /> 
+    <link rel="prev" title="Welcome" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,9 +49,20 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#standard-run">Standard Run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#modifying-the-json-input-directly-from-matlab">Modifying the Json input directly from Matlab</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#combining-json-inputs">Combining Json inputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#a-first-battmo-model">A First <strong>BattMo</strong> Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#define-parameters">Define Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#run-simulation">Run Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#show-the-dashboard">Show the Dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#explore-the-output">Explore the Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#explore-the-grid">Explore the Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#explore-the-states">Explore the States</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#plot-a-result">Plot a Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-control-parameters">Change Control Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-structural-parameters">Change Structural Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-material-parameters">Change Material Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#combining-json-inputs">Combining JSON inputs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="basicusage.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="basicusage.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
 </ul>
@@ -326,7 +337,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Installation instruction and requirements</li>
+      <li class="breadcrumb-item active">Installation and First Steps</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -336,15 +347,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="installation-instruction-and-requirements">
-<h1>Installation instruction and requirements<a class="headerlink" href="#installation-instruction-and-requirements" title="Link to this heading"></a></h1>
-<p id="installation">BattMo is based on <a class="reference external" href="https://www.sintef.no/Projectweb/MRST/">MRST</a> which provides a general unstructured grid format, generic MATLAB automatic differentiation
-tools and Newton solvers.</p>
-<p>The MRST code source can be installed directlu using git submodules:</p>
+  <section id="installation-and-first-steps">
+<h1>Installation and First Steps<a class="headerlink" href="#installation-and-first-steps" title="Link to this heading"></a></h1>
+<p id="installation">Install BattMo by cloning the git repository using <code class="code docutils literal notranslate"><span class="pre">--recurse-submodules</span></code> to also install the <a class="reference external" href="https://www.sintef.no/Projectweb/MRST/">MRST</a> dependencies.</p>
+<p>First, open a terminal and navigate to the directory where you would like to install BattMo. Then, clone the repository using the following command:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/BattMoTeam/BattMo.git
 </pre></div>
 </div>
-<p>Then start Matlab and in the directory <code class="code docutils literal notranslate"><span class="pre">battmo</span></code> where you cloned the repo, run:</p>
+<p>Start MATLAB and in the directory <code class="code docutils literal notranslate"><span class="pre">battmo</span></code> where you cloned the repository. In the MATLAB Command Window run:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">startupBattMo</span>
 </pre></div>
 </div>
@@ -367,7 +377,7 @@ plan to integrate newer open source iterative solvers such as <a class="referenc
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="basicusage.html" class="btn btn-neutral float-right" title="Basic Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Introduction &mdash; BattMo  documentation</title>
+  <title>Welcome &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation instruction and requirements" href="installation.html" /> 
+    <link rel="next" title="Installation and First Steps" href="installation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,9 +48,20 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#standard-run">Standard Run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#modifying-the-json-input-directly-from-matlab">Modifying the Json input directly from Matlab</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#combining-json-inputs">Combining Json inputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#a-first-battmo-model">A First <strong>BattMo</strong> Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#define-parameters">Define Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#run-simulation">Run Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#show-the-dashboard">Show the Dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#explore-the-output">Explore the Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#explore-the-grid">Explore the Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#explore-the-states">Explore the States</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#plot-a-result">Plot a Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-control-parameters">Change Control Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-structural-parameters">Change Structural Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-material-parameters">Change Material Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#combining-json-inputs">Combining JSON inputs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="basicusage.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="basicusage.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
 </ul>
@@ -325,7 +336,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Introduction</li>
+      <li class="breadcrumb-item active">Welcome</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -337,17 +348,11 @@
              
   <div class="toctree-wrapper compound">
 </div>
-<section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
-<p>The Battery Modelling Toolbox (<strong>Battmo</strong>) is a resource for continuum modelling of electrochemical devices in
-MATLAB. The initial development features a pseudo X-dimensional (PXD) framework for the Doyle-Fuller-Newman model of
-lithium-ion battery cells. However, the development plan for BattMo includes extensions to other battery chemistries
-(e.g. metal-air) and eventually hydrogen systems (i.e. electrolyzers and fuel cells).</p>
-<p><strong>BattMo</strong> offers users a flexible framework for building fully coupled electrochemical-thermal simulations of
-electrochemical devices using 1D, 2D, or 3D geometries. <strong>BattMo</strong> is implemented in MATLAB and builds on the
-open-source MATLAB Reservoir Simulation Toolbox (MRST) developed at SINTEF. MRST provides a solid basis for finite
-volume mesh generation of complex geometries and advanced numerical solvers that enable fast simulations for large
-systems.</p>
+<section id="welcome">
+<h1>Welcome<a class="headerlink" href="#welcome" title="Link to this heading"></a></h1>
+<p>Welcome to the Battery Modelling Toolbox (<strong>BattMo</strong>), a comprehensive solution for continuum modelling of electrochemical devices in <a class="reference external" href="https://se.mathworks.com/products/matlab.html">MATLAB</a> and <a class="reference external" href="https://julialang.org/">Julia</a>!</p>
+<p><strong>BattMo</strong> facilitates a deep understanding of these devices by simulating cell-level performance in a virtual space. It allows you to calculate dynamic spatial profiles for essential quantities like concentration, electric potential, and temperature. Initially, <strong>BattMo</strong> focuses on the Doyle-Fuller-Newman model for lithium-ion battery cells but has a broader development plan that includes extensions to other battery chemistries such as Na-ion, solid-state, metal-air, and zinc-based systems, along with hydrogen systems like electrolyzers and fuel cells.</p>
+<p>Our toolbox offers a flexible framework for building fully coupled electrochemical-thermal simulations with 1D, 2D, or 3D geometries. Powered by the open-source MATLAB Reservoir Simulation Toolbox (MRST), <strong>BattMo</strong> provides efficient finite volume mesh generation and advanced numerical solvers, ensuring swift simulations even for complex systems. Whether you’re a researcher or developer, <strong>BattMo</strong> is your gateway to unlocking the potential of continuum modelling for electrochemical devices. Dive into our documentation and explore the possibilities!</p>
 <p>For the latest information including video tutorials and project gallery, please visit the project webpage:
 <a class="reference external" href="https://batterymodel.com/">https://batterymodel.com</a></p>
 <a class="reference external image-reference" href="https://batterymodel.com/"><img alt="_images/battmologo.png" class="align-center" src="_images/battmologo.png" style="width: 50%;" /></a>
@@ -358,16 +363,19 @@ systems.</p>
 </section>
 <section id="acknowledgements">
 <h1>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading"></a></h1>
-<p>BattMo has received funding from from the European Union’s Horizon 2020 innovation program under grant agreement numbers:</p>
-<p>875527 - Hybrid power-energy electrodes for next-generation lithium-ion batteries (HYDRA)
-957189 - Battery interface genome and materials acceleration platform (BIG-MAP)</p>
+<p>BattMo has received funding from the European Union’s Horizon 2020 innovation program under grant agreement numbers:</p>
+<ul class="simple">
+<li><p>875527 - Hybrid power-energy electrodes for next-generation lithium-ion batteries (HYDRA)</p></li>
+<li><p>957189 - Battery interface genome and materials acceleration platform (BIG-MAP)</p></li>
+<li><p>101069765 - Innovative and Sustainable High Voltage Li-ion Cells for Next Generation (EV) Batteries (IntelLiGent)</p></li>
+</ul>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation instruction and requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation and First Steps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
