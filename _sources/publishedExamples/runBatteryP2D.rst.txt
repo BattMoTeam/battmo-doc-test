@@ -27,7 +27,7 @@ load MRST modules
 
 Setup the properties of Li-ion battery materials and cell design
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The properties and parameters of the battery cell, including the architecture and materials, are set using an instance of :class:`BatteryInputParams <Battery.BatteryInputParams>`. This class is used to initialize the simulation and it propagates all the parameters throughout the submodels. The input parameters can be set manually or provided in json format. All the parameters for the model are stored in the paramobj object.
+The properties and parameters of the battery cell, including the architecture and materials, are set using an instance of :class:`BatteryInputParams <Battery.BatteryInputParams>`. This class is used to initialize the simulation and it propagates all the parameters throughout the submodels. The input parameters can be set manually or provided in json format. All the parameters for the model are stored in the inputparams object.
 
 .. code-block:: matlab
 
@@ -52,22 +52,22 @@ The properties and parameters of the battery cell, including the architecture an
   jsonstruct.(ne).(co).(am).diffusionModelType = 'full';
   jsonstruct.(pe).(co).(am).diffusionModelType = 'full';
   
-  paramobj = BatteryInputParams(jsonstruct);
+  inputparams = BatteryInputParams(jsonstruct);
   
-  paramobj.(ne).(co).volumeFraction = 0.8;
-  paramobj.(ne).(co).volumeFractions = [1, 0, 0];
-  paramobj.(pe).(co).volumeFraction = 0.8;
-  paramobj.(pe).(co).volumeFractions = [1, 0, 0];
+  inputparams.(ne).(co).volumeFraction = 0.8;
+  inputparams.(ne).(co).volumeFractions = [1, 0, 0];
+  inputparams.(pe).(co).volumeFraction = 0.8;
+  inputparams.(pe).(co).volumeFractions = [1, 0, 0];
   
-  paramobj.(ne).(co).density  = 2240;
-  paramobj.(ne).(co).thermalConductivity  = 1.04;
-  paramobj.(ne).(co).specificHeatCapacity = 632;
+  inputparams.(ne).(co).density  = 2240;
+  inputparams.(ne).(co).thermalConductivity  = 1.04;
+  inputparams.(ne).(co).specificHeatCapacity = 632;
   
-  paramobj.(pe).(co).density  = 4650;
-  paramobj.(pe).(co).thermalConductivity  = 2.1;
-  paramobj.(pe).(co).specificHeatCapacity = 700;
+  inputparams.(pe).(co).density  = 4650;
+  inputparams.(pe).(co).thermalConductivity  = 2.1;
+  inputparams.(pe).(co).specificHeatCapacity = 700;
   
-  paramobj = paramobj.validateInputParams();
+  inputparams = inputparams.validateInputParams();
   
   use_cccv = false;
   if use_cccv
@@ -78,8 +78,8 @@ The properties and parameters of the battery cell, including the architecture an
                            'upperCutoffVoltage', 4.1       , ...
                            'dIdtLimit'         , 0.01      , ...
                            'dEdtLimit'         , 0.01);
-      cccvparamobj = CcCvControlModelInputParams(cccvstruct);
-      paramobj.Control = cccvparamobj;
+      cccvinputparams = CcCvControlModelInputParams(cccvstruct);
+      inputparams.Control = cccvinputparams;
   end
 
 
@@ -91,17 +91,17 @@ Here, we setup the 1D computational mesh that will be used for the simulation. T
 
   gen = BatteryGeneratorP2D();
   
-  % Now, we update the paramobj with the properties of the mesh.
-  paramobj = gen.updateBatteryInputParams(paramobj);
+  % Now, we update the inputparams with the properties of the mesh.
+  inputparams = gen.updateBatteryInputParams(inputparams);
 
 
 Initialize the battery model.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The battery model is initialized by sending paramobj to the Battery class constructor. see :class:`Battery <Battery.Battery>`.
+The battery model is initialized by sending inputparams to the Battery class constructor. see :class:`Battery <Battery.Battery>`.
 
 .. code-block:: matlab
 
-  model = Battery(paramobj);
+  model = Battery(inputparams);
   
   model.AutoDiffBackend= AutoDiffBackend();
   
@@ -130,7 +130,7 @@ Smaller time steps are used to ramp up the current from zero to its operational 
   switch model.(ctrl).controlPolicy
     case 'CCCV'
       total = 3.5*hour/CRate;
-    case 'IEswitch'
+    case 'CCDischarge'
       total = 1.4*hour/CRate;
     otherwise
       error('control policy not recognized');
@@ -145,13 +145,13 @@ Smaller time steps are used to ramp up the current from zero to its operational 
   %  !!! Change this to an entry in the JSON with better variable names !!!
   
   switch model.Control.controlPolicy
-    case 'IEswitch'
+    case 'CCDischarge'
       tup = 0.1; % rampup value for the current function, see rampupSwitchControl
       srcfunc = @(time, I, E) rampupSwitchControl(time, tup, I, E, ...
                                                   model.Control.Imax, ...
                                                   model.Control.lowerCutoffVoltage);
       % we setup the control by assigning a source and stop function.
-      control = struct('src', srcfunc, 'IEswitch', true);
+      control = struct('src', srcfunc, 'CCDischarge', true);
     case 'CCCV'
       control = struct('CCCV', true);
     otherwise

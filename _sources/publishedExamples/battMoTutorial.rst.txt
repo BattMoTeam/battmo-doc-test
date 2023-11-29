@@ -67,15 +67,15 @@ When running a simulation, BattMo requires that all model parameters are stored 
 
 .. code-block:: matlab
 
-  paramobj = BatteryInputParams(jsonstruct);
-  paramobj = paramobj.validateInputParams();
+  inputparams = BatteryInputParams(jsonstruct);
+  inputparams = inputparams.validateInputParams();
 
-It is also possible to update the properties of this paramobj in a similar way to updating the jsonstruct. Here we set the discretisation level for the diffusion model. Other input parameters for the full diffusion model can be found here: :battmo:`FullSolidDiffusionModelInputParams`.
+It is also possible to update the properties of this inputparams in a similar way to updating the jsonstruct. Here we set the discretisation level for the diffusion model. Other input parameters for the full diffusion model can be found here: :battmo:`FullSolidDiffusionModelInputParams`.
 
 .. code-block:: matlab
 
-  paramobj.(ne).(co).(am).(sd).N = 5;
-  paramobj.(pe).(co).(am).(sd).N = 5;
+  inputparams.(ne).(co).(am).(sd).N = 5;
+  inputparams.(pe).(co).(am).(sd).N = 5;
 
 
 Setting up the geometry
@@ -86,20 +86,20 @@ Here, we setup the 1D computational mesh that will be used for the simulation. T
 
   gen = BatteryGeneratorP2D();
 
-Now, we update the paramobj with the properties of the mesh. This function will update relevent parameters in the paramobj object and make sure we have all the required parameters for the model geometry chosen.
+Now, we update the inputparams with the properties of the mesh. This function will update relevent parameters in the inputparams object and make sure we have all the required parameters for the model geometry chosen.
 
 .. code-block:: matlab
 
-  paramobj = gen.updateBatteryInputParams(paramobj);
+  inputparams = gen.updateBatteryInputParams(inputparams);
 
 
 Initialising the battery model object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The battery model is initialized by sending paramobj to the Battery class constructor. see :battmo:`Battery`.
+The battery model is initialized by sending inputparams to the Battery class constructor. see :battmo:`Battery`.
 
 .. code-block:: matlab
 
-  model = Battery(paramobj);
+  model = Battery(inputparams);
 
 In BattMo a battery model is actually a collection of submodels: Electrolyte, Negative Electrode, Positive Electrode, Thermal Model and Control Model. The battery class contains all of these submodels and various other parameters necessary to run the simulation.
 
@@ -137,7 +137,7 @@ We can inspect the model object to find out which parameters are being used. For
 Controlling the simulation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 The control model specifies how the simulation is controlled. This can also be thought of as the boundary conditions of the simulation.
-In the first instance we use IEswitch control policy. We set the total time scaled by the CRate in the model. The CRate has been set by the json file. We can access it here:
+In the first instance we use CCDischarge control policy. We set the total time scaled by the CRate in the model. The CRate has been set by the json file. We can access it here:
 
 .. code-block:: matlab
 
@@ -170,7 +170,7 @@ We create a control structure containing the source function and specifying that
 
 .. code-block:: matlab
 
-  control = struct('src', srcfunc, 'IEswitch', true);
+  control = struct('src', srcfunc, 'CCDischarge', true);
 
 Finally we collect the control and step structures together in a schedule struct which is the schedule which the simulation will follow:
 

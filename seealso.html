@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Model initialisation &mdash; BattMo  documentation</title>
+  <title>See Also &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
@@ -22,8 +22,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Thermal model" href="thermal.html" />
-    <link rel="prev" title="Advanced Usage" href="advancedtopics.html" /> 
+    <link rel="next" title="MRST" href="mrst.html" />
+    <link rel="prev" title="Alkaline Membrane Electrolyser" href="publishedExamples/runElectrolyser.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -78,11 +78,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Model initialisation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-initialise-the-model">How to initialise the model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#calculating-intial-concentration">Calculating intial concentration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#calculating-initial-potential">Calculating initial potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html">Model initialisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#how-to-initialise-the-model">How to initialise the model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#calculating-intial-concentration">Calculating intial concentration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#calculating-initial-potential">Calculating initial potential</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
@@ -317,7 +317,7 @@
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#ph-distribution-plot">pH distribution plot</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mrst.html">MRST</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mrst.html#id1">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mrst.html#id2">Grid Factory Tutorial</a></li>
@@ -343,10 +343,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="advancedtopics.html">Advanced Usage</a></li>
-      <li class="breadcrumb-item active">Model initialisation</li>
+      <li class="breadcrumb-item active">See Also</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/modelinitialisation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/seealso.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -354,31 +353,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="model-initialisation">
-<h1>Model initialisation<a class="headerlink" href="#model-initialisation" title="Link to this heading"></a></h1>
-<section id="how-to-initialise-the-model">
-<h2>How to initialise the model<a class="headerlink" href="#how-to-initialise-the-model" title="Link to this heading"></a></h2>
-<p>Initial concentration and potential in the model can be calculated based on equilibrium values for the given input paramaters. This can be done by calling initialiseState on a BatteryModel object:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="p">.</span><span class="n">initialiseState</span><span class="p">()</span>
-</pre></div>
+  <section id="see-also">
+<h1>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
 </div>
-<p>Alternatively a state structure contatining concentration and potential for all the relevant submodels can be given.</p>
-</section>
-<section id="calculating-intial-concentration">
-<h2>Calculating intial concentration<a class="headerlink" href="#calculating-intial-concentration" title="Link to this heading"></a></h2>
-<p>Concentration is calculated using the intial SOC of the battery.</p>
-</section>
-<section id="calculating-initial-potential">
-<h2>Calculating initial potential<a class="headerlink" href="#calculating-initial-potential" title="Link to this heading"></a></h2>
-</section>
+<ul class="simple">
+<li><p><a class="reference internal" href="mrst.html#mrst"><span class="std std-ref">MRST</span></a></p></li>
+<li><p><a class="reference internal" href="fair.html#fair-data"><span class="std std-ref">FAIR Data</span></a></p></li>
+</ul>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="advancedtopics.html" class="btn btn-neutral float-left" title="Advanced Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="thermal.html" class="btn btn-neutral float-right" title="Thermal model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="publishedExamples/runElectrolyser.html" class="btn btn-neutral float-left" title="Alkaline Membrane Electrolyser" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mrst.html" class="btn btn-neutral float-right" title="MRST" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
