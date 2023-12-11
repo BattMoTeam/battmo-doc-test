@@ -97,7 +97,7 @@ We validate the :code:`InputParams` using the method :code:`validateInputParams`
 
   Paramobj = paramobj.validateInputParams();
   
-  gen = BatteryGeneratorP2D();
+  gen = BatteryGenerator1D();
 
 Now, we update the paramobj with the properties of the mesh.
 

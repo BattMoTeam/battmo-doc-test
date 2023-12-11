@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="BattMo GUI" href="gui.html" /> 
+    <link rel="prev" title="FAIR Data" href="fair.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,11 +48,71 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#standard-run">Standard Run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#modifying-the-json-input-directly-from-matlab">Modifying the Json input directly from Matlab</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basicusage.html#combining-json-inputs">Combining Json inputs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="basicusage.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="basicusage.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#a-first-battmo-model">A First <strong>BattMo</strong> Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#define-parameters">Define Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#run-simulation">Run Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#show-the-dashboard">Show the Dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#explore-the-output">Explore the Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#explore-the-grid">Explore the Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#explore-the-states">Explore the States</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basicusage.html#plot-a-result">Plot a Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-control-parameters">Change Control Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-structural-parameters">Change Structural Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-material-parameters">Change Material Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="intermediate.html">Intermediate usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#pseudo-four-dimensional-p4d-model">Pseudo-Four-Dimensional (P4D) Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intermediate.html#define-parameters">Define Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intermediate.html#run-simulation">Run Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intermediate.html#visualize-results">Visualize Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intermediate.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html">Model initialisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#how-to-initialise-the-model">How to initialise the model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#calculating-intial-concentration">Calculating intial concentration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#calculating-initial-potential">Calculating initial potential</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlinput.html">Control models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#base-control-model">Base Control Model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.ControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">ControlModelInputParams</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#ieswitch-control">IESwitch Control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CCDischargeControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CCDischargeControlModelInputParams</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current-constant-voltage-control">Constant Current Constant Voltage Control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcCvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-voltage">Constant Voltage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CvControlModelInputParams</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current">Constant Current</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="parsets.html#chen-2020">Chen 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parsets.html#safari-2009">Safari 2009</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parsets.html#xu-2015">Xu 2015</a></li>
 </ul>
 </li>
 </ul>
@@ -189,7 +249,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="json.html">Json input specification</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="json.html">JSON input specification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="json.html#material-parameters">Material Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrolyte">Electrolyte</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrode">Electrode</a></li>
@@ -239,75 +299,32 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced examples and topics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mrst.html">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mrst.html#id1">Visualization Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mrst.html#id2">Grid Factory Tutorial</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Alkaline Membrane Electrolyser</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-model">Setup model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-initial-condition">Setup the initial condition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-schedule-with-the-time-discretization">Setup the schedule with the time discretization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-non-linear-solver">Setup the non-linear solver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#run-the-simulation">Run the simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#visualize-the-results">Visualize the results</a></li>
-<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runElectrolyser.html#ph-distribution-plot">pH distribution plot</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html">Model initialisation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#how-to-initialise-the-model">How to initialise the model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#calculating-intial-concentration">Calculating intial concentration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#calculating-initial-potential">Calculating initial potential</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="controls.html">Control models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="controls.html#ieswitch">IESwitch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="controls.html#cccv">CCCV</a></li>
-<li class="toctree-l3"><a class="reference internal" href="controls.html#cc">CC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="controls.html#cv">CV</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controlinput.html">Control models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#base-control-model">Base Control Model</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.ControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">ControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#ieswitch-control">IESwitch Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.IEswitchControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">IEswitchControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current-constant-voltage-control">Constant Current Constant Voltage Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcCvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-voltage">Constant Voltage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="parsets.html#chen-2020">Chen 2020</a></li>
-<li class="toctree-l3"><a class="reference internal" href="parsets.html#safari-2009">Safari 2009</a></li>
-<li class="toctree-l3"><a class="reference internal" href="parsets.html#xu-2015">Xu 2015</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Electrolyser simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-model">Setup model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-initial-condition">Setup the initial condition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-schedule-with-the-time-discretization">Setup the schedule with the time discretization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-the-non-linear-solver">Setup the non-linear solver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#run-the-simulation">Run the simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#visualize-the-results">Visualize the results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#ph-distribution-plot">pH distribution plot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mrst.html">MRST</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mrst.html#id1">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mrst.html#id2">Grid Factory Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fair.html">FAIR Data</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">References</a></li>
 </ul>
 
@@ -338,31 +355,39 @@
   <section id="reference-lists">
 <h1>Reference lists<a class="headerlink" href="#reference-lists" title="Link to this heading"></a></h1>
 <div class="docutils container" id="id1">
-<div class="citation" id="id6" role="doc-biblioentry">
+<div class="citation" id="id8" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>CPORegan+20<span class="fn-bracket">]</span></span>
 <p>Chang-Hui Chen, Ferran Planella, Kieran O’Regan, Dominika Gastol, Dhammika Widanagea, and Emma Kendrick. Development of Experimental Techniques for Parameterization of Multi-scale Lithium-ion Battery Models. <em>Journal of The Electrochemical Society</em>, 167:080534, 2020. <a class="reference external" href="https://doi.org/10.1149/1945-7111/ab9050">doi:10.1149/1945-7111/ab9050</a>.</p>
 </div>
-<div class="citation" id="id4" role="doc-biblioentry">
+<div class="citation" id="id3" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>GBK+23<span class="fn-bracket">]</span></span>
+<p>Michael Robert Gerhardt, Alejandro O Barnett, Thulile Khoza, Patrick Fortin, Sara Andrenacci, Alaa Y Faid, Pål Emil England Karstensen, Svein Sunde, and Simon Clark. An open-source continuum model for anion-exchange membrane water electrolysis. In <em>Electrochemical Society Meeting Abstracts 243</em>, number 36, 2002–2002. The Electrochemical Society, Inc., 2023.</p>
+</div>
+<div class="citation" id="id6" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>LZ13<span class="fn-bracket">]</span></span>
 <p>Arnulf Latz and Jochen Zausch. Thermodynamic derivation of a butler–volmer model for intercalation in li-ion batteries. <em>Electrochimica Acta</em>, 110:358–362, nov 2013. <a class="reference external" href="https://doi.org/10.1016/j.electacta.2013.06.043">doi:10.1016/j.electacta.2013.06.043</a>.</p>
 </div>
-<div class="citation" id="id5" role="doc-biblioentry">
+<div class="citation" id="id7" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>LZ16<span class="fn-bracket">]</span></span>
 <p>Arnulf Latz and Jochen Zausch. Multiscale modeling of lithium ion batteries: thermal aspects. jul 2016. <a class="reference external" href="https://doi.org/10.1515/nano.bjneah.6.102">doi:10.1515/nano.bjneah.6.102</a>.</p>
 </div>
-<div class="citation" id="id3" role="doc-biblioentry">
+<div class="citation" id="id5" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>LZI11<span class="fn-bracket">]</span></span>
 <p>Arnulf Latz, Jochen Zausch, and Oleg Iliev. Modeling of species and charge transport in li–ion batteries based on non-equilibrium thermodynamics. In <em>Numerical Methods and Applications</em>, pages 329–337. Springer Berlin Heidelberg, 2011. <a class="reference external" href="https://doi.org/10.1007/978-3-642-18466-6_39">doi:10.1007/978-3-642-18466-6_39</a>.</p>
 </div>
-<div class="citation" id="id7" role="doc-biblioentry">
+<div class="citation" id="id9" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>LXL+15<span class="fn-bracket">]</span></span>
 <p>Chunjing Lin, Sichuan Xu, Zhao Li, Bin Li, Guofeng Chang, and Jinling Liu. Thermal analysis of large-capacity lifepo4 power batteries for electric vehicles. <em>Journal of Power Sources</em>, 294:633–642, 2015. <a class="reference external" href="https://doi.org/10.1016/j.jpowsour.2015.06.129">doi:10.1016/j.jpowsour.2015.06.129</a>.</p>
 </div>
-<div class="citation" id="id8" role="doc-biblioentry">
+<div class="citation" id="id10" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>SMTD09<span class="fn-bracket">]</span></span>
 <p>M. Safari, M. Morcrette, A. Teyssot, and C. Delacourt. Multimodal physics-based aging model for life prediction of li-ion batteries. <em>Journal of The Electrochemical Society</em>, 156(3):A145, 2009. <a class="reference external" href="https://doi.org/10.1149/1.3043429">doi:10.1149/1.3043429</a>.</p>
 </div>
 <div class="citation" id="id2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SGW19<span class="fn-bracket">]</span></span>
+<p>Lauren N Stanislaw, Michael R Gerhardt, and Adam Z Weber. Modeling electrolyte composition effects on anion-exchange-membrane water electrolyzer performance. <em>ECS Transactions</em>, 92(8):767, 2019.</p>
+</div>
+<div class="citation" id="id4" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>ZW07<span class="fn-bracket">]</span></span>
 <p>Qi Zhang and Ralph E White. Comparison of approximate solution methods for the solid phase diffusion equation in a porous electrode model. <em>Journal of power sources</em>, 165(2):880–886, 2007. <a class="reference external" href="https://doi.org/10.1016/j.jpowsour.2006.12.056">doi:10.1016/j.jpowsour.2006.12.056</a>.</p>
 </div>
@@ -374,7 +399,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="gui.html" class="btn btn-neutral float-left" title="BattMo GUI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fair.html" class="btn btn-neutral float-left" title="FAIR Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

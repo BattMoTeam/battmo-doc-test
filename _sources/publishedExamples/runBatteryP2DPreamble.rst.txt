@@ -1,0 +1,5 @@
+
+.. image:: ../battmologo.png
+   :width: 50%
+   :align: center
+   :target: https://batterymodel.com/
