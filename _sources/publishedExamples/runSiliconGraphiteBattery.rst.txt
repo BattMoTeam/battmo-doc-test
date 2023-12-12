@@ -74,36 +74,36 @@ We instantiate the battery :code:`InputParams` object
 
 .. code-block:: matlab
 
-  inputparams = BatteryInputParams(jsonstruct);
+  paramobj = BatteryInputParams(jsonstruct);
 
 We set the mass fractions of the different material in the coating of the negative electrode. This information could have been passed in the json file earlier (:ref:`compositeElectrode`)
 
 .. code-block:: matlab
 
-  inputparams.(ne).(co).(am1).massFraction = 0.9;
-  inputparams.(ne).(co).(am2).massFraction = 0.08;
-  inputparams.(ne).(co).(bd).massFraction  = 0.01;
-  inputparams.(ne).(co).(ad).massFraction  = 0.01;
+  paramobj.(ne).(co).(am1).massFraction = 0.9;
+  paramobj.(ne).(co).(am2).massFraction = 0.08;
+  paramobj.(ne).(co).(bd).massFraction  = 0.01;
+  paramobj.(ne).(co).(ad).massFraction  = 0.01;
 
 We change the given CRate
 
 .. code-block:: matlab
 
-  inputparams.Control.CRate = 0.1;
+  paramobj.Control.CRate = 0.1;
 
 We validate the :code:`InputParams` using the method :code:`validateInputParams` which belongs to the parent class. This step
 
 .. code-block:: matlab
 
-  inputparams = inputparams.validateInputParams();
+  Paramobj = paramobj.validateInputParams();
   
   gen = BatteryGeneratorP2D();
 
-Now, we update the inputparams with the properties of the mesh.
+Now, we update the paramobj with the properties of the mesh.
 
 .. code-block:: matlab
 
-  inputparams = gen.updateBatteryInputParams(inputparams);
+  paramobj = gen.updateBatteryInputParams(paramobj);
 
 
 Model Instantiation
@@ -112,7 +112,7 @@ We instantiate the model
 
 .. code-block:: matlab
 
-  model = Battery(inputparams);
+  model = Battery(paramobj);
 
 
 Setup schedule (control and time stepping)
