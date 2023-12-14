@@ -13,9 +13,8 @@ Source code for runBatteryP2D
   % and run a simple simulation.
   
   % Clear the workspace and close open figures
-  clear all
+  clear
   close all
-  clc
   
   %% Import the required modules from MRST
   % load MRST modules
@@ -29,7 +28,7 @@ Source code for runBatteryP2D
   % used to initialize the simulation and it propagates all the parameters
   % throughout the submodels. The input parameters can be set manually or
   % provided in json format. All the parameters for the model are stored in
-  % the paramobj object.
+  % the inputparams object.
   
   jsonstruct = parseBattmoJson(fullfile('ParameterData','BatteryCellParameters','LithiumIonBatteryCell','lithium_ion_battery_nmc_graphite.json'));
   
@@ -48,9 +47,9 @@ Source code for runBatteryP2D
   jsonstruct.use_thermal = false;
   jsonstruct.include_current_collectors = false;
   
-  paramobj = BatteryInputParams(jsonstruct);
+  inputparams = BatteryInputParams(jsonstruct);
   
-  use_cccv = true;
+  use_cccv = false;
   if use_cccv
       cccvstruct = struct( 'controlPolicy'     , 'CCCV',  ...
                            'initialControl'    , 'discharging', ...
@@ -60,24 +59,24 @@ Source code for runBatteryP2D
                            'dIdtLimit'         , 0.01      , ...
                            'dEdtLimit'         , 0.01);
       cccvparamobj = CcCvControlModelInputParams(cccvstruct);
-      paramobj.Control = cccvparamobj;
+      inputparams.Control = cccvinputparams;
   end
   
   
-  %% Setup the geometry and computational mesh
-  % Here, we setup the 1D computational mesh that will be used for the
+  %% Setup the geometry and computational grid
+  % Here, we setup the 1D computational grid that will be used for the
   % simulation. The required discretization parameters are already included
   % in the class BatteryGeneratorP2D.
   gen = BatteryGeneratorP2D();
   
-  % Now, we update the paramobj with the properties of the mesh.
-  paramobj = gen.updateBatteryInputParams(paramobj);
+  % Now, we update the inputparams with the properties of the grid.
+  inputparams = gen.updateBatteryInputParams(inputparams);
   
   
   %%  Initialize the battery model.
-  % The battery model is initialized by sending paramobj to the Battery class
+  % The battery model is initialized by sending inputparams to the Battery class
   % constructor. see :class:`Battery <Battery.Battery>`.
-  model = Battery(paramobj);
+  model = Battery(inputparams);
   
   model.AutoDiffBackend= AutoDiffBackend();
   
@@ -128,10 +127,9 @@ Source code for runBatteryP2D
   
   linearsolver = 'direct';
   switch linearsolver
-    case 'agmg'
-      mrstModule add agmg
-      nls.LinearSolver = AGMGSolverAD('verbose', true, 'reduceToCell', false);
-      nls.LinearSolver.tolerance = 1e-3;
+    case 'amgcl'
+      nls.LinearSolver = AMGCLSolverAD('verbose', true, 'reduceToCell', false);
+      nls.LinearSolver.tolerance = 1e-4;
       nls.LinearSolver.maxIterations = 30;
       nls.maxIterations = 10;
       nls.verbose = 10;
@@ -152,14 +150,14 @@ Source code for runBatteryP2D
   nls.maxIterations = 10;
   % Change default behavior of nonlinear solver, in case of error
   nls.errorOnFailure = false;
-  nls.timeStepSelector=StateChangeTimeStepSelector('TargetProps', {{'Control','E'}}, 'targetChangeAbs', 0.03);
+  nls.timeStepSelector = StateChangeTimeStepSelector('TargetProps', {{'Control','E'}}, 'targetChangeAbs', 0.03);
   % Change default tolerance for nonlinear solver
   model.nonlinearTolerance = 1e-3*model.Control.Imax;
   % Set verbosity
   model.verbose = true;
   
   %% Run the simulation
-  [wellSols, states, report] = simulateScheduleAD(initstate, model, schedule, 'OutputMinisteps', true, 'NonLinearSolver', nls);
+  [~, states, report] = simulateScheduleAD(initstate, model, schedule, 'OutputMinisteps', true, 'NonLinearSolver', nls);
   
   %% Process output and recover the output voltage and current from the output states.
   ind = cellfun(@(x) not(isempty(x)), states);

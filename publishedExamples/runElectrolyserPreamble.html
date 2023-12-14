@@ -19,6 +19,7 @@
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -85,26 +86,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../controlinput.html">Control models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#base-control-model">Base Control Model</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.ControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">ControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#ieswitch-control">IESwitch Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.CCDischargeControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CCDischargeControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#constant-current-constant-voltage-control">Constant Current Constant Voltage Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.CcCvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#constant-voltage">Constant Voltage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.CvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#json-input">Json input</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../optimisation.html">Optimisation</a></li>
@@ -305,6 +287,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="runElectrolyser.html">Electrolyser simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#setup-input">Setup input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#setup-model">Setup model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#setup-the-initial-condition">Setup the initial condition</a></li>
@@ -353,19 +336,19 @@
              
   <p>The implementation of a AEM simulation code was motivated by the need for better simulation capabilities for H2
 electrolysis and the possibility to validate the code using an implementation we had access to, which is also the one
-used in <span id="id1">[<a class="reference internal" href="../bibliography.html#id3" title="Michael Robert Gerhardt, Alejandro O Barnett, Thulile Khoza, Patrick Fortin, Sara Andrenacci, Alaa Y Faid, Pål Emil England Karstensen, Svein Sunde, and Simon Clark. An open-source continuum model for anion-exchange membrane water electrolysis. In Electrochemical Society Meeting Abstracts 243, number 36, 2002–2002. The Electrochemical Society, Inc., 2023.">GBK+23</a>]</span>. The mathematical model for AEM includes many processes and we refer to the papers
-mentioned above for all the details. Here, we include a figure from <span id="id2">[<a class="reference internal" href="../bibliography.html#id3" title="Michael Robert Gerhardt, Alejandro O Barnett, Thulile Khoza, Patrick Fortin, Sara Andrenacci, Alaa Y Faid, Pål Emil England Karstensen, Svein Sunde, and Simon Clark. An open-source continuum model for anion-exchange membrane water electrolysis. In Electrochemical Society Meeting Abstracts 243, number 36, 2002–2002. The Electrochemical Society, Inc., 2023.">GBK+23</a>]</span> which contains the
-following</p>
+used in <span id="id1">[<a class="reference internal" href="../bibliography.html#id3" title="Michael Robert Gerhardt, Alejandro O Barnett, Thulile Khoza, Patrick Fortin, Sara Andrenacci, Alaa Y Faid, Pål Emil England Karstensen, Svein Sunde, and Simon Clark. An open-source continuum model for anion-exchange membrane water electrolysis. In Electrochemical Society Meeting Abstracts 243, number 36, 2002–2002. The Electrochemical Society, Inc., 2023.">GBK+23</a>]</span>. The mathematical model for AEM is complex andincludes many coupledprocesses . We refer
+to the papers mentioned above for all the details. Here, we include a figure from <span id="id2">[<a class="reference internal" href="../bibliography.html#id3" title="Michael Robert Gerhardt, Alejandro O Barnett, Thulile Khoza, Patrick Fortin, Sara Andrenacci, Alaa Y Faid, Pål Emil England Karstensen, Svein Sunde, and Simon Clark. An open-source continuum model for anion-exchange membrane water electrolysis. In Electrochemical Society Meeting Abstracts 243, number 36, 2002–2002. The Electrochemical Society, Inc., 2023.">GBK+23</a>]</span> which
+illustrates the following processes</p>
 <ul class="simple">
 <li><p>Two parallel ionic conduction path ways: ionomer and liquid electrolyte,</p></li>
 <li><p>Water concentration gradient build-up in the membrane inducing water exchange between electrodes,</p></li>
 <li><p>Water exchange between the liquid and gas phases in the electrolyte,</p></li>
 <li><p>Hydroxide exchange between the electrolyte and ionomer.</p></li>
 </ul>
-<figure class="align-center" id="id4">
+<figure class="align-center" id="id5">
 <a class="reference external image-reference" href="../_images/electolysermodeling.png"><img alt="../_images/electolysermodeling.png" src="../_images/electolysermodeling.png" /></a>
 <figcaption>
-<p><span class="caption-text">Illustration taken from <span id="id3">[<a class="reference internal" href="../bibliography.html#id3" title="Michael Robert Gerhardt, Alejandro O Barnett, Thulile Khoza, Patrick Fortin, Sara Andrenacci, Alaa Y Faid, Pål Emil England Karstensen, Svein Sunde, and Simon Clark. An open-source continuum model for anion-exchange membrane water electrolysis. In Electrochemical Society Meeting Abstracts 243, number 36, 2002–2002. The Electrochemical Society, Inc., 2023.">GBK+23</a>]</span></span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-text">Illustration taken from <span id="id3">[<a class="reference internal" href="../bibliography.html#id3" title="Michael Robert Gerhardt, Alejandro O Barnett, Thulile Khoza, Patrick Fortin, Sara Andrenacci, Alaa Y Faid, Pål Emil England Karstensen, Svein Sunde, and Simon Clark. An open-source continuum model for anion-exchange membrane water electrolysis. In Electrochemical Society Meeting Abstracts 243, number 36, 2002–2002. The Electrochemical Society, Inc., 2023.">GBK+23</a>]</span></span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>We use a model hierarchy which enables us to structure the code in a hopefully clearly readable way. The main model is
@@ -392,12 +375,34 @@ are assembled at each model level for the core parts while the coupling terms ar
 hierarchy. We use generic discrete spatial differentiation operators that can be applied to any dimension, even if the
 geometry we have setup for the result in this model is only 1D. Once the equations are discretized in space, we
 discretize in time and solve the resulting non-linear system of equations using an implicit scheme. This approach is
-robust independently of the time step size. We use automatic differentiation to assemble the equations and compute the
-derivative of the system which is needed in the Newton algorithm. These computation steps are in fact generic and we
+robust independently of the choice oftime step size. We use automatic differentiation to assemble the equations and compute the
+derivative of the system that are needed in the Newton algorithmused to solve
+the equations. These computation steps are in fact generic and we
 rely on the BattMo infrastructure to run them.</p>
 <figure class="align-center">
 <a class="reference external image-reference" href="../_images/electrolyser3.png"><img alt="../_images/electrolyser3.png" src="../_images/electrolyser3.png" /></a>
 </figure>
+<p>We consider a one-dimensional electrolyser cell where the volume fractions of each component are given in Figure below.
+We increase the current linearly from 0 to 3 A/cm^2. The pressures at the boundary are set to 1 atmosphere and the
+<span class="math notranslate nohighlight">\(OH^{-}\)</span> concentration to 1 mol/litre.</p>
+<figure class="align-center" id="id6">
+<a class="reference external image-reference" href="../_images/electrolyter_volume_fractions.png"><img alt="../_images/electrolyter_volume_fractions.png" src="../_images/electrolyter_volume_fractions.png" /></a>
+<figcaption>
+<p><span class="caption-text">Volume fractions used initially in the cell. Illustration picture taken from <span id="id4">[<a class="reference internal" href="../bibliography.html#id3" title="Michael Robert Gerhardt, Alejandro O Barnett, Thulile Khoza, Patrick Fortin, Sara Andrenacci, Alaa Y Faid, Pål Emil England Karstensen, Svein Sunde, and Simon Clark. An open-source continuum model for anion-exchange membrane water electrolysis. In Electrochemical Society Meeting Abstracts 243, number 36, 2002–2002. The Electrochemical Society, Inc., 2023.">GBK+23</a>]</span>.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The input datas are given in a json format. A simple way to get acquainted to the format is to look at the examples used
+in the example below. We provide also <a class="reference external" href="https://json-schema.org/">json schemas</a> that describes these inputs:</p>
+<ul class="simple">
+<li><p>Catalyst Layer  <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrolyser/JsonSchemas/CatalystLayer.schema.json">CatalystLayer.schema.json</a></p></li>
+<li><p>Electrolyser  <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrolyser/JsonSchemas/Electrolyser.schema.json">Electrolyser.schema.json</a></p></li>
+<li><p>Evolution Electrode  <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrolyser/JsonSchemas/EvolutionElectrode.schema.json">EvolutionElectrode.schema.json</a></p></li>
+<li><p>Exchange Reaction  <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrolyser/JsonSchemas/ExchangeReaction.schema.json">ExchangeReaction.schema.json</a></p></li>
+<li><p>Ionomer Membrane  <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrolyser/JsonSchemas/IonomerMembrane.schema.json">IonomerMembrane.schema.json</a></p></li>
+<li><p>Porous Transport Layer  <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrolyser/JsonSchemas/PorousTransportLayer.schema.json">PorousTransportLayer.schema.json</a></p></li>
+<li><p>Electrolyser Geometry  <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrolyser/JsonSchemas/ElectrolyserGeometry.schema.json">ElectrolyserGeometry.schema.json</a></p></li>
+</ul>
+<p>Here comes the listing of the code:</p>
 
 
            </div>

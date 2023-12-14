@@ -8,6 +8,9 @@ Alkaline Membrane Electrolyser
 .. include:: runElectrolyserPreamble.rst
 
 
+Load MRST modules
+^^^^^^^^^^^^^^^^^
+
 .. code-block:: matlab
 
   mrstModule add ad-core matlab_bgl
@@ -15,19 +18,19 @@ Alkaline Membrane Electrolyser
 
 Setup input
 ^^^^^^^^^^^
-Setup the physical properties for the electrolyser using json input file
+Setup the physical properties for the electrolyser using json input file :battmofile:`alkalineElectrolyser.json<Electrolyser/Parameters/alkalineElectrolyser.json>`
 
 .. code-block:: matlab
 
   jsonstruct= parseBattmoJson('Electrolyser/Parameters/alkalineElectrolyser.json');
-  paramobj = ElectrolyserInputParams(jsonstruct);
+  inputparams = ElectrolyserInputParams(jsonstruct);
 
-Setup the grids. We consider a 1D model and the specifications can be read from a json input using :code:`setupElectrolyserGridFromJson`.
+Setup the grids. We consider a 1D model and the specifications can be read from a json input file, here :battmofile:`electrolysergeometry1d.json<Electrolyser/Parameters/electrolysergeometry1d.json>`, using :battmo:`setupElectrolyserGridFromJson`.
 
 .. code-block:: matlab
 
   jsonstruct= parseBattmoJson('Electrolyser/Parameters/electrolysergeometry1d.json');
-  paramobj = setupElectrolyserGridFromJson(paramobj, jsonstruct);
+  inputparams = setupElectrolyserGridFromJson(inputparams, jsonstruct);
 
 We define shortcuts for the different submodels.
 
@@ -46,7 +49,7 @@ Setup model
 
 .. code-block:: matlab
 
-  model = Electrolyser(paramobj);
+  model = Electrolyser(inputparams);
 
 
 Setup the initial condition
@@ -70,7 +73,7 @@ We run the simulation over 10 hours, increasing the input current linearly in ti
   dt  = total/n;
   dts = rampupTimesteps(total, dt, 5);
 
-We use the function :code:`rampupControl` to increase the current linearly in time
+We use the function :battmo:`rampupControl` to increase the current linearly in time
 
 .. code-block:: matlab
 

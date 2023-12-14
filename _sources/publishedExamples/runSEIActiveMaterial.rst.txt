@@ -10,7 +10,7 @@ Particle simulation with SEI layer growth
 .. code-block:: matlab
 
   % clear the workspace and close open figures
-  clear all
+  clear
   close all
 
 
@@ -40,10 +40,10 @@ Setup the properties of Li-ion battery materials and cell design
   sr    = 'SideReaction';
   elyte = 'Electrolyte';
   
-  paramobj = SEIActiveMaterialInputParams(jsonstruct);
+  inputparams = SEIActiveMaterialInputParams(jsonstruct);
   
-  paramobj.(sd).N  = 10;
-  paramobj.(sei).N = 10;
+  inputparams.(sd).N  = 10;
+  inputparams.(sei).N = 10;
 
 
 Setup the model
@@ -52,12 +52,10 @@ Setup the model
 .. code-block:: matlab
 
   % We use a stand alone model for the particle
-  paramobj.standAlone = true;
-  
-  paramobj = paramobj.validateInputParams();
+  inputparams.standAlone = true;
   
   % We initiate the model
-  model = SEIActiveMaterial(paramobj);
+  model = SEIActiveMaterial(inputparams);
 
 
 Setup initial state
@@ -153,7 +151,7 @@ Run simulation
 .. code-block:: matlab
 
   model.verbose = true;
-  [wellSols, states, report] = simulateScheduleAD(initState, model, schedule, 'OutputMinisteps', true, 'NonLinearSolver', nls);
+  [~, states, report] = simulateScheduleAD(initState, model, schedule, 'OutputMinisteps', true, 'NonLinearSolver', nls);
 
 
 Plotting

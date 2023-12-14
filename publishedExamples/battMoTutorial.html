@@ -85,26 +85,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../controlinput.html">Control models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#base-control-model">Base Control Model</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.ControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">ControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#ieswitch-control">IESwitch Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.CCDischargeControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CCDischargeControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#constant-current-constant-voltage-control">Constant Current Constant Voltage Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.CcCvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#constant-voltage">Constant Voltage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.CvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#json-input">Json input</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../optimisation.html">Optimisation</a></li>
@@ -305,6 +286,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="runElectrolyser.html">Electrolyser simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#setup-input">Setup input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#setup-model">Setup model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#setup-the-initial-condition">Setup the initial condition</a></li>
@@ -355,6 +337,16 @@
 <span id="battmotutorial"></span><h1>BattMo Tutorial<a class="headerlink" href="#battmo-tutorial" title="Link to this heading"></a></h1>
 <p><em>Generated from battMoTutorial.m</em></p>
 <p>This tutorial explains how to setup and run a simulation in BattMo</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% First clear variables stored in memory and close all figures</span>
+<span class="nb">clear</span><span class="p">;</span>
+<span class="n">close</span><span class="w"> </span><span class="s">all</span><span class="p">;</span>
+
+<span class="c">% Set thicker line widths and larger font sizes</span>
+<span class="nb">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;defaultLineLineWidth&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="nb">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;defaultAxesFontSize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
+<span class="nb">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;defaultTextFontSize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
 <section id="setting-up-the-environment">
 <h2>Setting up the environment<a class="headerlink" href="#setting-up-the-environment" title="Link to this heading"></a></h2>
 <p>BattMo uses functionality from <code class="xref py py-mod docutils literal notranslate"><span class="pre">MRST</span></code>. This functionality is collected into modules where each module contains code for doing specific things. To use this functionality we must add these modules to the matlab path by running:</p>
@@ -364,9 +356,9 @@
 </section>
 <section id="specifying-the-physical-model">
 <h2>Specifying the physical model<a class="headerlink" href="#specifying-the-physical-model" title="Link to this heading"></a></h2>
-<p>In this tutorial we will simulate a lithium-ion battery consisting of a negative electrode, a positive electrode and an electrolyte. BattMo comes with some pre-defined models which can be loaded from JSON files. Here we will load the basic lithium-ion model JSON file which comes with Battmo.</p>
+<p>In this tutorial we will simulate a lithium-ion battery consisting of a negative electrode, a positive electrode and an electrolyte. BattMo comes with some pre-defined models which can be loaded from JSON files. Here we will load the basic lithium-ion model JSON file which comes with Battmo. We use <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonUtils/parseBattmoJson.m">parseBattmoJson</a> to parse the file, see <span class="todo">add link to doc</span></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;ParameterData&#39;</span><span class="p">,</span><span class="s">&#39;BatteryCellParameters&#39;</span><span class="p">,</span><span class="k">...</span>
-<span class="w">    </span><span class="s">&#39;LithiumIonBatteryCell&#39;</span><span class="p">,</span><span class="s">&#39;lithium_ion_battery_nmc_graphite.json&#39;</span><span class="p">);</span>
+<span class="w">                 </span><span class="s">&#39;LithiumIonBatteryCell&#39;</span><span class="p">,</span><span class="s">&#39;lithium_ion_battery_nmc_graphite.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">fname</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -397,46 +389,50 @@ In this instance we will exclude temperature effects by setting use_thermal to f
 <span class="n">jsonstruct</span><span class="p">.(</span><span class="n">ne</span><span class="p">).(</span><span class="n">am</span><span class="p">).</span><span class="n">diffusionModelType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;full&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>To see which other types of diffusion model are available one can view <code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveMaterialInputParams</span></code>. This class is used to initialize the simulation and is accessed by various parts of the simulator during the simulation. This class is instantiated using the jsonstruct we just created:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">paramobj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BatteryInputParams</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
-<span class="n">paramobj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">paramobj</span><span class="p">.</span><span class="n">validateInputParams</span><span class="p">();</span>
+<p>To see which other types of diffusion model are available one can view <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrochemistry/ActiveMaterialInputParams.m">ActiveMaterialInputParams</a>.  When running a simulation, BattMo requires that all model parameters are stored in an instance of <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryInputParams.m">BatteryInputParams</a>. This class is used to initialize the simulation and is accessed by various parts of the simulator during the simulation. This class is instantiated using the jsonstruct we just created:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">inputparams</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BatteryInputParams</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>It is also possible to update the properties of this paramobj in a similar way to updating the jsonstruct. Here we set the discretisation level for the diffusion model. Other input parameters for the full diffusion model can be found here: <code class="xref py py-class docutils literal notranslate"><span class="pre">FullSolidDiffusionModelInputParams</span></code>.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">paramobj</span><span class="p">.(</span><span class="n">ne</span><span class="p">).(</span><span class="n">co</span><span class="p">).(</span><span class="n">am</span><span class="p">).(</span><span class="n">sd</span><span class="p">).</span><span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
-<span class="n">paramobj</span><span class="p">.(</span><span class="n">pe</span><span class="p">).(</span><span class="n">co</span><span class="p">).(</span><span class="n">am</span><span class="p">).(</span><span class="n">sd</span><span class="p">).</span><span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<p>It is also possible to update the properties of this inputparams in a similar way to updating the jsonstruct. Here we set the discretisation level for the diffusion model. Other input parameters for the full diffusion model can be found here: <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrochemistry/FullSolidDiffusionModelInputParams.m">FullSolidDiffusionModelInputParams</a>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">inputparams</span><span class="p">.(</span><span class="n">ne</span><span class="p">).(</span><span class="n">co</span><span class="p">).(</span><span class="n">am</span><span class="p">).(</span><span class="n">sd</span><span class="p">).</span><span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="n">inputparams</span><span class="p">.(</span><span class="n">pe</span><span class="p">).(</span><span class="n">co</span><span class="p">).(</span><span class="n">am</span><span class="p">).(</span><span class="n">sd</span><span class="p">).</span><span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+
+<span class="c">% We can also change how the battery is operated, for example setting</span>
+<span class="c">% the cut off voltage.</span>
+<span class="n">inputparams</span><span class="p">.(</span><span class="n">ctrl</span><span class="p">).</span><span class="n">lowerCutoffVoltage</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">2.5</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
 <section id="setting-up-the-geometry">
 <h2>Setting up the geometry<a class="headerlink" href="#setting-up-the-geometry" title="Link to this heading"></a></h2>
-<p>Here, we setup the 1D computational mesh that will be used for the simulation. The required discretization parameters are already included in the class BatteryGenerator1D. Classes for generating other geometries can be found in the BattMo/Battery/BatteryGeometry folder.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BatteryGenerator1D</span><span class="p">();</span>
+<p>Here, we setup the 1D computational grid that will be used for the simulation. The required discretization parameters are already included in the class <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGeneratorP2D.m">BatteryGeneratorP2D</a>. Classes for generating other geometries can be found in the BattMo/Battery/BatteryGeometry folder.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BatteryGeneratorP2D</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Now, we update the paramobj with the properties of the mesh. This function will update relevent parameters in the paramobj object and make sure we have all the required parameters for the model geometry chosen.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">paramobj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gen</span><span class="p">.</span><span class="n">updateBatteryInputParams</span><span class="p">(</span><span class="n">paramobj</span><span class="p">);</span>
+<p>Now, we update the inputparams with the properties of the grid. This function will update relevent parameters in the inputparams object and make sure we have all the required parameters for the model geometry chosen.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">inputparams</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gen</span><span class="p">.</span><span class="n">updateBatteryInputParams</span><span class="p">(</span><span class="n">inputparams</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
 <section id="initialising-the-battery-model-object">
 <h2>Initialising the battery model object<a class="headerlink" href="#initialising-the-battery-model-object" title="Link to this heading"></a></h2>
-<p>The battery model is initialized by sending paramobj to the Battery class constructor. see <code class="xref py py-class docutils literal notranslate"><span class="pre">Battery</span></code>.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Battery</span><span class="p">(</span><span class="n">paramobj</span><span class="p">);</span>
+<p>The battery model is initialized by sending inputparams to the Battery class constructor. see <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/Battery.m">Battery</a>.
+In BattMo a battery model is actually a collection of submodels: Electrolyte, Negative Electrode, Positive Electrode, Thermal Model and Control Model. The battery class contains all of these submodels and various other parameters necessary to run the simulation.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Battery</span><span class="p">(</span><span class="n">inputparams</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>In BattMo a battery model is actually a collection of submodels: Electrolyte, Negative Electrode, Positive Electrode, Thermal Model and Control Model. The battery class contains all of these submodels and various other parameters necessary to run the simulation.</p>
 </section>
-<section id="plotting-the-ocp-curves">
-<h2>Plotting the OCP curves<a class="headerlink" href="#plotting-the-ocp-curves" title="Link to this heading"></a></h2>
+<section id="plotting-the-ocp-curves-against-state-of-charge">
+<h2>Plotting the OCP curves against state of charge<a class="headerlink" href="#plotting-the-ocp-curves-against-state-of-charge" title="Link to this heading"></a></h2>
 <p>We can inspect the model object to find out which parameters are being used. For instance the information we need to plot the OCP curves for the positive and negative electrodes can be found in the interface structure of each electrode.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">298.15</span><span class="p">;</span>
-<span class="n">elde</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">pe</span><span class="p">};</span>
+<span class="n">eldes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">pe</span><span class="p">};</span>
 
 <span class="n">figure</span>
 <span class="s">hold</span><span class="w"> </span><span class="s">on</span>
-<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">numel</span><span class="p">(</span><span class="n">elde</span><span class="p">)</span>
-<span class="w">    </span><span class="n">el_itf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.(</span><span class="n">elde</span><span class="p">{</span><span class="nb">i</span><span class="p">}).(</span><span class="n">co</span><span class="p">).(</span><span class="n">am</span><span class="p">).(</span><span class="n">itf</span><span class="p">);</span>
+
+<span class="k">for</span><span class="w"> </span><span class="n">ielde</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">numel</span><span class="p">(</span><span class="n">eldes</span><span class="p">)</span>
+<span class="w">    </span><span class="n">el_itf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.(</span><span class="n">eldes</span><span class="p">{</span><span class="n">ielde</span><span class="p">}).(</span><span class="n">co</span><span class="p">).(</span><span class="n">am</span><span class="p">).(</span><span class="n">itf</span><span class="p">);</span>
 
 <span class="w">    </span><span class="n">theta100</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">el_itf</span><span class="p">.</span><span class="n">guestStoichiometry100</span><span class="p">;</span>
 <span class="w">    </span><span class="n">theta0</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">el_itf</span><span class="p">.</span><span class="n">guestStoichiometry0</span><span class="p">;</span>
@@ -449,19 +445,24 @@ In this instance we will exclude temperature effects by setting use_thermal to f
 
 <span class="w">    </span><span class="nb">plot</span><span class="p">(</span><span class="n">soc</span><span class="p">,</span><span class="w"> </span><span class="n">OCP</span><span class="p">)</span>
 <span class="k">end</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;SOC [-]&#39;</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;OCV [V]&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;OCV for both electrodes&#39;</span><span class="p">);</span>
-<span class="nb">legend</span><span class="p">(</span><span class="n">elde</span><span class="p">)</span>
+
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;SOC  / -&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;OCP  / V&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;OCP for both electrodes&#39;</span><span class="p">);</span>
+<span class="nb">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">5.5</span><span class="p">])</span>
+<span class="nb">legend</span><span class="p">(</span><span class="n">eldes</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;nw&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<figure class="align-default" style="width: 100%">
+<img alt="../_images/battMoTutorial_01.png" src="../_images/battMoTutorial_01.png" />
+</figure>
 </section>
 <section id="controlling-the-simulation">
 <h2>Controlling the simulation<a class="headerlink" href="#controlling-the-simulation" title="Link to this heading"></a></h2>
-<p>The control model specifies how the simulation is controlled. This can also be thought of as the boundary conditions of the simulation.
-In the first instance we use IEswitch control policy. We set the total time scaled by the CRate in the model. The CRate has been set by the json file. We can access it here:</p>
+<p>The control model specifies how the battery is operated, i.e., how the simulation is controlled.
+In the first instance we use CCDischarge control policy. We set the total time scaled by the CRate in the model. The CRate has been set by the json file. We can access it here:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">CRate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">Control</span><span class="p">.</span><span class="n">CRate</span><span class="p">;</span>
-<span class="n">total</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.4</span><span class="o">*</span><span class="nb">hour</span><span class="o">/</span><span class="n">CRate</span><span class="p">;</span>
+<span class="n">total</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.1</span><span class="o">*</span><span class="nb">hour</span><span class="o">/</span><span class="n">CRate</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>We want to break this total time into 100 timesteps. To begin with we will use equal values for each timestep.
@@ -472,18 +473,9 @@ In this case we use control 1 for all steps. This means that the functions used 
 <span class="nb">step</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">struct</span><span class="p">(</span><span class="s">&#39;val&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;control&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>For the IESwitch control we will switch between controlling the current or the voltage based on some max and min values. We do this using the rampupSwitchControl function.
-Smaller time steps are used to ramp up the current from zero to its operational value. Larger time steps are then used for the normal operation.
-This function also contains the logic about when to switch using constant current to constant voltage.
-First we set a parameter to control how the current values increase between zero and the desired value. Then we assign the rampupSwitchControl function to a variable as an anonymous function.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">tup</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span>
-<span class="n">srcfunc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">@(</span><span class="nb">time</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="n">rampupSwitchControl</span><span class="p">(</span><span class="nb">time</span><span class="p">,</span><span class="w"> </span><span class="n">tup</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">                                            </span><span class="n">model</span><span class="p">.</span><span class="n">Control</span><span class="p">.</span><span class="n">Imax</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">                                            </span><span class="n">model</span><span class="p">.</span><span class="n">Control</span><span class="p">.</span><span class="n">lowerCutoffVoltage</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>We create a control structure containing the source function and specifying that we want to use IESwitch control:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">control</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">struct</span><span class="p">(</span><span class="s">&#39;src&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">srcfunc</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;IEswitch&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<p>We create a control structure containing the source function and and a stopping criteria. The control parameters have been given in the json file <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json">ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json</a>
+The <code class="code docutils literal notranslate"><span class="pre">setupScheduleControl</span></code> method contains the code to setup the control structure that is used in the schedule structure setup below.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">control</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">Control</span><span class="p">.</span><span class="n">setupScheduleControl</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>Finally we collect the control and step structures together in a schedule struct which is the schedule which the simulation will follow:</p>
@@ -500,11 +492,11 @@ First we set a parameter to control how the current values increase between zero
 </section>
 <section id="running-the-simulation">
 <h2>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Link to this heading"></a></h2>
-<p>Once we have the initial state, the model and the schedule, we can call the simulateScheduleAD function which will actually run the simulation:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">wellSols</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">,</span><span class="w"> </span><span class="n">report</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">simulateScheduleAD</span><span class="p">(</span><span class="n">initstate</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">schedule</span><span class="p">);</span>
+<p>Once we have the initial state, the model and the schedule, we can call the simulateScheduleAD function which will actually run the simulation.
+The outputs from the simulation are: - sols: which provides the current and voltage of the battery at each   timestep. - states: which contains the values of the primary variables in the model   at each timestep. - reports: which contains technical information about the steps used in   the numerical solvers.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">sols</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">,</span><span class="w"> </span><span class="n">report</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">simulateScheduleAD</span><span class="p">(</span><span class="n">initstate</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">schedule</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The outputs from the simulation are: - wellSols: which provides the current and voltage of the battery at each timestep. (This naming convention is a hangover from MRST where we model reservoir injection via injection wells). - states: which contains the values of the primary variables in the model at each timestep. - reports: which contains technical information about the steps used in the numerical solvers.</p>
 </section>
 <section id="plotting-the-results">
 <h2>Plotting the results<a class="headerlink" href="#plotting-the-results" title="Link to this heading"></a></h2>
@@ -513,26 +505,20 @@ First we set a parameter to control how the current values increase between zero
 <span class="n">I</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Control</span><span class="p">.</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
 <span class="nb">time</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
 
-<span class="nb">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;defaultlinelinewidth&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
-<span class="nb">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;DefaultAxesFontSize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
-<span class="nb">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;defaulttextfontsize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">);</span>
-
 <span class="nb">figure</span><span class="p">()</span>
 
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">(</span><span class="nb">time</span><span class="o">/</span><span class="nb">hour</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time [hours]&#39;</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Cell Voltage [V]&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time  / h&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Cell Voltage  / V&#39;</span><span class="p">)</span>
 
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">(</span><span class="nb">time</span><span class="o">/</span><span class="nb">hour</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time [hours]&#39;</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Cell Current [A]&#39;</span><span class="p">)</span>
+<span class="nb">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.02</span><span class="p">])</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time  / h&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Cell Current  / A&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default" style="width: 100%">
-<img alt="../_images/battMoTutorial_01.png" src="../_images/battMoTutorial_01.png" />
-</figure>
 <figure class="align-default" style="width: 100%">
 <img alt="../_images/battMoTutorial_02.png" src="../_images/battMoTutorial_02.png" />
 </figure>
