@@ -88,7 +88,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Control models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#json-input-interface">Json input interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#json-input-control-interface">Json input control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#control-model-description">Control model description</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
@@ -252,34 +253,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp2d">BatteryGeneratorP2D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP2D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP2D</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp3d">BatteryGeneratorP3D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP3D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP3D</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP4D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP4D</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#SpiralBatteryGenerator"><code class="docutils literal notranslate"><span class="pre">SpiralBatteryGenerator</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#CoinCellBatteryGenerator"><code class="docutils literal notranslate"><span class="pre">CoinCellBatteryGenerator</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp2d">BatteryGeneratorP2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp3d">BatteryGeneratorP3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#blockbatterygenerator">BlockBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellsectorbatterygenerator">CoinCellSectorBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#flatbatterygenerator">FlatBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#sectorbatterygenerator">SectorBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#base-class">Base class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#base-class">Base class</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a><ul>
@@ -346,9 +329,11 @@
 <li><p>Total current</p></li>
 <li><p>Voltage</p></li>
 </ul>
-<p>Given a control type, the control <em>value</em> can change in time.</p>
-<section id="json-input-interface">
-<h2>Json input interface<a class="headerlink" href="#json-input-interface" title="Link to this heading"></a></h2>
+<p>Given a control type, the control <em>value</em> can change in time. For the most standard control types, the json interface
+can be used. We plan to include there more control models. Below, we give some short explanations on how a control model
+can be implemented.</p>
+<section id="json-input-control-interface">
+<h2>Json input control interface<a class="headerlink" href="#json-input-control-interface" title="Link to this heading"></a></h2>
 <p>The most standard controls can be called from BattMo using the json interface:</p>
 <ul class="simple">
 <li><p>Constant Current Discharge (CCDischarge)</p></li>
@@ -434,6 +419,18 @@ following result.</p>
 </figcaption>
 </figure>
 <p>The script used to generate the figures is available <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/scripts/plotControlExamples.m">here</a>.</p>
+</section>
+<section id="control-model-description">
+<h2>Control model description<a class="headerlink" href="#control-model-description" title="Link to this heading"></a></h2>
+<p>The most fundamental structure to setup control is a schedule structure, which is sent to <a class="reference external" href="https://github.com/SINTEF-AppliedCompSci/MRST/blob/main/autodiff/ad-core/simulators/simulateScheduleAD.m">simulateScheduleAD</a>. From there, we find the specification of the <code class="code docutils literal notranslate"><span class="pre">schedule</span></code>
+structure that is expected. It contains two fields:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">control</span></code>: It is a struct array containing fields that the model knows how to process.  Typically, this
+will be the fields such as <cite>src</cite> for boundary conditions.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">step</span></code>: It contains two arrays of equal size named <code class="code docutils literal notranslate"><span class="pre">val</span></code> and <code class="code docutils literal notranslate"><span class="pre">control</span></code>. Control is a index into the
+<code class="code docutils literal notranslate"><span class="pre">schedule.control</span></code> array, indicating which control is to be used for the timestep.`schedule.step.val` is the
+timestep used for that control step.</p></li>
+</ul>
 </section>
 </section>
 

@@ -11,11 +11,13 @@ At a **given time**, there are in general two control types:
 * Total current
 * Voltage  
 
-Given a control type, the control *value* can change in time.
+Given a control type, the control *value* can change in time. For the most standard control types, the json interface
+can be used. We plan to include there more control models. Below, we give some short explanations on how a control model
+can be implemented.
 
 
-Json input interface
-====================
+Json input control interface
+============================
 
 
 The most standard controls can be called from BattMo using the json interface:
@@ -123,3 +125,21 @@ following result.
 
    CCCV control
 The script used to generate the figures is available :battmofile:`here <Documentation/scripts/plotControlExamples.m>`.
+
+
+Control model description
+=========================
+
+The most fundamental structure to setup control is a schedule structure, which is sent to :mrstfile:`simulateScheduleAD
+<autodiff/ad-core/simulators/simulateScheduleAD.m>`. From there, we find the specification of the :code:`schedule`
+structure that is expected. It contains two fields:
+
+* :code:`control`: It is a struct array containing fields that the model knows how to process.  Typically, this
+  will be the fields such as `src` for boundary conditions.
+* :code:`step`: It contains two arrays of equal size named :code:`val` and :code:`control`. Control is a index into the
+  :code:`schedule.control` array, indicating which control is to be used for the timestep.`schedule.step.val` is the
+  timestep used for that control step.
+
+
+
+
