@@ -136,7 +136,7 @@ The most fundamental structure to setup control is a schedule structure, which i
 structure that is expected. It contains two fields:
 
 * :code:`control`: It is a struct array containing fields that the model knows how to process.  Typically, this
-  will be the fields such as `src` for boundary conditions.
+  will be the fields such as `src` for input current.
 * :code:`step`: It contains two arrays of equal size named :code:`val` and :code:`control`. Control is a index into the
   :code:`schedule.control` array, indicating which control is to be used for the timestep.`schedule.step.val` is the
   timestep used for that control step.
