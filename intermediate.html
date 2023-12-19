@@ -87,7 +87,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controlinput.html">Control models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#json-input-interface">Json input interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#json-input-control-interface">Json input control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
@@ -367,11 +368,11 @@
 </div>
 <p>We can now merge these parameter definitions into a single parameter set and run the simulation:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonstruct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mergeJsonStructs</span><span class="p">({</span><span class="n">jsonstruct_geometry</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">                            </span><span class="n">jsonstruct_material</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">                            </span><span class="n">jsonstruct_control</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">                            </span><span class="n">jsonstruct_simparams</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">                            </span><span class="n">jsonstruct_output</span><span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">                           </span><span class="p">});</span>
+<span class="w">                               </span><span class="n">jsonstruct_material</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">                               </span><span class="n">jsonstruct_control</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">                               </span><span class="n">jsonstruct_simparams</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">                               </span><span class="n">jsonstruct_output</span><span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">                              </span><span class="p">});</span>
 </pre></div>
 </div>
 </section>
@@ -437,7 +438,7 @@ inserted in place. Hence, when we write</p>
 <p>the <code class="code docutils literal notranslate"><span class="pre">jsonstruct</span></code> that is obtained is equivalent to the one where we would have copied and paste the content of
 <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/ParameterData/MaterialProperties/Graphite/graphite.json">graphite.json</a>.</p>
 <div class="sphinx_collapse docutils container">
-<input class="sphinx_collapse__input" id="da2bcdf5-5345-4a88-8397-ed69e5c3ddf0" name="da2bcdf5-5345-4a88-8397-ed69e5c3ddf0" type="checkbox"><label class="sphinx_collapse__label" for="da2bcdf5-5345-4a88-8397-ed69e5c3ddf0"><i class="sphinx_collapse__icon"></i>jsonstruct detail</label><div class="sphinx_collapse__content docutils container">
+<input class="sphinx_collapse__input" id="a61789a0-040d-47a7-9b37-4cb31b4d2beb" name="a61789a0-040d-47a7-9b37-4cb31b4d2beb" type="checkbox"><label class="sphinx_collapse__label" for="a61789a0-040d-47a7-9b37-4cb31b4d2beb"><i class="sphinx_collapse__icon"></i>jsonstruct detail</label><div class="sphinx_collapse__content docutils container">
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;NegativeElectrode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;Coating&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;ActiveMaterial&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>

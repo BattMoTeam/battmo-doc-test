@@ -431,6 +431,46 @@ will be the fields such as <cite>src</cite> for boundary conditions.</p></li>
 <code class="code docutils literal notranslate"><span class="pre">schedule.control</span></code> array, indicating which control is to be used for the timestep.`schedule.step.val` is the
 timestep used for that control step.</p></li>
 </ul>
+<p>Let us set up a control with a given current control source function.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">*</span><span class="nb">second</span><span class="p">;</span>
+<span class="n">T</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="nb">minute</span><span class="p">;</span>
+<span class="n">N</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span>
+
+<span class="nb">step</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dt</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="nb">step</span><span class="p">.</span><span class="n">control</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="n">period</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">*</span><span class="nb">minute</span><span class="p">;</span>
+<span class="n">control</span><span class="p">.</span><span class="n">src</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">@(</span><span class="nb">time</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">1e-2</span><span class="o">*</span><span class="n">ampere</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="nb">time</span><span class="o">/</span><span class="n">period</span><span class="p">));</span>
+<span class="n">control</span><span class="p">.</span><span class="n">CC</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+
+<span class="n">schedule</span><span class="p">.</span><span class="n">step</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">step</span><span class="p">;</span>
+<span class="n">schedule</span><span class="p">.</span><span class="n">control</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">control</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>We have to setup a model and an initial state. We use the function <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/Various/setupModelFromJson.m">setupModelFromJson</a> to setup the model from
+a given json input. We load our sample input function, see source
+<a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/jsondatafiles/sample_input.json">here</a>. We replace the <code class="code docutils literal notranslate"><span class="pre">Control</span></code> field with a structure with
+a <code class="code docutils literal notranslate"><span class="pre">controlPolicy</span></code> given by a control current. The control model used here will then be <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Control/ControlModel.m">ControlModel</a>. We
+change the initial state of charge value so that we do not hit the upper current voltage value (the one given in the
+sample json is 0.99).</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonstruct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="s">&#39;Examples/jsondatafiles/sample_input.json&#39;</span><span class="p">);</span>
+
+<span class="n">jsonstruct</span><span class="p">.</span><span class="n">Control</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="n">jsonstruct</span><span class="p">.</span><span class="n">Control</span><span class="p">.</span><span class="n">controlPolicy</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;CC&#39;</span><span class="p">;</span>
+
+<span class="n">jsonstruct</span><span class="p">.</span><span class="n">SOC</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span>
+
+<span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">setupModelFromJson</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We use the default state initialisation method given by the method <code class="code docutils literal notranslate"><span class="pre">setupInitialState</span></code> in the <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/Battery.m">Battery</a> model.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">initstate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">setupInitialState</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, we can run the simulation for the given schedule, model and initial state using <a class="reference external" href="https://github.com/SINTEF-AppliedCompSci/MRST/blob/main/autodiff/ad-core/simulators/simulateScheduleAD.m">simulateScheduleAD</a></p>
+<figure class="align-center">
+<a class="reference external image-reference" href="_images/exampleControl.png"><img alt="_images/exampleControl.png" src="_images/exampleControl.png" style="width: 70%;" /></a>
+</figure>
 </section>
 </section>
 
