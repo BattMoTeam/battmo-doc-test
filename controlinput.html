@@ -422,16 +422,22 @@ following result.</p>
 </section>
 <section id="control-model-description">
 <h2>Control model description<a class="headerlink" href="#control-model-description" title="Link to this heading"></a></h2>
-<p>The most fundamental structure to setup control is a schedule structure, which is sent to <a class="reference external" href="https://github.com/SINTEF-AppliedCompSci/MRST/blob/main/autodiff/ad-core/simulators/simulateScheduleAD.m">simulateScheduleAD</a>. From there, we find the specification of the <code class="code docutils literal notranslate"><span class="pre">schedule</span></code>
-structure that is expected. It contains two fields:</p>
+<p>Beside json input, the function <a class="reference external" href="https://github.com/SINTEF-AppliedCompSci/MRST/blob/main/autodiff/ad-core/simulators/simulateScheduleAD.m">simulateScheduleAD</a> is used to run a simulation. It requires</p>
+<ul class="simple">
+<li><p>A <strong>model</strong>, which knows how to setup and solve the governing equations of our problem,</p></li>
+<li><p>An <strong>initial state</strong>,</p></li>
+<li><p>A <strong>schedule</strong>, which provides the time stepping and can also contain setup for control</p></li>
+</ul>
+<p>The <code class="code docutils literal notranslate"><span class="pre">schedule</span></code> contains two fields</p>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">control</span></code>: It is a struct array containing fields that the model knows how to process.  Typically, this
 will be the fields such as <cite>src</cite> for input current.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">step</span></code>: It contains two arrays of equal size named <code class="code docutils literal notranslate"><span class="pre">val</span></code> and <code class="code docutils literal notranslate"><span class="pre">control</span></code>. Control is a index into the
-<code class="code docutils literal notranslate"><span class="pre">schedule.control</span></code> array, indicating which control is to be used for the timestep.`schedule.step.val` is the
+<code class="code docutils literal notranslate"><span class="pre">schedule.control</span></code> array, indicating which control is to be used for the timestep. <code class="code docutils literal notranslate"><span class="pre">schedule.step.val</span></code> is the
 timestep used for that control step.</p></li>
 </ul>
-<p>Let us set up a control with a given current control source function.</p>
+<p>Let us set up a control with a given current control source function. In this case, we choose a sinusoidal current
+control.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">*</span><span class="nb">second</span><span class="p">;</span>
 <span class="n">T</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="nb">minute</span><span class="p">;</span>
 <span class="n">N</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span>
@@ -448,11 +454,10 @@ timestep used for that control step.</p></li>
 </pre></div>
 </div>
 <p>We have to setup a model and an initial state. We use the function <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/Various/setupModelFromJson.m">setupModelFromJson</a> to setup the model from
-a given json input. We load our sample input function, see source
+a given json input. We load the sample input function we have used before, see source
 <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/jsondatafiles/sample_input.json">here</a>. We replace the <code class="code docutils literal notranslate"><span class="pre">Control</span></code> field with a structure with
-a <code class="code docutils literal notranslate"><span class="pre">controlPolicy</span></code> given by a control current. The control model used here will then be <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Control/ControlModel.m">ControlModel</a>. We
-change the initial state of charge value so that we do not hit the upper current voltage value (the one given in the
-sample json is 0.99).</p>
+a <code class="code docutils literal notranslate"><span class="pre">controlPolicy</span></code> given by a current control (<code class="code docutils literal notranslate"><span class="pre">CC</span></code>). We change the initial state of charge value (SOC) to
+0.5 so that we do not hit the upper current voltage value (the SOC given in the sample json is 0.99).</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonstruct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="s">&#39;Examples/jsondatafiles/sample_input.json&#39;</span><span class="p">);</span>
 
 <span class="n">jsonstruct</span><span class="p">.</span><span class="n">Control</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[];</span>
@@ -468,6 +473,10 @@ sample json is 0.99).</p>
 </pre></div>
 </div>
 <p>Now, we can run the simulation for the given schedule, model and initial state using <a class="reference external" href="https://github.com/SINTEF-AppliedCompSci/MRST/blob/main/autodiff/ad-core/simulators/simulateScheduleAD.m">simulateScheduleAD</a></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">~</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">simulateScheduleAD</span><span class="p">(</span><span class="n">initstate</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">schedule</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The complete source can be found here <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/scripts/exampleControl.m">exampleControl</a>.</p>
 <figure class="align-center">
 <a class="reference external image-reference" href="_images/exampleControl.png"><img alt="_images/exampleControl.png" src="_images/exampleControl.png" style="width: 70%;" /></a>
 </figure>
