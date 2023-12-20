@@ -87,26 +87,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controlinput.html">Control models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#base-control-model">Base Control Model</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.ControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">ControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#ieswitch-control">IESwitch Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CCDischargeControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CCDischargeControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current-constant-voltage-control">Constant Current Constant Voltage Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcCvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-voltage">Constant Voltage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#json-input-control-interface">Json input control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
@@ -270,34 +252,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp2d">BatteryGeneratorP2D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP2D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP2D</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp3d">BatteryGeneratorP3D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP3D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP3D</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP4D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP4D</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#SpiralBatteryGenerator"><code class="docutils literal notranslate"><span class="pre">SpiralBatteryGenerator</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#CoinCellBatteryGenerator"><code class="docutils literal notranslate"><span class="pre">CoinCellBatteryGenerator</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp2d">BatteryGeneratorP2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp3d">BatteryGeneratorP3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#blockbatterygenerator">BlockBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellsectorbatterygenerator">CoinCellSectorBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#flatbatterygenerator">FlatBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#sectorbatterygenerator">SectorBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#base-class">Base class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#base-class">Base class</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a><ul>
@@ -319,12 +283,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mrst.html">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mrst.html#id1">Visualization Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mrst.html#id2">Grid Factory Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seealso.html#mrst">MRST</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#id1">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="fair.html">FAIR Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seealso.html#fair-data">FAIR Data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
@@ -749,7 +713,7 @@ important ones.</p>
 <span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A current collector&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
 <span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ElectronicComponent.schema.json&quot;</span>
+<span class="w">  </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./ElectronicComponent.schema.json&quot;</span>
 <span class="w">  </span>
 <span class="p">}</span>
 </pre></div>
@@ -1177,15 +1141,11 @@ important ones.</p>
 <span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;CCDischarge&quot;</span><span class="p">,</span>
 <span class="w">                   </span><span class="s2">&quot;CCCHarge&quot;</span><span class="p">,</span>
+<span class="w">                   </span><span class="s2">&quot;CC&quot;</span><span class="p">,</span>
 <span class="w">                   </span><span class="s2">&quot;CCCV&quot;</span><span class="p">,</span>
 <span class="w">                   </span><span class="s2">&quot;powerControl&quot;</span><span class="p">]}},</span>
-<span class="w">      </span><span class="nt">&quot;CRate&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;lowerCutoffVoltage&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;upperCutoffVoltage&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;CRate&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}</span>
+<span class="w">    </span><span class="p">}},</span>
 <span class="w">    </span><span class="nt">&quot;allOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;controlPolicy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CCDischarge&quot;</span><span class="p">}},</span>
@@ -1194,25 +1154,16 @@ important ones.</p>
 <span class="w">      </span><span class="p">{</span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;controlPolicy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CCCharge&quot;</span><span class="p">}},</span>
 <span class="w">        </span><span class="nt">&quot;then&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/CCCharge&quot;</span><span class="p">}}},</span><span class="w">      </span>
+<span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/CCCharge&quot;</span><span class="p">}}},</span>
 <span class="w">      </span><span class="p">{</span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;controlPolicy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CCCV&quot;</span><span class="p">}},</span>
 <span class="w">        </span><span class="nt">&quot;then&quot;</span><span class="p">:{</span>
 <span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/CCCV&quot;</span><span class="p">}}},</span>
 <span class="w">      </span><span class="p">{</span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;controlPolicy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CV&quot;</span><span class="p">}},</span>
-<span class="w">        </span><span class="nt">&quot;then&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/CV&quot;</span><span class="p">}}},</span>
-<span class="w">      </span><span class="p">{</span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;controlPolicy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CC&quot;</span><span class="p">}},</span>
-<span class="w">        </span><span class="nt">&quot;then&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/CC&quot;</span><span class="p">}}},</span>
-<span class="w">      </span><span class="p">{</span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;controlPolicy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;powerControl&quot;</span><span class="p">}},</span>
 <span class="w">        </span><span class="nt">&quot;then&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/power&quot;</span><span class="p">}}}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="w">  </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/powerControl&quot;</span><span class="p">}}}</span>
+<span class="w">    </span><span class="p">],</span>
 
 <span class="w">  </span><span class="nt">&quot;$defs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;CCDischarge&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -1220,25 +1171,38 @@ important ones.</p>
 <span class="w">      </span><span class="p">{</span><span class="nt">&quot;rampupTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rampup time&quot;</span><span class="p">},</span>
+<span class="w">       </span><span class="nt">&quot;lowerCutoffVoltage&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
 <span class="w">       </span><span class="nt">&quot;useCVswitch&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
 <span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Switch to control voltage when the lower cutoff voltage is reached. Default value is false, which means that the simulation stops when the lower voltage is reached.&quot;</span>
-<span class="w">       </span><span class="p">}},</span>
+<span class="w">       </span><span class="p">}}},</span>
 <span class="w">    </span><span class="nt">&quot;CCCharge&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span>
-<span class="w">      </span><span class="p">{</span><span class="nt">&quot;tup&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;rampupTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rampup time&quot;</span><span class="p">}}},</span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rampup time&quot;</span><span class="p">},</span>
+<span class="w">       </span><span class="nt">&quot;upperCutoffVoltage&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">       </span><span class="nt">&quot;useCVswitch&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Switch to control voltage when the upper cutoff voltage is reached. Default value is true.&quot;</span>
+<span class="w">       </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;CCCV&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;lowerCutoffVoltage&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;upperCutoffVoltage&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}</span>
 <span class="w">        </span><span class="nt">&quot;dEdtLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;dIdtLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;numberOfCycles&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;initialControl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <span class="w">                            </span><span class="nt">&quot;enum&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;discharging&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;charging&quot;</span><span class="p">]}</span>
 <span class="w">      </span><span class="p">}},</span>
-<span class="w">    </span><span class="nt">&quot;CV&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;inputVoltage&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}}},</span>
+<span class="w"> </span>
 <span class="w">    </span><span class="nt">&quot;powerControl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;case&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -1281,13 +1245,14 @@ important ones.</p>
 <span class="w">    </span><span class="nt">&quot;TimeStepping&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;totalTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;totalTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">                       </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Total time. If not given, may be inferred by some control models&quot;</span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;timeStepDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;numberOfTimeSteps&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;numberOfTimeSteps&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">                               </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number of time steps, then we compute the time step duration from total time and number of time steps&quot;</span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;useRampup&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;rampupTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}},</span>
-<span class="w">      </span><span class="nt">&quot;oneOf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;required&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;numberOfTimeSteps&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;totalTime&quot;</span><span class="p">]},</span>
-<span class="w">                 </span><span class="p">{</span><span class="nt">&quot;required&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;timeStepDuration&quot;</span><span class="p">]}]</span>
+<span class="w">        </span><span class="nt">&quot;numberOfRampupSteps&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;if we use rampup, we use at the start time intervals that increases geometrrically until we reach the time step target, see function rampupTimesteps.&quot;</span><span class="p">}}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>

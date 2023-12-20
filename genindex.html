@@ -84,26 +84,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controlinput.html">Control models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#base-control-model">Base Control Model</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.ControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">ControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#ieswitch-control">IESwitch Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CCDischargeControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CCDischargeControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current-constant-voltage-control">Constant Current Constant Voltage Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcCvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcCvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-voltage">Constant Voltage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CvControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CvControlModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#constant-current">Constant Current</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="controlinput.html#Utilities.CcControlModelInputParams"><code class="docutils literal notranslate"><span class="pre">CcControlModelInputParams</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#json-input-control-interface">Json input control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
@@ -267,34 +249,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="geometryinput.html">Battery Geometries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp2d">BatteryGeneratorP2D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP2D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP2D</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp3d">BatteryGeneratorP3D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP3D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP3D</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGeneratorP4D"><code class="docutils literal notranslate"><span class="pre">BatteryGeneratorP4D</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#SpiralBatteryGenerator"><code class="docutils literal notranslate"><span class="pre">SpiralBatteryGenerator</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#CoinCellBatteryGenerator"><code class="docutils literal notranslate"><span class="pre">CoinCellBatteryGenerator</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp2d">BatteryGeneratorP2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp3d">BatteryGeneratorP3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#blockbatterygenerator">BlockBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellsectorbatterygenerator">CoinCellSectorBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#flatbatterygenerator">FlatBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#sectorbatterygenerator">SectorBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#base-class">Base class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometryinput.html#BatteryGenerator"><code class="docutils literal notranslate"><span class="pre">BatteryGenerator</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#base-class">Base class</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a><ul>
@@ -316,12 +280,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mrst.html">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mrst.html#id1">Visualization Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mrst.html#id2">Grid Factory Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seealso.html#mrst">MRST</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#id1">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="fair.html">FAIR Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seealso.html#fair-data">FAIR Data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
@@ -369,7 +333,6 @@
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
- | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
  
 </div>
@@ -392,20 +355,12 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="geometryinput.html#BatteryGenerator">BatteryGenerator (built-in class)</a>
-</li>
-      <li><a href="geometryinput.html#BatteryGeneratorP2D">BatteryGeneratorP2D (built-in class)</a>
-</li>
-      <li><a href="geometryinput.html#BatteryGeneratorP3D">BatteryGeneratorP3D (built-in class)</a>
-</li>
-      <li><a href="geometryinput.html#BatteryGeneratorP4D">BatteryGeneratorP4D (built-in class)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="batteryinput.html#BatteryInputParams">BatteryInputParams (built-in class)</a>
 </li>
       <li><a href="batteryinput.html#CoatingInputParams.Binder">Binder (CoatingInputParams attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="batteryinput.html#BinderInputParams">BinderInputParams (built-in class)</a>
 </li>
       <li><a href="batteryinput.html#ElectrolyteInputParams.bruggemanCoefficient">bruggemanCoefficient (ElectrolyteInputParams attribute)</a>
@@ -416,35 +371,23 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="controlinput.html#Utilities.CcControlModelInputParams">CcControlModelInputParams (class in Utilities)</a>
-</li>
-      <li><a href="controlinput.html#Utilities.CcCvControlModelInputParams">CcCvControlModelInputParams (class in Utilities)</a>
-</li>
-      <li><a href="controlinput.html#Utilities.CCDischargeControlModelInputParams">CCDischargeControlModelInputParams (class in Utilities)</a>
-</li>
       <li><a href="batteryinput.html#InterfaceInputParams.chargeTransferCoefficient">chargeTransferCoefficient (InterfaceInputParams attribute)</a>
 </li>
       <li><a href="batteryinput.html#ElectrodeInputParams.Coating">Coating (ElectrodeInputParams attribute)</a>
 </li>
       <li><a href="batteryinput.html#CoatingInputParams">CoatingInputParams (built-in class)</a>
 </li>
-      <li><a href="geometryinput.html#CoinCellBatteryGenerator">CoinCellBatteryGenerator (built-in class)</a>
+      <li><a href="batteryinput.html#CoatingInputParams.ConductingAdditive">ConductingAdditive (CoatingInputParams attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="batteryinput.html#CoatingInputParams.ConductingAdditive">ConductingAdditive (CoatingInputParams attribute)</a>
-</li>
       <li><a href="batteryinput.html#ConductingAdditiveInputParams">ConductingAdditiveInputParams (built-in class)</a>
 </li>
       <li><a href="batteryinput.html#BatteryInputParams.Control">Control (BatteryInputParams attribute)</a>
 </li>
-      <li><a href="controlinput.html#Utilities.ControlModelInputParams">ControlModelInputParams (class in Utilities)</a>
-</li>
       <li><a href="batteryinput.html#ElectrodeInputParams.CurrentCollector">CurrentCollector (ElectrodeInputParams attribute)</a>
 </li>
       <li><a href="batteryinput.html#CurrentCollectorInputParams">CurrentCollectorInputParams (built-in class)</a>
-</li>
-      <li><a href="controlinput.html#Utilities.CvControlModelInputParams">CvControlModelInputParams (class in Utilities)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -561,15 +504,6 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    module
-
-      <ul>
-        <li><a href="controlinput.html#module-Utilities">Utilities</a>
-</li>
-      </ul></li>
-  </ul></td>
 </tr></table>
 
 <h2 id="N">N</h2>
@@ -631,10 +565,10 @@
 </li>
       <li><a href="batteryinput.html#ActiveMaterialInputParams.SolidDiffusion">SolidDiffusion (ActiveMaterialInputParams attribute)</a>
 </li>
-      <li><a href="batteryinput.html#SolidDiffusionModelInputParams">SolidDiffusionModelInputParams (built-in class)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="batteryinput.html#SolidDiffusionModelInputParams">SolidDiffusionModelInputParams (built-in class)</a>
+</li>
       <li><a href="batteryinput.html#ActiveMaterialInputParams.specificHeatCapacity">specificHeatCapacity (ActiveMaterialInputParams attribute)</a>
 
       <ul>
@@ -647,8 +581,6 @@
         <li><a href="batteryinput.html#ElectrolyteInputParams.specificHeatCapacity">(ElectrolyteInputParams attribute)</a>
 </li>
       </ul></li>
-      <li><a href="geometryinput.html#SpiralBatteryGenerator">SpiralBatteryGenerator (built-in class)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -671,19 +603,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="batteryinput.html#BatteryInputParams.ThermalModel">ThermalModel (BatteryInputParams attribute)</a>
 </li>
-  </ul></td>
-</tr></table>
-
-<h2 id="U">U</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    Utilities
-
-      <ul>
-        <li><a href="controlinput.html#module-Utilities">module</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
