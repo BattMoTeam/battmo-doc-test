@@ -257,7 +257,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#batterygeneratorp4d">BatteryGeneratorP4D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#spiralbatterygenerator">SpiralBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#base-class">Base class</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a><ul>
@@ -280,7 +279,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="seealso.html#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="seealso.html#id1">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#mrst-page">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -319,11 +318,12 @@
 <p>We support multidimensional geometries (from 1D to 3D). The geometry is part of the input data and must be setup up
 before a simulation. The base class <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGenerator.m">BatteryGenerator</a> provides a template to construct the battery geometry,
 which includes a mesh for all the components (Coatings, sepators, current collectors…) and the coupling between those
-as the main output. Standard geometries can often be parameterized, meaning that a small set parameters is enough to
-construct the whole geometrical model. We have implemented some standard geometries and provide here examples with an
-illustration and a list of the parameters used to produce this illustration. The parameters can be passed through json
-interface and are described in some more detail in the <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonSchemas/Geometry.schema.json">geometry json
-schema</a>.</p>
+as the main output.</p>
+<p>To create our grids, we rely essentially on the grid generation functions provided by <a class="reference external" href="https://www.sintef.no/Projectweb/MRST/">MRST</a>. We use also the visualization tools available there, see <a class="reference internal" href="seealso.html#mrst-page"><span class="std std-ref">here</span></a>.</p>
+<p>Standard geometries can often be parameterized, meaning that a small set parameters is enough to construct the whole
+geometrical model. We have implemented some standard geometries and provide here examples with an illustration and a
+list of the parameters used to produce this illustration. The parameters can be passed through json interface and are
+described in some more detail in the <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonSchemas/Geometry.schema.json">geometry json schema</a>.</p>
 <section id="batterygeneratorp2d">
 <h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGeneratorP2D.m">BatteryGeneratorP2D</a><a class="headerlink" href="#batterygeneratorp2d" title="Link to this heading"></a></h2>
 <a class="reference internal image-reference" href="_images/1dmodel.png"><img alt="_images/1dmodel.png" src="_images/1dmodel.png" style="width: 80%;" /></a>
@@ -687,11 +687,6 @@ schema</a>.</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="base-class">
-<h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGenerator.m">Base class</a><a class="headerlink" href="#base-class" title="Link to this heading"></a></h2>
-<p>This is the base class that gather the methods to setup the different grid. This class will be usefull if you want to
-setup your own tailored grid.</p>
 </section>
 </section>
 

@@ -5,11 +5,16 @@ Battery Geometries
 We support multidimensional geometries (from 1D to 3D). The geometry is part of the input data and must be setup up
 before a simulation. The base class :battmo:`BatteryGenerator` provides a template to construct the battery geometry,
 which includes a mesh for all the components (Coatings, sepators, current collectors...) and the coupling between those
-as the main output. Standard geometries can often be parameterized, meaning that a small set parameters is enough to
-construct the whole geometrical model. We have implemented some standard geometries and provide here examples with an
-illustration and a list of the parameters used to produce this illustration. The parameters can be passed through json
-interface and are described in some more detail in the :battmofile:`geometry json
-schema<Utilities/JsonSchemas/Geometry.schema.json>`.
+as the main output.
+
+To create our grids, we rely essentially on the grid generation functions provided by `MRST
+<https://www.sintef.no/Projectweb/MRST/>`_. We use also the visualization tools available there, see :ref:`here <mrst
+page>`.
+
+Standard geometries can often be parameterized, meaning that a small set parameters is enough to construct the whole
+geometrical model. We have implemented some standard geometries and provide here examples with an illustration and a
+list of the parameters used to produce this illustration. The parameters can be passed through json interface and are
+described in some more detail in the :battmofile:`geometry json schema<Utilities/JsonSchemas/Geometry.schema.json>`.
 
 
 :battmo:`BatteryGeneratorP2D`
@@ -309,11 +314,5 @@ There are parameters for the tabs that we do not detail here, see :battmofile:`j
      - :code:`numAngular`
      - 1       
 
-       
-:battmo:`Base class<BatteryGenerator>`
---------------------------------------
-
-This is the base class that gather the methods to setup the different grid. This class will be usefull if you want to
-setup your own tailored grid.
 
          
