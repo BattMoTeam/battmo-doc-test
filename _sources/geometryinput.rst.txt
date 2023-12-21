@@ -2,8 +2,14 @@
 Battery Geometries
 ==================
 
-Description of the models that are used to setup the geometry. Here, we include a short list of the geometrical
-parameters. We refer to the source code for more details. We plan to include more geometries.
+We support multidimensional geometries (from 1D to 3D). The geometry is part of the input data and must be setup up
+before a simulation. The base class :battmo:`BatteryGenerator` provides a template to construct the battery geometry,
+which includes a mesh for all the components (Coatings, sepators, current collectors...) and the coupling between those
+as the main output. Standard geometries can often be parameterized, meaning that a small set parameters is enough to
+construct the whole geometrical model. We have implemented some standard geometries and provide here examples with an
+illustration and a list of the parameters used to produce this illustration. The parameters can be passed through json
+interface and are described in some more detail in the :battmofile:`geometry json
+schema<Utilities/JsonSchemas/Geometry.schema.json>`.
 
 
 :battmo:`BatteryGeneratorP2D`
@@ -13,12 +19,12 @@ parameters. We refer to the source code for more details. We plan to include mor
            :width: 80%
                    
 
-.. list-table:: Parameters
+.. list-table:: Parameters with values used in plot above
    :header-rows: 1
 
    * - Parameter
      - Name
-     - Default value
+     - Value
    * - length of negative current collector
      - :code:`x(1)`
      - 25 micro meter
@@ -62,7 +68,7 @@ parameters. We refer to the source code for more details. We plan to include mor
            :width: 80%
                    
 
-.. list-table:: Parameters
+.. list-table:: Parameters with values used in plot above
    :header-rows: 1
 
    * - Parameter
@@ -114,7 +120,7 @@ parameters. We refer to the source code for more details. We plan to include mor
 .. image:: img/runbattery3d.png
            :width: 80%
                    
-.. list-table:: Parameters
+.. list-table:: Parameters with values used in plot above
    :header-rows: 1
 
    * - Parameter
@@ -195,7 +201,7 @@ parameters. We refer to the source code for more details. We plan to include mor
 .. image:: img/jellyrollmodel.png
            :width: 80%
 
-.. list-table:: Thickness and discretization number (Nr) are passed through the dictionaries :code:`widthDict` and :code:`nrDict`
+.. list-table:: Thickness and discretization number (Nr) are passed through the dictionaries :code:`widthDict` and :code:`nrDict`, with values used in plot above.
    :header-rows: 1
 
    * - Component
@@ -223,7 +229,7 @@ parameters. We refer to the source code for more details. We plan to include mor
      - 1mm
      - 1mm
           
-.. list-table:: Other parameters
+.. list-table:: Other parameters, with values used in plot above.
    :header-rows: 1
                  
    * - Parameter
@@ -244,6 +250,9 @@ parameters. We refer to the source code for more details. We plan to include mor
    * - number of discretization cells in the longitudonal
      - :code:`nL`
      - 1
+
+There are parameters for the tabs that we do not detail here, see :battmofile:`json schema<Utilities/JsonSchemas/Geometry.schema.json#242>`
+
 .. _coincell:
       
 :battmo:`CoinCellBatteryGenerator`
@@ -252,7 +261,55 @@ parameters. We refer to the source code for more details. We plan to include mor
 .. image:: img/coincell.png
            :width: 80%
 
-         
+
+.. list-table:: Parameters for each component : thicknes, diameter, number of cell layers (Nl), with the values used in the plot above
+   :header-rows: 1
+                 
+   * - Component
+     - Name
+     - Thickness
+     - Diameter
+     - Nl
+   * - Negative electrode current collector
+     - :code:`NegativeCurrentCollector`
+     - 1
+     - 1
+     - 1
+   * - Negative electrode coating
+     - :code:`NegativeCoating`
+     - 1
+     - 1
+     - 1
+   * - Separator
+     - :code:`Separator`
+     - 1
+     - 1
+     - 1
+   * - Positive electrode coating
+     - :code:`PositiveCoating`
+     - 1
+     - 1
+     - 1
+   * - Positive electrode current collector
+     - :code:`PositiveCurrentCollector`
+     - 1
+     - 1
+     - 1
+   
+.. list-table:: Other parameters, with values used in plot above
+   :header-rows: 1
+                 
+   * - Parameter
+     - Name
+     - Value
+   * - Discretization number in radial direction
+     - :code:`numRadial`
+     - 1
+   * - Discretization number in angular direction
+     - :code:`numAngular`
+     - 1       
+
+       
 :battmo:`Base class<BatteryGenerator>`
 --------------------------------------
 

@@ -316,17 +316,23 @@
              
   <section id="battery-geometries">
 <h1>Battery Geometries<a class="headerlink" href="#battery-geometries" title="Link to this heading"></a></h1>
-<p>Description of the models that are used to setup the geometry. Here, we include a short list of the geometrical
-parameters. We refer to the source code for more details. We plan to include more geometries.</p>
+<p>We support multidimensional geometries (from 1D to 3D). The geometry is part of the input data and must be setup up
+before a simulation. The base class <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGenerator.m">BatteryGenerator</a> provides a template to construct the battery geometry,
+which includes a mesh for all the components (Coatings, sepators, current collectors…) and the coupling between those
+as the main output. Standard geometries can often be parameterized, meaning that a small set parameters is enough to
+construct the whole geometrical model. We have implemented some standard geometries and provide here examples with an
+illustration and a list of the parameters used to produce this illustration. The parameters can be passed through json
+interface and are described in some more detail in the <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonSchemas/Geometry.schema.json">geometry json
+schema</a>.</p>
 <section id="batterygeneratorp2d">
 <h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGeneratorP2D.m">BatteryGeneratorP2D</a><a class="headerlink" href="#batterygeneratorp2d" title="Link to this heading"></a></h2>
 <a class="reference internal image-reference" href="_images/1dmodel.png"><img alt="_images/1dmodel.png" src="_images/1dmodel.png" style="width: 80%;" /></a>
 <table class="docutils align-default" id="id2">
-<caption><span class="caption-text">Parameters</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Parameters with values used in plot above</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
 <th class="head"><p>Name</p></th>
-<th class="head"><p>Default value</p></th>
+<th class="head"><p>Value</p></th>
 </tr>
 </thead>
 <tbody>
@@ -381,7 +387,7 @@ parameters. We refer to the source code for more details. We plan to include mor
 <span id="dgeometry"></span><h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGeneratorP3D.m">BatteryGeneratorP3D</a><a class="headerlink" href="#batterygeneratorp3d" title="Link to this heading"></a></h2>
 <a class="reference internal image-reference" href="_images/runbattery2d.png"><img alt="_images/runbattery2d.png" src="_images/runbattery2d.png" style="width: 80%;" /></a>
 <table class="docutils align-default" id="id3">
-<caption><span class="caption-text">Parameters</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Parameters with values used in plot above</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
 <th class="head"><p>Name</p></th>
@@ -444,7 +450,7 @@ parameters. We refer to the source code for more details. We plan to include mor
 <span id="id1"></span><h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGeneratorP4D.m">BatteryGeneratorP4D</a><a class="headerlink" href="#batterygeneratorp4d" title="Link to this heading"></a></h2>
 <a class="reference internal image-reference" href="_images/runbattery3d.png"><img alt="_images/runbattery3d.png" src="_images/runbattery3d.png" style="width: 80%;" /></a>
 <table class="docutils align-default" id="id4">
-<caption><span class="caption-text">Parameters</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Parameters with values used in plot above</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
 <th class="head"><p>Name</p></th>
@@ -547,7 +553,7 @@ parameters. We refer to the source code for more details. We plan to include mor
 <span id="jellyroll"></span><h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/SpiralBatteryGenerator.m">SpiralBatteryGenerator</a><a class="headerlink" href="#spiralbatterygenerator" title="Link to this heading"></a></h2>
 <a class="reference internal image-reference" href="_images/jellyrollmodel.png"><img alt="_images/jellyrollmodel.png" src="_images/jellyrollmodel.png" style="width: 80%;" /></a>
 <table class="docutils align-default" id="id5">
-<caption><span class="caption-text">Thickness and discretization number (Nr) are passed through the dictionaries <code class="code docutils literal notranslate"><span class="pre">widthDict</span></code> and <code class="code docutils literal notranslate"><span class="pre">nrDict</span></code></span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Thickness and discretization number (Nr) are passed through the dictionaries <code class="code docutils literal notranslate"><span class="pre">widthDict</span></code> and <code class="code docutils literal notranslate"><span class="pre">nrDict</span></code>, with values used in plot above.</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Component</p></th>
 <th class="head"><p>Key name</p></th>
@@ -584,7 +590,7 @@ parameters. We refer to the source code for more details. We plan to include mor
 </tbody>
 </table>
 <table class="docutils align-default" id="id6">
-<caption><span class="caption-text">Other parameters</span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Other parameters, with values used in plot above.</span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
 <th class="head"><p>Name</p></th>
@@ -614,10 +620,73 @@ parameters. We refer to the source code for more details. We plan to include mor
 </tr>
 </tbody>
 </table>
+<p>There are parameters for the tabs that we do not detail here, see <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonSchemas/Geometry.schema.json#L242">json schema</a></p>
 </section>
 <section id="coincellbatterygenerator">
 <span id="coincell"></span><h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/CoinCellBatteryGenerator.m">CoinCellBatteryGenerator</a><a class="headerlink" href="#coincellbatterygenerator" title="Link to this heading"></a></h2>
 <a class="reference internal image-reference" href="_images/coincell.png"><img alt="_images/coincell.png" src="_images/coincell.png" style="width: 80%;" /></a>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">Parameters for each component : thicknes, diameter, number of cell layers (Nl), with the values used in the plot above</span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Thickness</p></th>
+<th class="head"><p>Diameter</p></th>
+<th class="head"><p>Nl</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Negative electrode current collector</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">NegativeCurrentCollector</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Negative electrode coating</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">NegativeCoating</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>Separator</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">Separator</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Positive electrode coating</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">PositiveCoating</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>Positive electrode current collector</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">PositiveCurrentCollector</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">Other parameters, with values used in plot above</span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Discretization number in radial direction</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">numRadial</span></code></p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Discretization number in angular direction</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">numAngular</span></code></p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="base-class">
 <h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGenerator.m">Base class</a><a class="headerlink" href="#base-class" title="Link to this heading"></a></h2>
