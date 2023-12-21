@@ -85,7 +85,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../controlinput.html">Control models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#json-input-interface">Json input interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#json-input-control-interface">Json input control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../optimisation.html">Optimisation</a></li>
@@ -254,10 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#blockbatterygenerator">BlockBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#coincellsectorbatterygenerator">CoinCellSectorBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#flatbatterygenerator">FlatBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#sectorbatterygenerator">SectorBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#base-class">Base class</a></li>
 </ul>
 </li>
@@ -280,12 +277,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../seealso.html">See Also</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../mrst.html">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../mrst.html#id1">Visualization Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../mrst.html#id2">Grid Factory Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seealso.html#mrst">MRST</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../seealso.html#id1">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../fair.html">FAIR Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seealso.html#fair-data">FAIR Data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
@@ -340,22 +337,22 @@
 
 <span class="c">%% Geometry</span>
 <span class="c">% We load the json structure for the geometrical properties</span>
-<span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;jsondatafiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;geometry1d.json&#39;</span><span class="p">);</span>
+<span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;JsonDataFiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;geometry1d.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct_geometry</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">jsonfilename</span><span class="p">);</span>
 
 <span class="c">%% Control</span>
 <span class="c">% We load the json structure for the geometrical properties</span>
-<span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;jsondatafiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;cc_discharge_control.json&#39;</span><span class="p">);</span>
+<span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;JsonDataFiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;cc_discharge_control.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct_control</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">jsonfilename</span><span class="p">);</span>
 
 <span class="c">%% Simulation parameters</span>
 <span class="c">% We load the json structure for the simulation parameters</span>
-<span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;jsondatafiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;simulation_parameters.json&#39;</span><span class="p">);</span>
+<span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;JsonDataFiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;simulation_parameters.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct_simparams</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">jsonfilename</span><span class="p">);</span>
 
 <span class="c">%% Ouput specificiations</span>
 <span class="c">% We load the json structure for output extra specifications.</span>
-<span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;jsondatafiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;extra_output.json&#39;</span><span class="p">);</span>
+<span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;JsonDataFiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;extra_output.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct_output</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">jsonfilename</span><span class="p">);</span>
 
 <span class="c">%%</span>
