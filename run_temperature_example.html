@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thermal Simulation &mdash; BattMo  documentation</title>
+  <title>runThermalModel &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
@@ -21,9 +21,7 @@
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Optimisation" href="optimisation.html" />
-    <link rel="prev" title="Parameter sets" href="parsets.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,7 +44,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="basicusage.html#a-first-battmo-model">A First <strong>BattMo</strong> Model</a><ul>
@@ -79,7 +77,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="batteryinput.html">Battery cell</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BatteryInputParams"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams</span></code></a></li>
@@ -141,7 +139,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Thermal Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
 </ul>
 </li>
@@ -216,10 +214,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="advancedtopics.html">Advanced Usage</a></li>
-      <li class="breadcrumb-item active">Thermal Simulation</li>
+      <li class="breadcrumb-item active">runThermalModel</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/thermal.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/run_temperature_example.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -227,12 +224,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="thermal-simulation">
-<h1>Thermal Simulation<a class="headerlink" href="#thermal-simulation" title="Link to this heading"></a></h1>
-<p>BattMo support simulations with thermal coupling. Here, we look at the example given in <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/Advanced/runThermalExample.m">runThermalExample</a></p>
-<p>First we setup our model, in the same way as before, by merging different json inputs. We use a <a class="reference internal" href="geometryinput.html#id1"><span class="std std-ref">simple 3D
-model</span></a> mainly used for demonstration.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% Setup material properties</span>
+  <section id="runthermalmodel">
+<h1>runThermalModel<a class="headerlink" href="#runthermalmodel" title="Link to this heading"></a></h1>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% Example with thermal effects </span>
+
+<span class="c">%% Setup material properties</span>
 
 <span class="n">jsonfilename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;ParameterData&#39;</span><span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
 <span class="w">                        </span><span class="s">&#39;BatteryCellParameters&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
@@ -259,29 +255,8 @@ model</span></a> mainly used for demonstration.</p>
 <span class="c">%% Plot the extrnal heat transfer coefficient</span>
 
 <span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">setupModelFromJson</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>In the json structure
-<a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json#L4">lithium_ion_battery_nmc_graphite.json</a>,
-the flag <code class="code docutils literal notranslate"><span class="pre">use_thermal</span></code> is set to <code class="code docutils literal notranslate"><span class="pre">true</span></code>, which means that the simulation will include thermal effects.</p>
-<p>The thermal parameters are given for each component. They typically consists of</p>
-<ul class="simple">
-<li><p>Specific Heat Capacity</p></li>
-<li><p>Thermal Conducitivty</p></li>
-</ul>
-<p>From those, we comput <strong>effective</strong> quantities. For the coating, it is done by processing the corresponding properties
-of the constituents. The effective thermal conductivity takes into account the volume fraction.</p>
-<p>The parameters needed to compute the heat exchange with the exterior are</p>
-<ul class="simple">
-<li><p>The external temperature (K)</p></li>
-<li><p>The external heat transfer coefficient (W/m²/s)</p></li>
-</ul>
-<p>The external heat transfer coefficient can take different values for each external face of the model. It will then
-depend on the chosen geometrical domain. For our simple 3D model, the json interface gives us the possibility to set two
-values : A default value used for all external faces with is overwritten by the value given for the tabs. We use in our
-example 100 W/m²/s and 1000 W/m²/s, respectively.</p>
-<p>Let us visualize those values. We run the following</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% We index of the faces that are coupled to thermally to the exterior</span>
+
+<span class="c">% We index of the faces that are coupled to thermally to the exterior</span>
 <span class="n">extfaceind</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">couplingTerm</span><span class="p">.</span><span class="n">couplingfaces</span><span class="p">;</span>
 <span class="n">G</span><span class="w">          </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">G</span><span class="p">;</span>
 <span class="n">nf</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">G</span><span class="p">.</span><span class="n">faces</span><span class="p">.</span><span class="n">num</span><span class="p">;</span>
@@ -293,31 +268,42 @@ example 100 W/m²/s and 1000 W/m²/s, respectively.</p>
 
 <span class="n">figure</span>
 <span class="s">plotFaceData(G,</span><span class="w"> </span><span class="s">val,</span><span class="w"> </span><span class="s">&#39;edgecolor&#39;,</span><span class="w"> </span><span class="s">&#39;black&#39;)</span><span class="p">;</span>
-<span class="nb">view</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">]);</span>
+<span class="n">axis</span><span class="w"> </span><span class="s">equal</span>
+<span class="nb">view</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">]);</span>
 <span class="nb">title</span><span class="p">(</span><span class="s">&#39;External Heat Transfer Coefficient / W/s/m^2&#39;</span><span class="p">)</span>
 <span class="nb">colorbar</span>
-</pre></div>
-</div>
-<p>and obtain</p>
-<img alt="_images/externalheattransfercoef.png" src="_images/externalheattransfercoef.png" />
-<p>We run the simulation</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">output</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">runBatteryJson</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>We obtain the standard discharge curve</p>
-<img alt="_images/discharge_voltage_temperature_example.png" src="_images/discharge_voltage_temperature_example.png" />
-<p>Then, we extract from the output the temperatue results and extract the minimum and maximum value</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Tabs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PhysicalConstants</span><span class="p">.</span><span class="n">Tabs</span><span class="p">;</span>
+
+<span class="c">%% Run the simulation</span>
+
+<span class="n">output</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">runBatteryJson</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
+
+<span class="c">%% plot voltage</span>
+
+<span class="nb">time</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">time</span><span class="p">;</span>
+<span class="n">E</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">E</span><span class="p">;</span>
+
+<span class="nb">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;defaulttextfontsize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span>
+<span class="nb">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;defaultaxesfontsize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span>
+<span class="nb">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;defaultlinelinewidth&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+
+<span class="n">figure</span>
+<span class="s">plot(time/hour,</span><span class="w"> </span><span class="s">E)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Voltage / V&#39;</span><span class="p">);</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time / h&#39;</span><span class="p">);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;voltage / V&#39;</span><span class="p">);</span>
+
+
+<span class="c">%% Plot the minimum and maximum values of the temperature</span>
+
+<span class="n">Tabs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PhysicalConstants</span><span class="p">.</span><span class="n">Tabs</span><span class="p">;</span>
 
 <span class="n">states</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">states</span><span class="p">;</span>
 
 <span class="n">Tmin</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tabs</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
 <span class="n">Tmax</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tabs</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>We plot those</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span>
-<span class="nb">hold</span><span class="w"> </span><span class="n">on</span>
+
+<span class="n">figure</span>
+<span class="s">hold</span><span class="w"> </span><span class="s">on</span>
 <span class="nb">plot</span><span class="p">(</span><span class="nb">time</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">hour</span><span class="p">,</span><span class="w"> </span><span class="n">Tmin</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;displayname&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;min T&#39;</span><span class="p">);</span>
 <span class="nb">plot</span><span class="p">(</span><span class="nb">time</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">hour</span><span class="p">,</span><span class="w"> </span><span class="n">Tmax</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;displayname&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;max T&#39;</span><span class="p">);</span>
 <span class="nb">title</span><span class="p">(</span><span class="s">&#39;Temperature / C&#39;</span><span class="p">)</span>
@@ -325,23 +311,35 @@ example 100 W/m²/s and 1000 W/m²/s, respectively.</p>
 <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Temperature / C&#39;</span><span class="p">);</span>
 
 <span class="n">legend</span><span class="w"> </span><span class="s">show</span>
-</pre></div>
-</div>
-<p>and obtain</p>
-<img alt="_images/temperature_evolution1.png" src="_images/temperature_evolution1.png" />
-<p>We notice that there is very little temperature variation. The reason is that we have a small cell which is very thin,
-with a lot of external contact where heat can be released.</p>
-<p>Let use different heat exchange coefficient. We set the default heat exchange to zero so that heat exchange can only
-occur through the tabs.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonstruct</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">externalHeatTransferCoefficientTab</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+
+<span class="c">%% change setup for cooling coefficient</span>
+
+<span class="n">jsonstruct</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">externalHeatTransferCoefficientTab</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 <span class="n">jsonstruct</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">externalHeatTransferCoefficient</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>We run again the computation and obtain higher temperature.</p>
-<img alt="_images/temperature_evolution2.png" src="_images/temperature_evolution2.png" />
-<p>We note also that there is less temperature gradient. We have the temperature distribution for the whole cells. Let us
-plot it for the last time step. To do so we run</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">state</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">states</span><span class="p">{</span><span class="k">end</span><span class="p">}</span>
+
+<span class="n">output</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">runBatteryJson</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
+
+<span class="c">%% Plot the minimum and maximum values of the temperature</span>
+
+<span class="n">states</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">states</span><span class="p">;</span>
+
+<span class="n">Tmin</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tabs</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
+<span class="n">Tmax</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tabs</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
+<span class="nb">time</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">time</span><span class="p">;</span>
+
+<span class="n">figure</span>
+<span class="s">hold</span><span class="w"> </span><span class="s">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="nb">time</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">hour</span><span class="p">,</span><span class="w"> </span><span class="n">Tmin</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;displayname&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;min T&#39;</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="nb">time</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">hour</span><span class="p">,</span><span class="w"> </span><span class="n">Tmax</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;displayname&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;max T&#39;</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Temperature / C&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time / h&#39;</span><span class="p">);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Temperature / C&#39;</span><span class="p">);</span>
+
+<span class="n">legend</span><span class="w"> </span><span class="s">show</span>
+
+<span class="c">%% plot final temperature disctribution</span>
+
+<span class="n">state</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">states</span><span class="p">{</span><span class="k">end</span><span class="p">}</span>
 <span class="nb">figure</span>
 <span class="n">plotCellData</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
 <span class="w">             </span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tabs</span><span class="p">);</span>
@@ -350,18 +348,12 @@ plot it for the last time step. To do so we run</p>
 <span class="nb">view</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>We obtain</p>
-<img alt="_images/temperature_distribution.png" src="_images/temperature_distribution.png" />
-<p>The whole script can be viewed <a class="reference internal" href="run_temperature_example.html#runthermalmodel"><span class="std std-ref">here</span></a>.</p>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="parsets.html" class="btn btn-neutral float-left" title="Parameter sets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="optimisation.html" class="btn btn-neutral float-right" title="Optimisation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
