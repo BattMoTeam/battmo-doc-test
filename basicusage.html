@@ -62,6 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#change-control-parameters">Change Control Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#change-structural-parameters">Change Structural Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#change-material-parameters">Change Material Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notebooks">Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
 </ul>
 </li>
@@ -128,19 +129,20 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html">Model initialisation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#how-to-initialise-the-model">How to initialise the model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#calculating-intial-concentration">Calculating intial concentration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#calculating-initial-potential">Calculating initial potential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html">The Battery Simulation Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#initialisation-of-a-battery-simulation-model">Initialisation of a battery simulation model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#inspection-of-the-model">Inspection of the model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#computing-and-inspecting-some-standard-static-properties-of-the-model">Computing and inspecting some standard static properties of the model</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controlinput.html">Control models</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#json-input-control-interface">Json input control interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="json.html">JSON input specification</a><ul>
@@ -170,7 +172,7 @@
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="juliabridge.html">BattMo Julia bridge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
 </ul>
@@ -451,6 +453,42 @@ describes a simple NMC-Graphite cell.</p>
 <span class="nb">plot</span><span class="p">(</span><span class="nb">time</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="notebooks">
+<h2>Notebooks<a class="headerlink" href="#notebooks" title="Link to this heading"></a></h2>
+<p>We have written and published some matlab notebook in the <a class="reference external" href="https://se.mathworks.com/help/matlab/matlab_prog/live-script-file-format.html">Live Code File Format</a> (<code class="code docutils literal notranslate"><span class="pre">.mlx</span></code>) . They are located in the <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/Basic">Examples/Basic</a> directory.</p>
+<p>They are also available in a python notebook format:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Tutorial 1</p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_1_a_simple_p2d_model_live.ipynb">Your First BattMo Model</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Tutorial 2</p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_2_changing_control_protocol_live.ipynb">Change the Control Protocol</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tutorial 3</p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_3_modify_structural_parameters_live.ipynb">Modify Structural Parameters</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Tutorial 4</p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_4_modify_material_parameters_live.ipynb">Modify Material Parameters</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tutorial 5</p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_5_simulate_CCCV_cycling_live.ipynb">Simulate CC-CV Cycling</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Tutorial 6</p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_6_simulate_thermal_performance_live.ipynb">Simulate Thermal Performance</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tutorial 7</p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_7_a_simple_p4d_model_live.ipynb">A Simple P4D Simulation</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Tutorial 8</p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_8_simulate_a_multilayer_pouch_cell_live.ipynb">Simulate a Multilayer Pouch Cell</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tutorial 9</p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_9_simulate_a_cylindrical_cell_live.ipynb">Simulate a Cylindrical Cell</a></p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="next-steps">
 <h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
