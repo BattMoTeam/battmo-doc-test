@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MRST &mdash; BattMo  documentation</title>
+  <title>Solid Diffusion Models &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
@@ -21,7 +21,9 @@
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parameter sets" href="parsets.html" />
+    <link rel="prev" title="Control models" href="controlinput.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,7 +46,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="basicusage.html#a-first-battmo-model">A First <strong>BattMo</strong> Model</a><ul>
@@ -83,8 +85,11 @@
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrolyte">Electrolyte</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrode">Electrode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#coating">Coating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#active-material">Active Material</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#interface">Interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#solid-diffusion">Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#conducting-additive">Conducting Additive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#current-collector">Current Collector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#separator">Separator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#thermal-model">Thermal Model</a></li>
@@ -105,7 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html">The Battery Simulation Model</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#initialisation-of-a-battery-simulation-model">Initialisation of a battery simulation model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#inspection-of-the-model">Inspection of the model</a></li>
@@ -117,6 +122,7 @@
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
@@ -166,9 +172,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">MRST</li>
+          <li class="breadcrumb-item"><a href="advancedtopics.html">Advanced Usage</a></li>
+      <li class="breadcrumb-item active">Solid Diffusion Models</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/mrst.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/soliddiffusion.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -176,41 +183,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mrst">
-<h1>MRST<a class="headerlink" href="#mrst" title="Link to this heading"></a></h1>
-<p>BattMo is based on the open-source sofware MRST.</p>
-<a class="reference external image-reference" href="https://www.sintef.no/Projectweb/MRST/"><img alt="_images/mrst.png" src="_images/mrst.png" /></a>
-<p><a class="reference external" href="https://www.sintef.no/Projectweb/MRST/">MRST</a> is primarly dedicated to reservoir modelling and simulation and has been developed essentially by the
-<a class="reference external" href="https://www.sintef.no/en/digital/departments-new/applied-mathematics/computational-geoscience/">Computational Geosciences group</a> in the <a class="reference external" href="https://www.sintef.no/en/digital/departments-new/applied-mathematics/">Department of
-Mathematics and Cybernetics at SINTEF Digital</a>. The software contains generic functionalities such as</p>
-<ul class="simple">
-<li><p>Discrete differential operators,</p></li>
-<li><p>Automatic Differentiation support,</p></li>
-<li><p>Newton solver API for easy integration of new set of equations and variables.</p></li>
-</ul>
-<p>which BattMo relies heavily on.</p>
-<p>On the <a class="reference external" href="https://www.sintef.no/Projectweb/MRST/">MRST</a> webpage, you can find <a class="reference external" href="https://www.sintef.no/projectweb/mrst/documentation/">documentations</a> and
-<a class="reference external" href="https://www.sintef.no/projectweb/mrst/documentation/tutorials/">tutorials</a>.</p>
-<p>We recommend the following tutorials which deal with grid visualization and grid generation will be usefull for BattMo
-users.</p>
-<section id="mrst-page">
-<span id="id1"></span><h2><a class="reference external" href="https://www.sintef.no/projectweb/mrst/documentation/tutorials/visualization-tutorial/">Visualization Tutorial</a><a class="headerlink" href="#mrst-page" title="Link to this heading"></a></h2>
-<blockquote>
-<div><img alt="_images/gridviz.png" src="_images/gridviz.png" />
-</div></blockquote>
-</section>
-<section id="id2">
-<h2><a class="reference external" href="https://www.sintef.no/projectweb/mrst/documentation/tutorials/grid-factory-tutorial/">Grid Factory Tutorial</a><a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
-<blockquote>
-<div><img alt="_images/gridfact.png" src="_images/gridfact.png" />
-</div></blockquote>
-</section>
+  <section id="solid-diffusion-models">
+<h1>Solid Diffusion Models<a class="headerlink" href="#solid-diffusion-models" title="Link to this heading"></a></h1>
+<p>hellooo</p>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="controlinput.html" class="btn btn-neutral float-left" title="Control models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parsets.html" class="btn btn-neutral float-right" title="Parameter sets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Battery Geometries" href="geometryinput.html" />
-    <link rel="prev" title="Battery cell" href="batteryinput.html" /> 
+    <link rel="prev" title="BattMo Model Architecture" href="architecture.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,6 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-control-parameters">Change Control Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-structural-parameters">Change Structural Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="basicusage.html#change-material-parameters">Change Material Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicusage.html#notebooks">Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="basicusage.html#next-steps">Next Steps</a></li>
 </ul>
 </li>
@@ -78,167 +79,17 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html">Model initialisation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#how-to-initialise-the-model">How to initialise the model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#calculating-intial-concentration">Calculating intial concentration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#calculating-initial-potential">Calculating initial potential</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controlinput.html">Control models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#json-input-control-interface">Json input control interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="parsets.html#chen-2020">Chen 2020</a></li>
-<li class="toctree-l3"><a class="reference internal" href="parsets.html#safari-2009">Safari 2009</a></li>
-<li class="toctree-l3"><a class="reference internal" href="parsets.html#xu-2015">Xu 2015</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html">Battery cell</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#BatteryInputParams"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BatteryInputParams.NegativeElectrode"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams.NegativeElectrode</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BatteryInputParams.PositiveElectrode"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams.PositiveElectrode</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BatteryInputParams.Electrolyte"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams.Electrolyte</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BatteryInputParams.Separator"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams.Separator</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BatteryInputParams.ThermalModel"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams.ThermalModel</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BatteryInputParams.Control"><code class="docutils literal notranslate"><span class="pre">BatteryInputParams.Control</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#electrode">Electrode</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#ElectrodeInputParams"><code class="docutils literal notranslate"><span class="pre">ElectrodeInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ElectrodeInputParams.Coating"><code class="docutils literal notranslate"><span class="pre">ElectrodeInputParams.Coating</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ElectrodeInputParams.CurrentCollector"><code class="docutils literal notranslate"><span class="pre">ElectrodeInputParams.CurrentCollector</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#coating">Coating</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#CoatingInputParams"><code class="docutils literal notranslate"><span class="pre">CoatingInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#CoatingInputParams.ActiveMaterial"><code class="docutils literal notranslate"><span class="pre">CoatingInputParams.ActiveMaterial</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#CoatingInputParams.Binder"><code class="docutils literal notranslate"><span class="pre">CoatingInputParams.Binder</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#CoatingInputParams.ConductingAdditive"><code class="docutils literal notranslate"><span class="pre">CoatingInputParams.ConductingAdditive</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#active-material">Active Material</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#ActiveMaterialInputParams"><code class="docutils literal notranslate"><span class="pre">ActiveMaterialInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ActiveMaterialInputParams.Interface"><code class="docutils literal notranslate"><span class="pre">ActiveMaterialInputParams.Interface</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ActiveMaterialInputParams.SolidDiffusion"><code class="docutils literal notranslate"><span class="pre">ActiveMaterialInputParams.SolidDiffusion</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ActiveMaterialInputParams.electronicConductivity"><code class="docutils literal notranslate"><span class="pre">ActiveMaterialInputParams.electronicConductivity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ActiveMaterialInputParams.density"><code class="docutils literal notranslate"><span class="pre">ActiveMaterialInputParams.density</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ActiveMaterialInputParams.massFraction"><code class="docutils literal notranslate"><span class="pre">ActiveMaterialInputParams.massFraction</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ActiveMaterialInputParams.thermalConductivity"><code class="docutils literal notranslate"><span class="pre">ActiveMaterialInputParams.thermalConductivity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ActiveMaterialInputParams.specificHeatCapacity"><code class="docutils literal notranslate"><span class="pre">ActiveMaterialInputParams.specificHeatCapacity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ActiveMaterialInputParams.diffusionModelType"><code class="docutils literal notranslate"><span class="pre">ActiveMaterialInputParams.diffusionModelType</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#binder">Binder</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#BinderInputParams"><code class="docutils literal notranslate"><span class="pre">BinderInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BinderInputParams.electronicConductivity"><code class="docutils literal notranslate"><span class="pre">BinderInputParams.electronicConductivity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BinderInputParams.density"><code class="docutils literal notranslate"><span class="pre">BinderInputParams.density</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BinderInputParams.massFraction"><code class="docutils literal notranslate"><span class="pre">BinderInputParams.massFraction</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BinderInputParams.thermalConductivity"><code class="docutils literal notranslate"><span class="pre">BinderInputParams.thermalConductivity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#BinderInputParams.specificHeatCapacity"><code class="docutils literal notranslate"><span class="pre">BinderInputParams.specificHeatCapacity</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#conducting-additive">Conducting Additive</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#ConductingAdditiveInputParams"><code class="docutils literal notranslate"><span class="pre">ConductingAdditiveInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ConductingAdditiveInputParams.electronicConductivity"><code class="docutils literal notranslate"><span class="pre">ConductingAdditiveInputParams.electronicConductivity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ConductingAdditiveInputParams.density"><code class="docutils literal notranslate"><span class="pre">ConductingAdditiveInputParams.density</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ConductingAdditiveInputParams.massFraction"><code class="docutils literal notranslate"><span class="pre">ConductingAdditiveInputParams.massFraction</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ConductingAdditiveInputParams.thermalConductivity"><code class="docutils literal notranslate"><span class="pre">ConductingAdditiveInputParams.thermalConductivity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ConductingAdditiveInputParams.specificHeatCapacity"><code class="docutils literal notranslate"><span class="pre">ConductingAdditiveInputParams.specificHeatCapacity</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#interface">Interface</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#InterfaceInputParams"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.saturationConcentration"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.saturationConcentration</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.numberOfElectronsTransferred"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.numberOfElectronsTransferred</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.volumeFraction"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.volumeFraction</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.volumetricSurfaceArea"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.volumetricSurfaceArea</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.activationEnergyOfReaction"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.activationEnergyOfReaction</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.reactionRateConstant"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.reactionRateConstant</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.exchangeCurrentDensity"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.exchangeCurrentDensity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.guestStoichiometry100"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.guestStoichiometry100</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.guestStoichiometry0"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.guestStoichiometry0</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.density"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.density</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.openCircuitPotential"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.openCircuitPotential</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#InterfaceInputParams.chargeTransferCoefficient"><code class="docutils literal notranslate"><span class="pre">InterfaceInputParams.chargeTransferCoefficient</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#solid-diffusion-models">Solid Diffusion Models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#SolidDiffusionModelInputParams"><code class="docutils literal notranslate"><span class="pre">SolidDiffusionModelInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#SolidDiffusionModelInputParams.particleRadius"><code class="docutils literal notranslate"><span class="pre">SolidDiffusionModelInputParams.particleRadius</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#SolidDiffusionModelInputParams.activationEnergyOfDiffusion"><code class="docutils literal notranslate"><span class="pre">SolidDiffusionModelInputParams.activationEnergyOfDiffusion</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#SolidDiffusionModelInputParams.referenceDiffusionCoefficient"><code class="docutils literal notranslate"><span class="pre">SolidDiffusionModelInputParams.referenceDiffusionCoefficient</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#SolidDiffusionModelInputParams.volumetricSurfaceArea"><code class="docutils literal notranslate"><span class="pre">SolidDiffusionModelInputParams.volumetricSurfaceArea</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#FullSolidDiffusionModelInputParams"><code class="docutils literal notranslate"><span class="pre">FullSolidDiffusionModelInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#FullSolidDiffusionModelInputParams.diffusionCoefficient"><code class="docutils literal notranslate"><span class="pre">FullSolidDiffusionModelInputParams.diffusionCoefficient</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#FullSolidDiffusionModelInputParams.saturationConcentration"><code class="docutils literal notranslate"><span class="pre">FullSolidDiffusionModelInputParams.saturationConcentration</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#FullSolidDiffusionModelInputParams.guestStoichiometry100"><code class="docutils literal notranslate"><span class="pre">FullSolidDiffusionModelInputParams.guestStoichiometry100</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#FullSolidDiffusionModelInputParams.guestStoichiometry0"><code class="docutils literal notranslate"><span class="pre">FullSolidDiffusionModelInputParams.guestStoichiometry0</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#SimplifiedSolidDiffusionModelInputParams"><code class="docutils literal notranslate"><span class="pre">SimplifiedSolidDiffusionModelInputParams</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#electrolyte">Electrolyte</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#ElectrolyteInputParams"><code class="docutils literal notranslate"><span class="pre">ElectrolyteInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ElectrolyteInputParams.density"><code class="docutils literal notranslate"><span class="pre">ElectrolyteInputParams.density</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ElectrolyteInputParams.ionicConductivity"><code class="docutils literal notranslate"><span class="pre">ElectrolyteInputParams.ionicConductivity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ElectrolyteInputParams.diffusionCoefficient"><code class="docutils literal notranslate"><span class="pre">ElectrolyteInputParams.diffusionCoefficient</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ElectrolyteInputParams.bruggemanCoefficient"><code class="docutils literal notranslate"><span class="pre">ElectrolyteInputParams.bruggemanCoefficient</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ElectrolyteInputParams.thermalConductivity"><code class="docutils literal notranslate"><span class="pre">ElectrolyteInputParams.thermalConductivity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ElectrolyteInputParams.specificHeatCapacity"><code class="docutils literal notranslate"><span class="pre">ElectrolyteInputParams.specificHeatCapacity</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#current-collector">Current Collector</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#CurrentCollectorInputParams"><code class="docutils literal notranslate"><span class="pre">CurrentCollectorInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#CurrentCollectorInputParams.thermalConductivity"><code class="docutils literal notranslate"><span class="pre">CurrentCollectorInputParams.thermalConductivity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#CurrentCollectorInputParams.specificHeatCapacity"><code class="docutils literal notranslate"><span class="pre">CurrentCollectorInputParams.specificHeatCapacity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#CurrentCollectorInputParams.density"><code class="docutils literal notranslate"><span class="pre">CurrentCollectorInputParams.density</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="batteryinput.html#electronic-component">Electronic Component</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="batteryinput.html#ElectronicComponentInputParams"><code class="docutils literal notranslate"><span class="pre">ElectronicComponentInputParams</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="batteryinput.html#ElectronicComponentInputParams.electronicConductivity"><code class="docutils literal notranslate"><span class="pre">ElectronicComponentInputParams.electronicConductivity</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">JSON input specification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#material-parameters">Material Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#electrolyte">Electrolyte</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#electrode">Electrode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#coating">Coating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#active-material">Active Material</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#interface">Interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#solid-diffusion">Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conducting-additive">Conducting Additive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#current-collector">Current Collector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#separator">Separator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#thermal-model">Thermal Model</a></li>
@@ -257,14 +108,26 @@
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#blockbatterygenerator">BlockBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellsectorbatterygenerator">CoinCellSectorBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#flatbatterygenerator">FlatBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#sectorbatterygenerator">SectorBatteryGenerator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#base-class">Base class</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="juliabridge.html">Julia bridge</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html">The Battery Simulation Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#initialisation-of-a-battery-simulation-model">Initialisation of a battery simulation model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#inspection-of-the-model">Inspection of the model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#computing-and-inspecting-some-standard-static-properties-of-the-model">Computing and inspecting some standard static properties of the model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="controlinput.html">Control models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#json-input-control-interface">Json input control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="juliabridge.html">BattMo Julia bridge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
 </ul>
@@ -284,7 +147,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="seealso.html#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="seealso.html#id1">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#mrst-page">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -583,6 +446,92 @@ important ones.</p>
 </pre></div>
 </div>
 </section>
+<section id="active-material">
+<h3>Active Material<a class="headerlink" href="#active-material" title="Link to this heading"></a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file://./ActiveMaterial.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Active Material&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Interface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Interface.schema.json&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;diffusionModelType&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;full&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;simple&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;rdf_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;htttp://emmo.info/UUID&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the electronic conductivity of the material&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sigma&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the mass density of the material&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rho&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;massFraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the ratio of the mass of the material to the total mass of the phase or mixture&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gamma&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the intrinsic Thermal conductivity of the active component&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the Specific Heat capacity of the active component&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;name of active material&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Interface&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;SolidDiffusion&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;anyOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;if&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;diffusionModelType&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;full&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;then&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;SolidDiffusion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FullSolidDiffusionModel.schema.json&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;else&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;SolidDiffusion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SimplifiedSolidDiffusionModel.schema.json&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 <section id="interface">
 <h3>Interface<a class="headerlink" href="#interface" title="Link to this heading"></a></h3>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -701,6 +650,91 @@ important ones.</p>
 <span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;surface area of the active material - electrolyte interface per volume of electrode&quot;</span>
 <span class="w">         </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="binder">
+<h3>Binder<a class="headerlink" href="#binder" title="Link to this heading"></a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file://./Binder.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Binder&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the electronic conductivity of the material&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sigma&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the mass density of the material&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rho&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;massFraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the ratio of the mass of the material to the total mass of the phase or mixture&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gamma&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the thermal conductivity of the component&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the specificHeatCapacity of the component&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;density&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;massFraction&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="conducting-additive">
+<h3>Conducting Additive<a class="headerlink" href="#conducting-additive" title="Link to this heading"></a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file://./ConductingAdditive.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ConductingAdditive&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;electronicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the electronic conductivity of the material&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sigma&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;density&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the mass density of the material&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rho&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;massFraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the ratio of the mass of the material to the total mass of the phase or mixture&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gamma&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;thermalConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the thermal conductivity of the component&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;specificHeatCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PhysicalQuantity.schema.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the specificHeatCapacity of the component&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="p">}</span><span class="w">   </span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;density&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;massFraction&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;electronicConductivity&quot;</span>
+<span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -951,7 +985,7 @@ important ones.</p>
 <span class="w">                  </span><span class="nt">&quot;Ny&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">}}}}}}}]},</span><span class="w">    </span>
 <span class="w">    </span>
 <span class="w">    </span><span class="nt">&quot;2D-demo&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/layerSpecs&quot;</span><span class="p">,</span>
-<span class="w">                 </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGeneratorP3D&quot;</span><span class="p">},</span>
+<span class="w">                 </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using the grid generator BatteryGeneratorP3D&quot;</span><span class="p">},</span>
 
 <span class="w">    </span><span class="nt">&quot;3D-demo&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In this demo case the dimensions are fixed. Further parametrization should be done using  the grid generator BatteryGeneratorP4D&quot;</span><span class="p">,</span>
@@ -1340,7 +1374,7 @@ important ones.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="batteryinput.html" class="btn btn-neutral float-left" title="Battery cell" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="architecture.html" class="btn btn-neutral float-left" title="BattMo Model Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="geometryinput.html" class="btn btn-neutral float-right" title="Battery Geometries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

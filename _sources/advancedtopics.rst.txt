@@ -6,15 +6,17 @@ Advanced Usage
    :maxdepth: 2
    :hidden:
 
-   Model initialisation <modelinitialisation>
-   Thermal Simulation <thermal>
+   modelinitialisation
    controlinput
-   Optimisation <optimisation>
-   Parameter sets <parsets>
-
-
-* :ref:`Model initialisation <modelinitialisation:Model initialisation>`
-* :ref:`Thermal model <thermal:Thermal model>`
+   soliddiffusion
+   parsets
+   thermal
+   optimisation
+   
+* :ref:`The battery simulation model<modelinitialisation:The Battery Simulation Model>`
 * :ref:`Control models <controlinput:Control models>`
-* :ref:`Optimisation <optimisation:Optimisation>`
+* :ref:`Solid diffusion models <soliddiffusion:Solid Diffusion Models>`
 * :ref:`Parameter sets <parsets:Parameter sets>`
+* :ref:`Thermal simulation <thermal:Thermal Simulation>`
+* :ref:`Optimisation <optimisation:Optimisation>`
+  
