@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BattMo Julia bridge &mdash; BattMo  documentation</title>
+  <title>Solid Diffusion Models &mdash; BattMo  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
@@ -22,8 +22,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="BattMo GUI" href="gui.html" />
-    <link rel="prev" title="Optimization" href="optimisation.html" /> 
+    <link rel="next" title="Parameter sets" href="parsets.html" />
+    <link rel="prev" title="Control models" href="controlinput.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -112,7 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelinitialisation.html">The Battery Simulation Model</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#initialisation-of-a-battery-simulation-model">Initialisation of a battery simulation model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelinitialisation.html#inspection-of-the-model">Inspection of the model</a></li>
@@ -124,7 +124,7 @@
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="soliddiffusion.html">Solid Diffusion Models</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimization</a><ul>
@@ -134,9 +134,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">BattMo Julia bridge</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setup-and-use">Setup and Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="juliabridge.html">BattMo Julia bridge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
@@ -178,9 +178,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">BattMo Julia bridge</li>
+          <li class="breadcrumb-item"><a href="advancedtopics.html">Advanced Usage</a></li>
+      <li class="breadcrumb-item active">Solid Diffusion Models</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/juliabridge.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/soliddiffusion.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -188,90 +189,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="battmo-julia-bridge">
-<h1>BattMo Julia bridge<a class="headerlink" href="#battmo-julia-bridge" title="Link to this heading"></a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
-<p><strong>BattMo</strong> has a julia implementation for the standard PXD model: <strong>BattMo.jl</strong>. This package is registered in the General
-Julia registry and available from <a class="reference external" href="https://github.com/BattMoTeam/BattMo.jl">github</a> . For small problems, the
-simulator implemented in Julia is <em>significantly</em> faster than the matlab solver (several order of magnitude of
-speed-up). The reason is that the assembly of the residual equations and their derivatives can be optimized in completly
-different ways in a compiled code such as Julia. Our julia implementation relies on the package <a class="reference external" href="https://github.com/sintefmath/Jutul.jl">Jutul</a>.</p>
-<p>We have implemented in matlab a <em>Julia Bridge</em> which provides a set of functionalities to run the julia solver and
-retrieve the results directly from within matlab. The Julia Bridge uses julia package management system to install
-BattMo.jl without further user intervention.</p>
-</section>
-<section id="setup-and-use">
-<h2>Setup and Use<a class="headerlink" href="#setup-and-use" title="Link to this heading"></a></h2>
-<p>To run simulation with Julia, we use a server. To communicate with the server we create a server manager from Matlab</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">man</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ServerManager</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>This command starts the Julia server and return a manager <code class="code docutils literal notranslate"><span class="pre">man</span></code> which we use to pass data and run simulations.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Julia uses <em>just-in-time</em> compilation. It means that when we run a function for the first time in a julia session,
-the code is going to be compiled. The compilation may take time (more than 10s). When using Julia Bridge, you will
-notice it at the start. But, by starting a Julia server in the background where the compilation is done only once, Julia
-Bridge makes it possible to use the <strong>BattMo</strong> julia solver at expected speed.</p>
-</div>
-<p>We pass data to the server using the <code class="code docutils literal notranslate"><span class="pre">load</span></code> method.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">inputFileName</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="n">battmoDir</span><span class="p">(),</span><span class="w"> </span><span class="k">...</span>
-<span class="w">                         </span><span class="s">&#39;Examples&#39;</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">                         </span><span class="s">&#39;julia&#39;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">                         </span><span class="s">&#39;jsonfiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">                         </span><span class="s">&#39;p2d_40_jl_ud.json&#39;</span><span class="p">)</span>
-
-<span class="n">man</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#39;inputType&#39;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;JSON&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">         </span><span class="s">&#39;inputFileName&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">inputFileName</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>The <code class="code docutils literal notranslate"><span class="pre">inputType</span></code> can be either <code class="code docutils literal notranslate"><span class="pre">JSON</span></code> as in example above or <code class="code docutils literal notranslate"><span class="pre">Matlab</span></code>. For JSON input type, the input
-is fully processed in julia but we only support for the moment 1D geometry in the Julia code. With the Matlab input
-type, we can use any of the <a class="reference internal" href="geometryinput.html#battery-geometries"><span class="std std-ref">geometries</span></a> available in <strong>BattMo</strong> and pass it as
-an input to the julia solver.</p>
-<p>The json input <code class="code docutils literal notranslate"><span class="pre">p2d_40_jl_ud.json</span></code> contains functional parameters. For example, we have</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;Electrolyte&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="nt">&quot;ionicConductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;function&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1e-4*c*((-10.5 + 0.668e-3*c + 0.494e-6*c^2) + (0.074 - 1.78e-5*c - 8.86e-10*c^2)*T + (-6.96e-5 + 2.80e-8*c)*T^2)^2&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;argumentlist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">          </span><span class="s2">&quot;c&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="s2">&quot;T&quot;</span><span class="p">]}}</span>
-</pre></div>
-</div>
-<p>The full listing is available <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/julia/jsonfiles/p2d_40_jl_ud.json">here</a>. For the <code class="code docutils literal notranslate"><span class="pre">function</span></code>
-property, the string that is given to compute the corresponding value (ionic conductivity in the electrolyte in the
-snippet above) should be written with a Julia syntax, as it is passed directly to the julia solver. This should not be a
-big issue for Matlab users because the Julia syntax is very close to Matlab for such arithmetic expressions. We plan to
-implement json support for tabulated data. Tabulated data give more flexibility and could be used both in Matlab and
-Julia.</p>
-<p>Finally, we run the simulation</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">man</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>The matlab structure contains the simulation output, which can be processed in Matlab. For example,</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">voltage</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Phi</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">result</span><span class="p">.</span><span class="n">states</span><span class="p">.</span><span class="n">BPP</span><span class="p">});</span>
-<span class="nb">time</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="nb">cumsum</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">extra</span><span class="p">.</span><span class="n">timesteps</span><span class="p">);</span>
-<span class="nb">plot</span><span class="p">(</span><span class="nb">time</span><span class="o">/</span><span class="nb">hour</span><span class="p">,</span><span class="w"> </span><span class="n">voltage</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BattMo Julia&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LineWidth</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">legend</span>
-<span class="nb">grid</span><span class="w"> </span><span class="n">on</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time / h&#39;</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Voltage / h&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-center">
-<a class="reference external image-reference" href="_images/juliarun.png"><img alt="_images/juliarun.png" src="_images/juliarun.png" style="width: 70%;" /></a>
+  <section id="solid-diffusion-models">
+<h1>Solid Diffusion Models<a class="headerlink" href="#solid-diffusion-models" title="Link to this heading"></a></h1>
+<p>We use the Doyler, Fuller and Newman model, see <span id="id1">[<a class="reference internal" href="bibliography.html#id3" title="Marc Doyle, Thomas F. Fuller, and John Newman. Modeling of galvanostatic charge and discharge of the lithium/polymer/insertion cell. Journal of The Electrochemical Society, 140(6):1526–1533, June 1993. URL: http://dx.doi.org/10.1149/1.2221597, doi:10.1149/1.2221597.">DFN93</a>]</span>. For each given spatial location, the concentration
+profile in the solid is given for a representative spherical particle located there. The diffusion in the solid
+electrode is then modeled as a diffusion equation in thee radial dimension of the pseudo particle. We use a standard
+control volume method to solve the diffusion equation after discretization in the radial direction.</p>
+<p>Reduced models for the solid diffusion have been considered to reduced the computation time. We have implemented the
+<em>polynomial approximation method</em> as described in <span id="id2">[<a class="reference internal" href="bibliography.html#id2" title="Qi Zhang and Ralph E. White. Comparison of approximate solution methods for the solid phase diffusion equation in a porous electrode model. Journal of Power Sources, 165(2):880–886, March 2007. URL: http://dx.doi.org/10.1016/j.jpowsour.2006.12.056, doi:10.1016/j.jpowsour.2006.12.056.">ZW07b</a>]</span>.</p>
+<p>The option <code class="code docutils literal notranslate"><span class="pre">diffusionModelType</span></code> in the Active Material part of the json schema (see <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonSchemas/ActiveMaterial.schema.json#L10">here</a>) is used to choose the type of diffusion model.</p>
+<p>In the script <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/Advanced/runChen2020.m">runChen2020</a>, we compare the two diffusion models in addition to the solution produced by <a class="reference external" href="https://pybamm.org/">PyBaMM</a> for the Chen dataset <span id="id3">[<a class="reference internal" href="bibliography.html#id10" title="Chang-Hui Chen, Ferran Planella, Kieran O’Regan, Dominika Gastol, Dhammika Widanagea, and Emma Kendrick. Development of Experimental Techniques for Parameterization of Multi-scale Lithium-ion Battery Models. Journal of The Electrochemical Society, 167:080534, 2020. doi:10.1149/1945-7111/ab9050.">CPORegan+20</a>]</span>.</p>
+<p>We reproduce the last plot produced in this script here. We observe a good overall match between the full and reduced
+model for solid diffusion. The discripancies are large only at the beginning of the discharge. We observe also a good
+agreement between BattMo and PyBaMM.</p>
+<figure class="align-center" id="id4">
+<a class="reference external image-reference" href="_images/chencomp.png"><img alt="_images/chencomp.png" src="_images/chencomp.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">Discharge curves for Chen’s dataset with the full and reduced model for diffusion.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
 </figure>
-</section>
+<figure class="align-center" id="id5">
+<a class="reference external image-reference" href="_images/chencompzoom.png"><img alt="_images/chencompzoom.png" src="_images/chencompzoom.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">Zoom on the initial phase of the discharge.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="optimisation.html" class="btn btn-neutral float-left" title="Optimization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gui.html" class="btn btn-neutral float-right" title="BattMo GUI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="controlinput.html" class="btn btn-neutral float-left" title="Control models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parsets.html" class="btn btn-neutral float-right" title="Parameter sets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
