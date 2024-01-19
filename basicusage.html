@@ -67,26 +67,28 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="intermediate.html">Intermediate usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#pseudo-four-dimensional-p4d-model">Pseudo-Four-Dimensional (P4D) Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#setup-a-p4d-model-using-mergejsonstructs">Setup a P4D Model using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#define-parameters">Define Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#run-simulation">Run Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#visualize-results">Visualize Results</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="intermediate.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#file-links-and-insertions-with-parsebattmojson">File links and insertions with <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="json.html">JSON input specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json.html#simulation-schema">Simulation Schema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html#material-parameters">Material Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrolyte">Electrolyte</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrode">Electrode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#coating">Coating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#active-material">Active Material</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#interface">Interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#solid-diffusion">Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#full-solid-diffusion">Full Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#conducting-additive">Conducting Additive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#current-collector">Current Collector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#separator">Separator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#thermal-model">Thermal Model</a></li>
@@ -119,9 +121,19 @@
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="soliddiffusion.html">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="units.html#converting-units-in-battmo">Converting units in BattMo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="units.html#units-and-json-input">Units and JSON input</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimisation.html#parameter-identification-example">Parameter identification example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimisation.html#optimization-example">Optimization example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">BattMo Julia bridge</a><ul>
@@ -129,7 +141,6 @@
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Electrolyser simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
@@ -144,7 +155,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="seealso.html#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="seealso.html#mrst-page">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#id1">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -318,7 +329,9 @@ describes a simple NMC-Graphite cell.</p>
 <section id="change-control-parameters">
 <h2>Change Control Parameters<a class="headerlink" href="#change-control-parameters" title="Link to this heading"></a></h2>
 <p>Let’s try simulating the discharge of the cell at different C-Rates.</p>
-<p>Once the JSON parameter file has been read into MATLAB as a jsonstruct, its properties can be modified programmatically. For example, we can define a vector of different C-Rates and then use a for-loop to replace that value in the jsonstruct and re-run the simulation.</p>
+<p>Once the JSON parameter file has been read into MATLAB as a jsonstruct, its properties can be modified
+programmatically. For example, we can define a vector of different C-Rates and then use a for-loop to replace that value
+in the jsonstruct and re-run the simulation.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">CRates</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">];</span>
 <span class="nb">figure</span><span class="p">()</span>
 <span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">numel</span><span class="p">(</span><span class="n">CRates</span><span class="p">)</span>
@@ -327,14 +340,13 @@ describes a simple NMC-Graphite cell.</p>
 
 <span class="w">    </span><span class="n">states</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">states</span><span class="p">;</span>
 <span class="w">    </span><span class="nb">time</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
-<span class="w">    </span><span class="n">voltage</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="n">state</span><span class="p">.(</span><span class="s">&#39;Control&#39;</span><span class="p">).</span><span class="n">E</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
+<span class="w">    </span><span class="n">voltage</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">Control</span><span class="p">.</span><span class="n">E</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
 <span class="w">    </span><span class="nb">plot</span><span class="p">((</span><span class="nb">time</span><span class="o">/</span><span class="nb">hour</span><span class="p">),</span><span class="w"> </span><span class="n">voltage</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 <span class="w">    </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span>
 <span class="k">end</span>
 <span class="nb">hold</span><span class="w"> </span><span class="n">off</span>
 </pre></div>
 </div>
-<p>[TODO: fix <code class="code docutils literal notranslate"><span class="pre">plotResult</span></code>] For this example, we have written a <code class="code docutils literal notranslate"><span class="pre">plotResult</span></code> function which extracts and plots from the output the time and voltage values, see <a class="reference internal" href="plotResult.html#plotresult"><span class="std std-ref">here</span></a>.</p>
 <figure class="align-center" id="id2">
 <a class="reference external image-reference" href="_images/crates.png"><img alt="_images/crates.png" src="_images/crates.png" style="width: 70%;" /></a>
 <figcaption>
@@ -365,10 +377,6 @@ describes a simple NMC-Graphite cell.</p>
 </section>
 <section id="change-material-parameters">
 <h2>Change Material Parameters<a class="headerlink" href="#change-material-parameters" title="Link to this heading"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TODO: Make this easier / more elegnant.</p>
-</div>
 <p>Finally, let’s try changing active materials in the model.</p>
 <p>The sample JSON input file we provided is for an NMC-Graphite cell, but BattMo contains parameter sets for different active materials that have been collected from the scientific literature. Let’s try to replace the NMC active material with LFP.</p>
 <p>First, we clear the workspace and reload the original parameter set to start from a clean slate:</p>
@@ -408,36 +416,55 @@ describes a simple NMC-Graphite cell.</p>
 </section>
 <section id="notebooks">
 <h2>Notebooks<a class="headerlink" href="#notebooks" title="Link to this heading"></a></h2>
-<p>We have written and published some matlab notebook in the <a class="reference external" href="https://se.mathworks.com/help/matlab/matlab_prog/live-script-file-format.html">Live Code File Format</a> (<code class="code docutils literal notranslate"><span class="pre">.mlx</span></code>) . They are located in the <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/Basic">Examples/Basic</a> directory.</p>
-<p>They are also available in a python notebook format:</p>
+<p>We have written and published matlab notebooks in the <a class="reference external" href="https://se.mathworks.com/help/matlab/matlab_prog/live-script-file-format.html">Live Code File Format</a> (<code class="code docutils literal notranslate"><span class="pre">.mlx</span></code>) .</p>
+<p>They basically go through the material described above in the interactive manner.</p>
+<p>The notebooks can be found in the <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/Basic">Examples/Basic</a> directory or downloaded from here.</p>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p>Tutorial 1</p></td>
-<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_1_a_simple_p2d_model_live.ipynb">Your First BattMo Model</a></p></td>
+<td><p><strong>Your first BattMo model</strong></p></td>
+<td><p><a class="reference external" href="_static/notebooks/tutorial_1_a_simple_p2d_model_live.html">view</a></p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/raw/dev/Examples/NoteBooks/tutorial_1_a_simple_p2d_model_live.mlx">download</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Tutorial 2</p></td>
-<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_2_changing_control_protocol_live.ipynb">Change the Control Protocol</a></p></td>
+<td><p><strong>Change the Control Protocol</strong></p></td>
+<td><p><a class="reference external" href="_static/notebooks/tutorial_2_changing_control_protocol_live.html">view</a></p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/raw/dev/Examples/NoteBooks/tutorial_2_changing_control_protocol_live.mlx">download</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Tutorial 3</p></td>
-<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_3_modify_structural_parameters_live.ipynb">Modify Structural Parameters</a></p></td>
+<td><p><strong>Modify Structural Parameters</strong></p></td>
+<td><p><a class="reference external" href="_static/notebooks/tutorial_3_modify_structural_parameters_live.html">view</a></p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/raw/dev/Examples/NoteBooks/tutorial_3_modify_structural_parameters_live.mlx">download</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Tutorial 4</p></td>
-<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_4_modify_material_parameters_live.ipynb">Modify Material Parameters</a></p></td>
+<td><p><strong>Modify Material Parameters</strong></p></td>
+<td><p><a class="reference external" href="_static/notebooks/tutorial_4_modify_material_parameters_live.html">view</a></p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/raw/dev/Examples/NoteBooks/tutorial_4_modify_material_parameters_live.mlx">download</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Tutorial 5</p></td>
-<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_5_simulate_CCCV_cycling_live.ipynb">Simulate CC-CV Cycling</a></p></td>
+<td><p><strong>Simulate CC-CV cycling</strong></p></td>
+<td><p><a class="reference external" href="_static/notebooks/tutorial_5_simulate_CCCV_cycling_live.html">view</a></p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/raw/dev/Examples/NoteBooks/tutorial_5_simulate_CCCV_cycling_live.mlx">download</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Tutorial 6</p></td>
-<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_6_simulate_thermal_performance_live.ipynb">Simulate Thermal Performance</a></p></td>
+<td><p><strong>Simulate Thermal Performance</strong></p></td>
+<td><p><a class="reference external" href="_static/notebooks/tutorial_6_simulate_thermal_performance_live.html">view</a></p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/raw/dev/Examples/NoteBooks/tutorial_6_simulate_thermal_performance_live.mlx">download</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Tutorial 7</p></td>
-<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_7_a_simple_p4d_model_live.ipynb">A Simple P4D Simulation</a></p></td>
+<td><p><strong>A Simple P4D Simulation</strong></p></td>
+<td><p><a class="reference external" href="_static/notebooks/tutorial_7_a_simple_p4d_model_live.html">view</a></p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/raw/dev/Examples/NoteBooks/tutorial_7_a_simple_p4d_model_live.mlx">download</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Tutorial 8</p></td>
-<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_8_simulate_a_multilayer_pouch_cell_live.ipynb">Simulate a Multilayer Pouch Cell</a></p></td>
+<td><p><strong>Simulate a Multi-Layer Pouch cell</strong></p></td>
+<td><p><a class="reference external" href="_static/notebooks/tutorial_8_simulate_a_multilayer_pouch_cell_live.html">view</a></p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/raw/dev/Examples/NoteBooks/tutorial_8_simulate_a_multilayer_pouch_cell_live.mlx">download</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Tutorial 9</p></td>
-<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/notebooks/tutorial_9_simulate_a_cylindrical_cell_live.ipynb">Simulate a Cylindrical Cell</a></p></td>
+<td><p><strong>Simulate a Cylindrical Cell</strong></p></td>
+<td><p><a class="reference external" href="_static/notebooks/tutorial_9_simulate_a_cylindrical_cell_live.html">view</a></p></td>
+<td><p><a class="reference external" href="https://github.com/BattMoTeam/BattMo/raw/dev/Examples/NoteBooks/tutorial_9_simulate_a_cylindrical_cell_live.mlx">download</a></p></td>
 </tr>
 </tbody>
 </table>

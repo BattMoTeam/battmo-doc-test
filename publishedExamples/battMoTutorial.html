@@ -65,26 +65,28 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../intermediate.html">Intermediate usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../intermediate.html#pseudo-four-dimensional-p4d-model">Pseudo-Four-Dimensional (P4D) Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intermediate.html#setup-a-p4d-model-using-mergejsonstructs">Setup a P4D Model using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../intermediate.html#define-parameters">Define Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intermediate.html#run-simulation">Run Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intermediate.html#visualize-results">Visualize Results</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../intermediate.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../intermediate.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../intermediate.html#file-links-and-insertions-with-parsebattmojson">File links and insertions with <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../architecture.html">BattMo Model Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../json.html">JSON input specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../json.html#simulation-schema">Simulation Schema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../json.html#material-parameters">Material Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../json.html#electrolyte">Electrolyte</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../json.html#electrode">Electrode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../json.html#coating">Coating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../json.html#active-material">Active Material</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../json.html#interface">Interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../json.html#solid-diffusion">Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../json.html#full-solid-diffusion">Full Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../json.html#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../json.html#conducting-additive">Conducting Additive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../json.html#current-collector">Current Collector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../json.html#separator">Separator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../json.html#thermal-model">Thermal Model</a></li>
@@ -117,9 +119,19 @@
 <li class="toctree-l3"><a class="reference internal" href="../controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../soliddiffusion.html">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../units.html">Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../units.html#converting-units-in-battmo">Converting units in BattMo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../units.html#units-and-json-input">Units and JSON input</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../thermal.html">Thermal Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../optimisation.html">Optimisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optimisation.html">Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../optimisation.html#parameter-identification-example">Parameter identification example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimisation.html#optimization-example">Optimization example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../juliabridge.html">BattMo Julia bridge</a><ul>
@@ -127,7 +139,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../juliabridge.html#setup-and-use">Setup and Use</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="runElectrolyser.html">Electrolyser simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#setup-input">Setup input</a></li>
@@ -142,7 +153,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../seealso.html">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../seealso.html#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../seealso.html#mrst-page">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seealso.html#id1">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -199,7 +210,7 @@
 </section>
 <section id="specifying-the-physical-model">
 <h2>Specifying the physical model<a class="headerlink" href="#specifying-the-physical-model" title="Link to this heading"></a></h2>
-<p>In this tutorial we will simulate a lithium-ion battery consisting of a negative electrode, a positive electrode and an electrolyte. BattMo comes with some pre-defined models which can be loaded from JSON files. Here we will load the basic lithium-ion model JSON file which comes with Battmo. We use <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonUtils/parseBattmoJson.m">parseBattmoJson</a> to parse the file, see <span class="todo">add link to doc</span></p>
+<p>In this tutorial we will simulate a lithium-ion battery consisting of a negative electrode, a positive electrode and an electrolyte. BattMo comes with some pre-defined models which can be loaded from JSON files. Here we will load the basic lithium-ion model JSON file which comes with Battmo. We use <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonUtils/parseBattmoJson.m">parseBattmoJson</a> to parse the file.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;ParameterData&#39;</span><span class="p">,</span><span class="s">&#39;BatteryCellParameters&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">                 </span><span class="s">&#39;LithiumIonBatteryCell&#39;</span><span class="p">,</span><span class="s">&#39;lithium_ion_battery_nmc_graphite.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">fname</span><span class="p">);</span>

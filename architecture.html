@@ -67,20 +67,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="intermediate.html">Intermediate usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#pseudo-four-dimensional-p4d-model">Pseudo-Four-Dimensional (P4D) Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#setup-a-p4d-model-using-mergejsonstructs">Setup a P4D Model using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#define-parameters">Define Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#run-simulation">Run Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#visualize-results">Visualize Results</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="intermediate.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#file-links-and-insertions-with-parsebattmojson">File links and insertions with <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">BattMo Model Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="json.html">JSON input specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json.html#simulation-schema">Simulation Schema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html#material-parameters">Material Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrolyte">Electrolyte</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrode">Electrode</a></li>
@@ -88,6 +86,7 @@
 <li class="toctree-l3"><a class="reference internal" href="json.html#active-material">Active Material</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#interface">Interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#solid-diffusion">Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#full-solid-diffusion">Full Solid Diffusion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#binder">Binder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#conducting-additive">Conducting Additive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#current-collector">Current Collector</a></li>
@@ -122,9 +121,19 @@
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="soliddiffusion.html">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="units.html#converting-units-in-battmo">Converting units in BattMo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="units.html#units-and-json-input">Units and JSON input</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimisation.html#parameter-identification-example">Parameter identification example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimisation.html#optimization-example">Optimization example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">BattMo Julia bridge</a><ul>
@@ -132,7 +141,6 @@
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Electrolyser simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
@@ -147,7 +155,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="seealso.html#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="seealso.html#mrst-page">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#id1">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -184,8 +192,10 @@
   <section id="battmo-model-architecture">
 <h1>BattMo Model Architecture<a class="headerlink" href="#battmo-model-architecture" title="Link to this heading"></a></h1>
 <p>We use a multi-model approach. The models are organized in a hierarchy, meaning that a given model can have
-sub-models. A model is supposed to define all the functions and variables that will be needed to simulate a physical
-system separately. At the top, we have a battery model (see <a class="reference internal" href="json.html#material-parameters"><span class="std std-ref">schema</span></a>) with the submodels:</p>
+sub-models. A model corresponds to a given physical system and defines the functions and variables that will be needed
+to assemble the discretized governing equations of the system.</p>
+<p>For the simulation of Lithium-ion battery, we have at the top of the hierarchy a battery model (see <a class="reference internal" href="json.html#material-parameters"><span class="std std-ref">schema</span></a> for the description of the standard input parameters). The battery model contains the
+following sub-models:</p>
 <ul class="simple">
 <li><p>Negative electrode model <a class="reference internal" href="json.html#electrode"><span class="std std-ref">(schema)</span></a></p></li>
 <li><p>Positive electrode model <a class="reference internal" href="json.html#electrode"><span class="std std-ref">(schema)</span></a></p></li>
@@ -197,17 +207,18 @@ system separately. At the top, we have a battery model (see <a class="reference 
 <figure class="align-default">
 <a class="reference external image-reference" href="_images/cutbatterygraph.png"><img alt="_images/cutbatterygraph.png" src="_images/cutbatterygraph.png" /></a>
 </figure>
-<p>The <strong>negative and positive electrodes</strong> are instances of the same electrode model. The standard input parameters for
-electrode model are given in its <a class="reference internal" href="json.html#electrode"><span class="std std-ref">schema</span></a>. The electrode model has two sub-models:</p>
+<p>The <strong>negative and positive electrodes</strong> are instances of the same electrode model. An electrode contains a coating
+material and a current collector. The standard input parameters for an electrode model are given in its <a class="reference internal" href="json.html#electrode"><span class="std std-ref">schema</span></a>. The electrode model has two sub-models:</p>
 <ul class="simple">
 <li><p>Coating model <a class="reference internal" href="json.html#coating"><span class="std std-ref">(schema)</span></a></p></li>
-<li><p>Current Collector model (optional, <a class="reference internal" href="json.html#current-collector"><span class="std std-ref">schema</span></a>)</p></li>
+<li><p>Current Collector model <a class="reference internal" href="json.html#current-collector"><span class="std std-ref">(schema)</span></a></p></li>
 </ul>
 <figure class="align-center">
 <a class="reference external image-reference" href="_images/electrodegraph.png"><img alt="_images/electrodegraph.png" src="_images/electrodegraph.png" style="width: 50%;" /></a>
 </figure>
+<p>The current collector model is optional. In particular, for the 1D model it is in fact more realistic to not include it.</p>
 <p>The standard input parameters of the <strong>coating model</strong> are given in the associated <a class="reference internal" href="json.html#coating"><span class="std std-ref">schema</span></a>. The
-coating model has three sub-models:</p>
+coating model has three sub-models, which corresponds of the three components of the solid:</p>
 <ul class="simple">
 <li><p>Active material model <a class="reference internal" href="json.html#active-material"><span class="std std-ref">(schema)</span></a></p></li>
 <li><p>Binder <a class="reference internal" href="json.html#binder"><span class="std std-ref">(schema)</span></a></p></li>
@@ -216,10 +227,9 @@ coating model has three sub-models:</p>
 <figure class="align-center">
 <a class="reference external image-reference" href="_images/coatinggraph.png"><img alt="_images/coatinggraph.png" class="with-border" src="_images/coatinggraph.png" style="width: 70%;" /></a>
 </figure>
-<p>In the case of a composite material, the coating model will have a different structure with two active material models
-(see <span class="todo">add link</span>)</p>
+<p>In the case of a composite material, the coating model will have a different structure, with two active material models.</p>
 <p id="architectureactivematerial">The input parameters for the <strong>Active Material</strong> are described in the associated <a class="reference internal" href="json.html#active-material"><span class="std std-ref">schema</span></a>. The active material is
-organized in two sub-models</p>
+organized in two sub-models.</p>
 <ul class="simple">
 <li><p>Interface <a class="reference internal" href="json.html#interface"><span class="std std-ref">(schema)</span></a></p></li>
 <li><p>SolidDiffusion <a class="reference internal" href="json.html#solid-diffusion"><span class="std std-ref">(schema)</span></a></p></li>
@@ -227,9 +237,13 @@ organized in two sub-models</p>
 <figure class="align-center">
 <a class="reference external image-reference" href="_images/activematerialgraph.png"><img alt="_images/activematerialgraph.png" src="_images/activematerialgraph.png" style="width: 50%;" /></a>
 </figure>
-<p>We have implemented two solid diffusion model <span class="todo">add more</span></p>
+<p>In the interface model, the function and variables that enter the reaction are defined (Butler-Volmer model). The solid
+diffusion model contains the functions to model and solve the diffusion equation in the solid. We have implemented two
+solid diffusion model, see <a class="reference internal" href="soliddiffusion.html#solid-diffusion-models"><span class="std std-ref">here</span></a>.</p>
 <p>The <strong>Control</strong> <a class="reference internal" href="json.html#simulation-control-parameters"><span class="std std-ref">(schema)</span></a>, <strong>Separator</strong> <a class="reference internal" href="json.html#separator"><span class="std std-ref">(schema)</span></a> and
-<strong>Thermal</strong> <a class="reference internal" href="json.html#thermal-model"><span class="std std-ref">(schema)</span></a> models do not have sub-models.</p>
+<strong>Thermal</strong> <a class="reference internal" href="json.html#thermal-model"><span class="std std-ref">(schema)</span></a> models do not have sub-models. The control model is described in more
+details <a class="reference internal" href="controlinput.html#control-models"><span class="std std-ref">here</span></a>. A example of a fully coupled thermal simulation is presented
+<a class="reference internal" href="thermal.html#thermal-simulation"><span class="std std-ref">here</span></a>.</p>
 </section>
 
 

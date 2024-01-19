@@ -23,7 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Parameter sets" href="parsets.html" />
+    <link rel="next" title="Solid Diffusion Models" href="soliddiffusion.html" />
     <link rel="prev" title="The Battery Simulation Model" href="modelinitialisation.html" /> 
 </head>
 
@@ -68,26 +68,28 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="intermediate.html">Intermediate usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#pseudo-four-dimensional-p4d-model">Pseudo-Four-Dimensional (P4D) Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#setup-a-p4d-model-using-mergejsonstructs">Setup a P4D Model using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#define-parameters">Define Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#run-simulation">Run Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#visualize-results">Visualize Results</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="intermediate.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#file-links-and-insertions-with-parsebattmojson">File links and insertions with <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="json.html">JSON input specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json.html#simulation-schema">Simulation Schema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html#material-parameters">Material Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrolyte">Electrolyte</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrode">Electrode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#coating">Coating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#active-material">Active Material</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#interface">Interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#solid-diffusion">Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#full-solid-diffusion">Full Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#conducting-additive">Conducting Additive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#current-collector">Current Collector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#separator">Separator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#thermal-model">Thermal Model</a></li>
@@ -120,9 +122,19 @@
 <li class="toctree-l3"><a class="reference internal" href="#control-model-description">Control model description</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="soliddiffusion.html">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="units.html#converting-units-in-battmo">Converting units in BattMo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="units.html#units-and-json-input">Units and JSON input</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimisation.html#parameter-identification-example">Parameter identification example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimisation.html#optimization-example">Optimization example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">BattMo Julia bridge</a><ul>
@@ -130,7 +142,6 @@
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Electrolyser simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
@@ -145,7 +156,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="seealso.html#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="seealso.html#mrst-page">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#id1">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -313,7 +324,7 @@ control.</p>
 <span class="n">schedule</span><span class="p">.</span><span class="n">control</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">control</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>We have to setup a model and an initial state. We use the function <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/Various/setupModelFromJson.m">setupModelFromJson</a> to setup the model from
+<p>We have to setup a model and an initial state. We use the function <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonUtils/setupModelFromJson.m">setupModelFromJson</a> to setup the model from
 a given json input. We load the sample input function we have used before, see source
 <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/jsondatafiles/sample_input.json">here</a>. We replace the <code class="code docutils literal notranslate"><span class="pre">Control</span></code> field with a structure with
 a <code class="code docutils literal notranslate"><span class="pre">controlPolicy</span></code> given by a current control (<code class="code docutils literal notranslate"><span class="pre">CC</span></code>). We change the initial state of charge value (SOC) to
@@ -348,7 +359,7 @@ a <code class="code docutils literal notranslate"><span class="pre">controlPolic
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="modelinitialisation.html" class="btn btn-neutral float-left" title="The Battery Simulation Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="parsets.html" class="btn btn-neutral float-right" title="Parameter sets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="soliddiffusion.html" class="btn btn-neutral float-right" title="Solid Diffusion Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

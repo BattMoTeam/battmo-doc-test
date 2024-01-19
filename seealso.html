@@ -67,26 +67,28 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="intermediate.html">Intermediate usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#pseudo-four-dimensional-p4d-model">Pseudo-Four-Dimensional (P4D) Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#setup-a-p4d-model-using-mergejsonstructs">Setup a P4D Model using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#define-parameters">Define Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#run-simulation">Run Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#visualize-results">Visualize Results</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="intermediate.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#file-links-and-insertions-with-parsebattmojson">File links and insertions with <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="json.html">JSON input specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json.html#simulation-schema">Simulation Schema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html#material-parameters">Material Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrolyte">Electrolyte</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrode">Electrode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#coating">Coating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#active-material">Active Material</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#interface">Interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#solid-diffusion">Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#full-solid-diffusion">Full Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#conducting-additive">Conducting Additive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#current-collector">Current Collector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#separator">Separator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#thermal-model">Thermal Model</a></li>
@@ -119,9 +121,19 @@
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="soliddiffusion.html">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="units.html#converting-units-in-battmo">Converting units in BattMo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="units.html#units-and-json-input">Units and JSON input</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimisation.html#parameter-identification-example">Parameter identification example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimisation.html#optimization-example">Optimization example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">BattMo Julia bridge</a><ul>
@@ -129,7 +141,6 @@
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Electrolyser simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
@@ -144,7 +155,7 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mrst-page">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -183,8 +194,8 @@
 <section id="mrst">
 <h2>MRST<a class="headerlink" href="#mrst" title="Link to this heading"></a></h2>
 <p>BattMo is based on the open-source sofware MRST.</p>
-<a class="reference external image-reference" href="https://www.sintef.no/Projectweb/MRST/"><img alt="_images/mrst.png" src="_images/mrst.png" /></a>
-<p><a class="reference external" href="https://www.sintef.no/Projectweb/MRST/">MRST</a> is primarly dedicated to reservoir modelling and simulation and has been developed essentially by the
+<a class="reference external image-reference" href="https://www.sintef.no/Projectweb/MRSTwebpage/"><img alt="_images/mrst.png" src="_images/mrst.png" /></a>
+<p><a class="reference external" href="https://www.sintef.no/Projectweb/MRSTwebpage/">MRSTwebpage</a> is primarly dedicated to reservoir modelling and simulation and has been developed essentially by the
 <a class="reference external" href="https://www.sintef.no/en/digital/departments-new/applied-mathematics/computational-geoscience/">Computational Geosciences group</a> in the <a class="reference external" href="https://www.sintef.no/en/digital/departments-new/applied-mathematics/">Department of
 Mathematics and Cybernetics at SINTEF Digital</a>. The software contains generic functionalities such as</p>
 <ul class="simple">
@@ -193,12 +204,12 @@ Mathematics and Cybernetics at SINTEF Digital</a>. The software contains generic
 <li><p>Newton solver API for easy integration of new set of equations and variables.</p></li>
 </ul>
 <p>which BattMo relies heavily on.</p>
-<p>On the <a class="reference external" href="https://www.sintef.no/Projectweb/MRST/">MRST</a> webpage, you can find <a class="reference external" href="https://www.sintef.no/projectweb/mrst/documentation/">documentations</a> and
+<p>On the <a class="reference external" href="https://www.sintef.no/Projectweb/MRSTwebpage/">MRSTwebpage</a> webpage, you can find <a class="reference external" href="https://www.sintef.no/projectweb/mrst/documentation/">documentations</a> and
 <a class="reference external" href="https://www.sintef.no/projectweb/mrst/documentation/tutorials/">tutorials</a>.</p>
 <p>We recommend the following tutorials which deal with grid visualization and grid generation will be usefull for BattMo
 users.</p>
-<section id="mrst-page">
-<span id="id1"></span><h3><a class="reference external" href="https://www.sintef.no/projectweb/mrst/documentation/tutorials/visualization-tutorial/">Visualization Tutorial</a><a class="headerlink" href="#mrst-page" title="Link to this heading"></a></h3>
+<section id="id1">
+<h3><a class="reference external" href="https://www.sintef.no/projectweb/mrst/documentation/tutorials/visualization-tutorial/">Visualization Tutorial</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <blockquote>
 <div><img alt="_images/gridviz.png" src="_images/gridviz.png" />
 </div></blockquote>

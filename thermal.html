@@ -22,8 +22,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Optimisation" href="optimisation.html" />
-    <link rel="prev" title="Parameter sets" href="parsets.html" /> 
+    <link rel="next" title="Optimization" href="optimisation.html" />
+    <link rel="prev" title="Units" href="units.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -67,26 +67,28 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="intermediate.html">Intermediate usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#pseudo-four-dimensional-p4d-model">Pseudo-Four-Dimensional (P4D) Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#setup-a-p4d-model-using-mergejsonstructs">Setup a P4D Model using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#define-parameters">Define Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#run-simulation">Run Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#visualize-results">Visualize Results</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="intermediate.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#file-links-and-insertions-with-parsebattmojson">File links and insertions with <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="json.html">JSON input specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json.html#simulation-schema">Simulation Schema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html#material-parameters">Material Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrolyte">Electrolyte</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#electrode">Electrode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#coating">Coating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#active-material">Active Material</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#interface">Interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#solid-diffusion">Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#full-solid-diffusion">Full Solid Diffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.html#conducting-additive">Conducting Additive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#current-collector">Current Collector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#separator">Separator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="json.html#thermal-model">Thermal Model</a></li>
@@ -119,9 +121,19 @@
 <li class="toctree-l3"><a class="reference internal" href="controlinput.html#control-model-description">Control model description</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="soliddiffusion.html">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="units.html#converting-units-in-battmo">Converting units in BattMo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="units.html#units-and-json-input">Units and JSON input</a></li>
+</ul>
+</li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Thermal Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimisation.html#parameter-identification-example">Parameter identification example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimisation.html#optimization-example">Optimization example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">BattMo Julia bridge</a><ul>
@@ -129,7 +141,6 @@
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Electrolyser simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
@@ -144,7 +155,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="seealso.html#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="seealso.html#mrst-page">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#id1">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -221,7 +232,7 @@ the flag <code class="code docutils literal notranslate"><span class="pre">use_t
 <li><p>Specific Heat Capacity</p></li>
 <li><p>Thermal Conducitivty</p></li>
 </ul>
-<p>From those, we comput <strong>effective</strong> quantities. For the coating, it is done by processing the corresponding properties
+<p>From those, we compute <strong>effective</strong> quantities. For the coating, it is done by processing the corresponding properties
 of the constituents. The effective thermal conductivity takes into account the volume fraction.</p>
 <p>The parameters needed to compute the heat exchange with the exterior are</p>
 <ul class="simple">
@@ -230,8 +241,8 @@ of the constituents. The effective thermal conductivity takes into account the v
 </ul>
 <p>The external heat transfer coefficient can take different values for each external face of the model. It will then
 depend on the chosen geometrical domain. For our simple 3D model, the json interface gives us the possibility to set two
-values : A default value used for all external faces with is overwritten by the value given for the tabs. We use in our
-example 100 W/m²/s and 1000 W/m²/s, respectively.</p>
+values : A default value used for all external faces which is overwritten by the value given for the tabs. In our
+example we use 100 W/m²/s and 1000 W/m²/s, respectively.</p>
 <p>Let us visualize those values. We run the following</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% We index of the faces that are coupled to thermally to the exterior</span>
 <span class="n">extfaceind</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">couplingTerm</span><span class="p">.</span><span class="n">couplingfaces</span><span class="p">;</span>
@@ -258,7 +269,7 @@ example 100 W/m²/s and 1000 W/m²/s, respectively.</p>
 </div>
 <p>We obtain the standard discharge curve</p>
 <img alt="_images/discharge_voltage_temperature_example.png" src="_images/discharge_voltage_temperature_example.png" />
-<p>Then, we extract from the output the temperatue results and extract the minimum and maximum value</p>
+<p>Then, we extract the temperature results and the minimum and maximum values from the output</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Tabs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PhysicalConstants</span><span class="p">.</span><span class="n">Tabs</span><span class="p">;</span>
 
 <span class="n">states</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">states</span><span class="p">;</span>
@@ -283,16 +294,16 @@ example 100 W/m²/s and 1000 W/m²/s, respectively.</p>
 <img alt="_images/temperature_evolution1.png" src="_images/temperature_evolution1.png" />
 <p>We notice that there is very little temperature variation. The reason is that we have a small cell which is very thin,
 with a lot of external contact where heat can be released.</p>
-<p>Let use different heat exchange coefficient. We set the default heat exchange to zero so that heat exchange can only
+<p>Let us use a different heat exchange coefficient. We set the default heat exchange to zero so that heat exchange can only
 occur through the tabs.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonstruct</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">externalHeatTransferCoefficientTab</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 <span class="n">jsonstruct</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">externalHeatTransferCoefficient</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>We run again the computation and obtain higher temperature.</p>
+<p>We run the computation again and obtain higher temperature.</p>
 <img alt="_images/temperature_evolution2.png" src="_images/temperature_evolution2.png" />
-<p>We note also that there is less temperature gradient. We have the temperature distribution for the whole cells. Let us
-plot it for the last time step. To do so we run</p>
+<p>We have access to the temperature distribution for all the cells in the model. Let us plot the temperature field
+for the last time step. To do so, we run</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">state</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">states</span><span class="p">{</span><span class="k">end</span><span class="p">}</span>
 <span class="nb">figure</span>
 <span class="n">plotCellData</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
@@ -311,8 +322,8 @@ plot it for the last time step. To do so we run</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="parsets.html" class="btn btn-neutral float-left" title="Parameter sets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="optimisation.html" class="btn btn-neutral float-right" title="Optimisation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="units.html" class="btn btn-neutral float-left" title="Units" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="optimisation.html" class="btn btn-neutral float-right" title="Optimization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
