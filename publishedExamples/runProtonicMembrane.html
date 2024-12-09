@@ -164,18 +164,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Protonic Membrane</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#model-overview">Model overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#governing-equations">Governing equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#boundary-conditions">Boundary conditions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#load-and-parse-input-from-given-json-files">Load and parse input from given json files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#input-structure-setup">Input structure setup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#model-setup">Model setup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#initial-state-setup">Initial state setup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#schedule-schedule">Schedule schedule</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#simulation">Simulation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#plotting">Plotting</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#boundary-conditions">Boundary conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-and-parse-input-from-given-json-files">Load and parse input from given json files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-structure-setup">Input structure setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-setup">Model setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initial-state-setup">Initial state setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#schedule-schedule">Schedule schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plotting">Plotting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../gui.html">BattMo App</a><ul>
@@ -280,8 +278,9 @@ conservation equation} is</p>
 -\nabla\cdot((\sigma_p(E) + \sigma_n(E))\nabla \pi) &amp;= 0.
 \end{align}\end{split}\]</div>
 </section>
+</section>
 <section id="boundary-conditions">
-<h3>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Link to this heading"></a></h3>
+<h2>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Link to this heading"></a></h2>
 <p>We define the over-potential <span class="math notranslate nohighlight">\(\eta\)</span> as</p>
 <div class="math notranslate nohighlight">
 \[\eta_\text{elde} = \pi_\text{elde} - \phi_\text{elde} - \text{OCP}_\text{elde}\]</div>
@@ -297,8 +296,9 @@ a relation between the <span class="math notranslate nohighlight">\(H^+\)</span>
 <div class="math notranslate nohighlight">
 \[R_\text{CT} \ i_{H^+, \text{ct}} = \eta_\text{ct},\]</div>
 <p>for a given charge transfer constant <span class="math notranslate nohighlight">\(R_\text{CT}\)</span>.</p>
+</section>
 <section id="load-and-parse-input-from-given-json-files">
-<h4>Load and parse input from given json files<a class="headerlink" href="#load-and-parse-input-from-given-json-files" title="Link to this heading"></a></h4>
+<h2>Load and parse input from given json files<a class="headerlink" href="#load-and-parse-input-from-given-json-files" title="Link to this heading"></a></h2>
 <p>The source of the json files can be seen in <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/protonicmembrane/ProtonicMembrane/jsonfiles/protonicMembrane.json">protonicMembrane</a> and <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/protonicmembrane/ProtonicMembrane/jsonfiles/1d-PM-geometry.json">1d-PM-geometry.json</a></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="n">battmoDir</span><span class="p">(),</span><span class="w"> </span><span class="s">&#39;ProtonicMembrane&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;jsonfiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;protonicMembrane.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct_material</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
@@ -311,7 +311,7 @@ a relation between the <span class="math notranslate nohighlight">\(H^+\)</span>
 </div>
 </section>
 <section id="input-structure-setup">
-<h4>Input structure setup<a class="headerlink" href="#input-structure-setup" title="Link to this heading"></a></h4>
+<h2>Input structure setup<a class="headerlink" href="#input-structure-setup" title="Link to this heading"></a></h2>
 <p>We setup the input parameter structure which will we be used to instantiate the model</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">inputparams</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ProtonicMembraneCellInputParams</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
 
@@ -321,7 +321,7 @@ a relation between the <span class="math notranslate nohighlight">\(H^+\)</span>
 </div>
 </section>
 <section id="model-setup">
-<h4>Model setup<a class="headerlink" href="#model-setup" title="Link to this heading"></a></h4>
+<h2>Model setup<a class="headerlink" href="#model-setup" title="Link to this heading"></a></h2>
 <p>We instantiate the model for the protonic membrane cell</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ProtonicMembraneCell</span><span class="p">(</span><span class="n">inputparams</span><span class="p">);</span>
 </pre></div>
@@ -332,14 +332,14 @@ a relation between the <span class="math notranslate nohighlight">\(H^+\)</span>
 </div>
 </section>
 <section id="initial-state-setup">
-<h4>Initial state setup<a class="headerlink" href="#initial-state-setup" title="Link to this heading"></a></h4>
+<h2>Initial state setup<a class="headerlink" href="#initial-state-setup" title="Link to this heading"></a></h2>
 <p>We setup the initial state using a default setup included in the model</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">state0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">setupInitialState</span><span class="p">();</span>
 </pre></div>
 </div>
 </section>
 <section id="schedule-schedule">
-<h4>Schedule schedule<a class="headerlink" href="#schedule-schedule" title="Link to this heading"></a></h4>
+<h2>Schedule schedule<a class="headerlink" href="#schedule-schedule" title="Link to this heading"></a></h2>
 <p>We setup the schedule, which means the timesteps and also the control we want to use. In this case we use current control and the current equal to zero (see here <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/protonicmembrane/ProtonicMembrane/protonicMembrane.json#L86">here</a>).
 We compute the steady-state solution so that the time stepping here is more an artifact to reach the steady-state solution. In particular, it governs the pace at which we increase the non-linearity (not detailed here).</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">schedule</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">Control</span><span class="p">.</span><span class="n">setupSchedule</span><span class="p">(</span><span class="n">inputparams</span><span class="p">.</span><span class="n">jsonstruct</span><span class="p">);</span>
@@ -351,14 +351,14 @@ We compute the steady-state solution so that the time stepping here is more an a
 </div>
 </section>
 <section id="simulation">
-<h4>Simulation<a class="headerlink" href="#simulation" title="Link to this heading"></a></h4>
+<h2>Simulation<a class="headerlink" href="#simulation" title="Link to this heading"></a></h2>
 <p>We run the simulation</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">~</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">,</span><span class="w"> </span><span class="n">report</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">simulateScheduleAD</span><span class="p">(</span><span class="n">state0</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">schedule</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
 <section id="plotting">
-<h4>Plotting<a class="headerlink" href="#plotting" title="Link to this heading"></a></h4>
+<h2>Plotting<a class="headerlink" href="#plotting" title="Link to this heading"></a></h2>
 <p>We setup som shortcuts for convenience</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">an</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Anode&#39;</span><span class="p">;</span>
 <span class="n">ct</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Cathode&#39;</span><span class="p">;</span>
@@ -415,8 +415,6 @@ We compute the steady-state solution so that the time stepping here is more an a
 <img alt="../_images/runProtonicMembrane_04.png" src="../_images/runProtonicMembrane_04.png" />
 </figure>
 <p>complete source code can be found <a class="reference internal" href="runProtonicMembrane_source.html#runprotonicmembrane-source"><span class="std std-ref">here</span></a></p>
-</section>
-</section>
 </section>
 </section>
 

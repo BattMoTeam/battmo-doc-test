@@ -1,11 +1,10 @@
-==============
 Model overview
 ==============
 
 We consider the model of a mixed proton and electron conducting membrane, as described in :cite:`V_llestad_2019`.
         
 Governing equations
-===================
+-------------------
 
 We have three components given by the proton (:math:`H^+`), the :math:`p` and :math:`n` type. We want to find expressions for the fluxes for each of the components
 
