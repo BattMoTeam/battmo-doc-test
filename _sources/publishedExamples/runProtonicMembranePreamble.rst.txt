@@ -82,7 +82,7 @@ The governing equations for :math:`\phi(x)` and :math:`\pi(x)` are therefore the
    \end{align}   
 
 Boundary conditions
-===================
+-------------------
 
 We define the over-potential :math:`\eta` as
 

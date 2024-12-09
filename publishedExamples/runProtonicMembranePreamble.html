@@ -162,9 +162,9 @@
 <li class="toctree-l1"><a class="reference internal" href="runProtonicMembrane.html">Protonic Membrane</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="runProtonicMembrane.html#model-overview">Model overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runProtonicMembrane.html#governing-equations">Governing equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runProtonicMembrane.html#boundary-conditions">Boundary conditions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="runProtonicMembrane.html#boundary-conditions">Boundary conditions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runProtonicMembrane.html#load-and-parse-input-from-given-json-files">Load and parse input from given json files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runProtonicMembrane.html#input-structure-setup">Input structure setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runProtonicMembrane.html#model-setup">Model setup</a></li>
@@ -273,9 +273,8 @@ conservation equation} is</p>
 -\nabla\cdot((\sigma_p(E) + \sigma_n(E))\nabla \pi) &amp;= 0.
 \end{align}\end{split}\]</div>
 </section>
-</section>
 <section id="boundary-conditions">
-<h1>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Link to this heading"></a></h1>
+<h2>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Link to this heading"></a></h2>
 <p>We define the over-potential <span class="math notranslate nohighlight">\(\eta\)</span> as</p>
 <div class="math notranslate nohighlight">
 \[\eta_\text{elde} = \pi_\text{elde} - \phi_\text{elde} - \text{OCP}_\text{elde}\]</div>
@@ -291,6 +290,7 @@ a relation between the <span class="math notranslate nohighlight">\(H^+\)</span>
 <div class="math notranslate nohighlight">
 \[R_\text{CT} \ i_{H^+, \text{ct}} = \eta_\text{ct},\]</div>
 <p>for a given charge transfer constant <span class="math notranslate nohighlight">\(R_\text{CT}\)</span>.</p>
+</section>
 </section>
 
 
