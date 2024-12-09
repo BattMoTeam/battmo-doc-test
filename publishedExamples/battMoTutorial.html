@@ -1,24 +1,26 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BattMo Tutorial &mdash; BattMo  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx_collapse.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="../_static/battmologo.ico"/>
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_collapse.css?v=226d88b4" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=c92655ae" />
+
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="shortcut icon" href="../_static/battmologo.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -65,16 +67,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../intermediate.html">Intermediate usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../intermediate.html#pseudo-four-dimensional-p4d-model">Pseudo-Four-Dimensional (P4D) Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intermediate.html#setup-a-p4d-model-using-mergejsonstructs">Setup a P4D Model using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../intermediate.html#define-parameters">Define Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intermediate.html#run-simulation">Run Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intermediate.html#visualize-results">Visualize Results</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../intermediate.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../intermediate.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../intermediate.html#file-links-and-insertions-with-parsebattmojson">File links and insertions with <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../architecture.html">BattMo Model Architecture</a></li>
@@ -108,6 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geometryinput.html#batterygeneratormultilayerpouch">BatteryGeneratorMultilayerPouch</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../advancedtopics.html">Advanced Usage</a><ul>
@@ -124,20 +124,28 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../soliddiffusion.html">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../units.html">Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../units.html#converting-units-in-battmo">Converting units in BattMo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../units.html#units-and-json-input">Units and JSON input</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../optimisation.html">Optimization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../optimisation.html#parameter-identification-example">Parameter identification example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../optimisation.html#optimization-example">Optimization example</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../octave.html">Octave</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../juliabridge.html">BattMo Julia bridge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../juliabridge.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../juliabridge.html#setup-and-use">Setup and Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../juliabridge.html#start-server">Start Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../juliabridge.html#send-simulation-parameters">Send simulation parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../juliabridge.html#run-the-simulation">Run the simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../juliabridge.html#post-process-the-output">Post process the output</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="runElectrolyser.html">Electrolyser simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#setup-input">Setup input</a></li>
@@ -150,9 +158,42 @@
 <li class="toctree-l2"><a class="reference internal" href="runElectrolyser.html#ph-distribution-plot">pH distribution plot</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="runProtonicMembrane.html">Protonic Membrane</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runProtonicMembrane.html#model-overview">Model overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runProtonicMembrane.html#governing-equations">Governing equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runProtonicMembrane.html#boundary-conditions">Boundary conditions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runProtonicMembrane.html#load-and-parse-input-from-given-json-files">Load and parse input from given json files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runProtonicMembrane.html#input-structure-setup">Input structure setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runProtonicMembrane.html#model-setup">Model setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runProtonicMembrane.html#initial-state-setup">Initial state setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runProtonicMembrane.html#schedule-schedule">Schedule schedule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runProtonicMembrane.html#simulation">Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runProtonicMembrane.html#plotting">Plotting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gui.html">BattMo App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gui_features.html">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gui_features.html#use-default-materials">Use default materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gui_features.html#define-your-own-materials">Define your own materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gui_features.html#visualize-your-geometry">Visualize your geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gui_features.html#download-your-input-data">Download your input data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gui_features.html#visualize-and-download-your-results">Visualize and download your results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gui_calculations.html">Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui_troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gui_troubleshooting.html#unnatural-artifacts-in-your-results">Unnatural artifacts in your results</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../seealso.html">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../seealso.html#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../seealso.html#mrst-page">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seealso.html#visualization">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -211,6 +252,7 @@
 <h2>Specifying the physical model<a class="headerlink" href="#specifying-the-physical-model" title="Link to this heading"></a></h2>
 <p>In this tutorial we will simulate a lithium-ion battery consisting of a negative electrode, a positive electrode and an electrolyte. BattMo comes with some pre-defined models which can be loaded from JSON files. Here we will load the basic lithium-ion model JSON file which comes with Battmo. We use <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonUtils/parseBattmoJson.m">parseBattmoJson</a> to parse the file.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">&#39;ParameterData&#39;</span><span class="p">,</span><span class="s">&#39;BatteryCellParameters&#39;</span><span class="p">,</span><span class="k">...</span>
+
 <span class="w">                 </span><span class="s">&#39;LithiumIonBatteryCell&#39;</span><span class="p">,</span><span class="s">&#39;lithium_ion_battery_nmc_graphite.json&#39;</span><span class="p">);</span>
 <span class="n">jsonstruct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="n">fname</span><span class="p">);</span>
 </pre></div>
@@ -242,7 +284,7 @@ In this instance we will exclude temperature effects by setting use_thermal to f
 <span class="n">jsonstruct</span><span class="p">.(</span><span class="n">ne</span><span class="p">).(</span><span class="n">am</span><span class="p">).</span><span class="n">diffusionModelType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;full&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>To see which other types of diffusion model are available one can view <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrochemistry/ActiveMaterialInputParams.m">ActiveMaterialInputParams</a>.  When running a simulation, BattMo requires that all model parameters are stored in an instance of <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryInputParams.m">BatteryInputParams</a>. This class is used to initialize the simulation and is accessed by various parts of the simulator during the simulation. This class is instantiated using the jsonstruct we just created:</p>
+<p>To see which other types of diffusion model are available one can view <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Electrochemistry/ActiveMaterialInputParams.m">ActiveMaterialInputParams</a>. When running a simulation, BattMo requires that all model parameters are stored in an instance of <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryInputParams.m">BatteryInputParams</a>. This class is used to initialize the simulation and is accessed by various parts of the simulator during the simulation. This class is instantiated using the jsonstruct we just created:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">inputparams</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BatteryInputParams</span><span class="p">(</span><span class="n">jsonstruct</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -313,17 +355,8 @@ In BattMo a battery model is actually a collection of submodels: Electrolyte, Ne
 <section id="controlling-the-simulation">
 <h2>Controlling the simulation<a class="headerlink" href="#controlling-the-simulation" title="Link to this heading"></a></h2>
 <p>The control model specifies how the battery is operated, i.e., how the simulation is controlled.
-In the first instance we use CCDischarge control policy. We set the total time scaled by the CRate in the model. The CRate has been set by the json file. We can access it here:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">CRate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">Control</span><span class="p">.</span><span class="n">CRate</span><span class="p">;</span>
-<span class="n">total</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.1</span><span class="o">*</span><span class="nb">hour</span><span class="o">/</span><span class="n">CRate</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>We want to break this total time into 100 timesteps. To begin with we will use equal values for each timestep.
-We create a structure containing the length of each step in seconds (‘val’) and also which control to use for each step (‘control’).
-In this case we use control 1 for all steps. This means that the functions used to setup the control values are the same at each step.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
-<span class="n">dt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">total</span><span class="o">/</span><span class="n">n</span><span class="p">;</span>
-<span class="nb">step</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">struct</span><span class="p">(</span><span class="s">&#39;val&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;control&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+The input parameters for the control have been given as part of the json structure <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json">ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json</a>. The total simulation time is setup for us, computed from the CRate value. We use the method <code class="code docutils literal notranslate"><span class="pre">setupScheduleStep</span></code> in <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Control/ControlModel.m">ControlModel</a> to setup the <code class="code docutils literal notranslate"><span class="pre">step</span></code> structure.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">step</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">Control</span><span class="p">.</span><span class="n">setupScheduleStep</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>We create a control structure containing the source function and and a stopping criteria. The control parameters have been given in the json file <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json">ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json</a>
@@ -346,7 +379,7 @@ The <code class="code docutils literal notranslate"><span class="pre">setupSched
 <section id="running-the-simulation">
 <h2>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Link to this heading"></a></h2>
 <p>Once we have the initial state, the model and the schedule, we can call the simulateScheduleAD function which will actually run the simulation.
-The outputs from the simulation are: - sols: which provides the current and voltage of the battery at each   timestep. - states: which contains the values of the primary variables in the model   at each timestep. - reports: which contains technical information about the steps used in   the numerical solvers.</p>
+The outputs from the simulation are: - sols: which provides the current and voltage of the battery at each timestep. - states: which contains the values of the primary variables in the model at each timestep. - reports: which contains technical information about the steps used in the numerical solvers.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">sols</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">,</span><span class="w"> </span><span class="n">report</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">simulateScheduleAD</span><span class="p">(</span><span class="n">initstate</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">schedule</span><span class="p">);</span>
 </pre></div>
 </div>

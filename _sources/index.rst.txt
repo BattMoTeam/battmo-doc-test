@@ -14,8 +14,9 @@
    geometryinput
    advancedtopics
    juliabridge
-   gui
    Electrolyser simulation <publishedExamples/runElectrolyser>
+   Protonic Membrane <publishedExamples/runProtonicMembrane>
+   gui
    seealso
    References <bibliography>
 

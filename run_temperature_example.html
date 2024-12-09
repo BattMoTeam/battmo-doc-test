@@ -1,24 +1,26 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>runThermalModel &mdash; BattMo  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/battmologo.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_collapse.css?v=226d88b4" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=c92655ae" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="shortcut icon" href="_static/battmologo.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -65,16 +67,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="intermediate.html">Intermediate usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#pseudo-four-dimensional-p4d-model">Pseudo-Four-Dimensional (P4D) Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#setup-a-p4d-model-using-mergejsonstructs">Setup a P4D Model using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#define-parameters">Define Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#run-simulation">Run Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#visualize-results">Visualize Results</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="intermediate.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#file-links-and-insertions-with-parsebattmojson">File links and insertions with <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a></li>
@@ -108,6 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratormultilayerpouch">BatteryGeneratorMultilayerPouch</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul>
@@ -124,20 +124,28 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="soliddiffusion.html">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="units.html#converting-units-in-battmo">Converting units in BattMo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="units.html#units-and-json-input">Units and JSON input</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="optimisation.html#parameter-identification-example">Parameter identification example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimisation.html#optimization-example">Optimization example</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="octave.html">Octave</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">BattMo Julia bridge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#start-server">Start Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#send-simulation-parameters">Send simulation parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#run-the-simulation">Run the simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#post-process-the-output">Post process the output</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Electrolyser simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
@@ -150,9 +158,42 @@
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#ph-distribution-plot">pH distribution plot</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html">Protonic Membrane</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#model-overview">Model overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#governing-equations">Governing equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#boundary-conditions">Boundary conditions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#load-and-parse-input-from-given-json-files">Load and parse input from given json files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#input-structure-setup">Input structure setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#model-setup">Model setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#initial-state-setup">Initial state setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#schedule-schedule">Schedule schedule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#simulation">Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#plotting">Plotting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gui_features.html">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#use-default-materials">Use default materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#define-your-own-materials">Define your own materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#visualize-your-geometry">Visualize your geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#download-your-input-data">Download your input data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#visualize-and-download-your-results">Visualize and download your results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gui_calculations.html">Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui_troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui_troubleshooting.html#unnatural-artifacts-in-your-results">Unnatural artifacts in your results</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="seealso.html#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="seealso.html#mrst-page">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#visualization">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -220,8 +261,7 @@
 
 <span class="c">% We index of the faces that are coupled to thermally to the exterior</span>
 <span class="n">extfaceind</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">couplingTerm</span><span class="p">.</span><span class="n">couplingfaces</span><span class="p">;</span>
-<span class="n">G</span><span class="w">          </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">G</span><span class="p">;</span>
-<span class="n">nf</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">G</span><span class="p">.</span><span class="n">faces</span><span class="p">.</span><span class="n">num</span><span class="p">;</span>
+<span class="n">nf</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">G</span><span class="p">.</span><span class="n">getNumberOfFaces</span><span class="p">();</span>
 
 <span class="c">% We create a vector with one value per face with value equal to the external heat transfer coefficient for the external</span>
 <span class="c">% face</span>
@@ -229,7 +269,7 @@
 <span class="n">val</span><span class="p">(</span><span class="n">extfaceind</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">externalHeatTransferCoefficient</span><span class="p">;</span>
 
 <span class="n">figure</span>
-<span class="s">plotFaceData(G,</span><span class="w"> </span><span class="s">val,</span><span class="w"> </span><span class="s">&#39;edgecolor&#39;,</span><span class="w"> </span><span class="s">&#39;black&#39;)</span><span class="p">;</span>
+<span class="s">plotFaceData(model.ThermalModel.grid,</span><span class="w"> </span><span class="s">val,</span><span class="w"> </span><span class="s">&#39;edgecolor&#39;,</span><span class="w"> </span><span class="s">&#39;black&#39;)</span><span class="p">;</span>
 <span class="n">axis</span><span class="w"> </span><span class="s">equal</span>
 <span class="nb">view</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">]);</span>
 <span class="nb">title</span><span class="p">(</span><span class="s">&#39;External Heat Transfer Coefficient / W/s/m^2&#39;</span><span class="p">)</span>
@@ -257,12 +297,12 @@
 
 <span class="c">%% Plot the minimum and maximum values of the temperature</span>
 
-<span class="n">Tabs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PhysicalConstants</span><span class="p">.</span><span class="n">Tabs</span><span class="p">;</span>
+<span class="n">T0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PhysicalConstants</span><span class="p">.</span><span class="n">absoluteTemperature</span><span class="p">;</span>
 
 <span class="n">states</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">states</span><span class="p">;</span>
 
-<span class="n">Tmin</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tabs</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
-<span class="n">Tmax</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tabs</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
+<span class="n">Tmin</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">T0</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
+<span class="n">Tmax</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">T0</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
 
 <span class="n">figure</span>
 <span class="s">hold</span><span class="w"> </span><span class="s">on</span>
@@ -285,8 +325,8 @@
 
 <span class="n">states</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">states</span><span class="p">;</span>
 
-<span class="n">Tmin</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tabs</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
-<span class="n">Tmax</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tabs</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
+<span class="n">Tmin</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">T0</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
+<span class="n">Tmax</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cellfun</span><span class="p">(@(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">T0</span><span class="p">),</span><span class="w"> </span><span class="n">states</span><span class="p">);</span>
 <span class="nb">time</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">time</span><span class="p">;</span>
 
 <span class="n">figure</span>
@@ -299,15 +339,38 @@
 
 <span class="n">legend</span><span class="w"> </span><span class="s">show</span>
 
-<span class="c">%% plot final temperature disctribution</span>
+<span class="c">%% plot final temperature distribution</span>
 
 <span class="n">state</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">states</span><span class="p">{</span><span class="k">end</span><span class="p">}</span>
 <span class="nb">figure</span>
-<span class="n">plotCellData</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
-<span class="w">             </span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tabs</span><span class="p">);</span>
+<span class="n">plotCellData</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">             </span><span class="n">state</span><span class="p">.</span><span class="n">ThermalModel</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">T0</span><span class="p">);</span>
 <span class="n">colorbar</span>
 <span class="s">title(&#39;Temperature / C&#39;)</span><span class="p">;</span>
 <span class="nb">view</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">]);</span>
+
+
+
+
+<span class="cm">%{</span>
+<span class="cm">Copyright 2021-2024 SINTEF Industry, Sustainable Energy Technology</span>
+<span class="cm">and SINTEF Digital, Mathematics &amp; Cybernetics.</span>
+
+<span class="cm">This file is part of The Battery Modeling Toolbox BattMo</span>
+
+<span class="cm">BattMo is free software: you can redistribute it and/or modify</span>
+<span class="cm">it under the terms of the GNU General Public License as published by</span>
+<span class="cm">the Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm">(at your option) any later version.</span>
+
+<span class="cm">BattMo is distributed in the hope that it will be useful,</span>
+<span class="cm">but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="cm">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="cm">GNU General Public License for more details.</span>
+
+<span class="cm">You should have received a copy of the GNU General Public License</span>
+<span class="cm">along with BattMo.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="cm">%}</span>
 </pre></div>
 </div>
 </section>

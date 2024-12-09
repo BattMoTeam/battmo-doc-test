@@ -1,24 +1,26 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Battery Geometries &mdash; BattMo  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/battmologo.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_collapse.css?v=226d88b4" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=c92655ae" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="shortcut icon" href="_static/battmologo.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -67,16 +69,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="intermediate.html">Intermediate usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#pseudo-four-dimensional-p4d-model">Pseudo-Four-Dimensional (P4D) Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#setup-a-p4d-model-using-mergejsonstructs">Setup a P4D Model using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#define-parameters">Define Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#run-simulation">Run Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#visualize-results">Visualize Results</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="intermediate.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#file-links-and-insertions-with-parsebattmojson">File links and insertions with <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a></li>
@@ -110,6 +109,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#batterygeneratorp4d">BatteryGeneratorP4D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#spiralbatterygenerator">SpiralBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batterygeneratormultilayerpouch">BatteryGeneratorMultilayerPouch</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul>
@@ -126,20 +126,28 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="soliddiffusion.html">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="units.html#converting-units-in-battmo">Converting units in BattMo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="units.html#units-and-json-input">Units and JSON input</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="optimisation.html#parameter-identification-example">Parameter identification example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimisation.html#optimization-example">Optimization example</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="octave.html">Octave</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">BattMo Julia bridge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#start-server">Start Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#send-simulation-parameters">Send simulation parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#run-the-simulation">Run the simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#post-process-the-output">Post process the output</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Electrolyser simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
@@ -152,9 +160,42 @@
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#ph-distribution-plot">pH distribution plot</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html">Protonic Membrane</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#model-overview">Model overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#governing-equations">Governing equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#boundary-conditions">Boundary conditions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#load-and-parse-input-from-given-json-files">Load and parse input from given json files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#input-structure-setup">Input structure setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#model-setup">Model setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#initial-state-setup">Initial state setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#schedule-schedule">Schedule schedule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#simulation">Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#plotting">Plotting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gui_features.html">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#use-default-materials">Use default materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#define-your-own-materials">Define your own materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#visualize-your-geometry">Visualize your geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#download-your-input-data">Download your input data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#visualize-and-download-your-results">Visualize and download your results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gui_calculations.html">Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui_troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui_troubleshooting.html#unnatural-artifacts-in-your-results">Unnatural artifacts in your results</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="seealso.html#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="seealso.html#mrst-page">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#visualization">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -194,15 +235,16 @@
 before a simulation. The base class <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGenerator.m">BatteryGenerator</a> provides a template to construct the battery geometry,
 which includes a mesh for all the components (Coatings, sepators, current collectors…) and the coupling between those
 as the main output.</p>
-<p>To create our grids, we rely essentially on the grid generation functions provided by <a class="reference external" href="https://www.sintef.no/Projectweb/MRST/">MRST</a>. We use also the visualization tools available there, see <a class="reference internal" href="seealso.html#mrst-page"><span class="std std-ref">here</span></a>.</p>
+<p>To create our grids, we rely essentially on the grid generation functions provided by <a class="reference external" href="https://www.sintef.no/Projectweb/MRST/">MRST</a>. We use also the visualization tools available there, see <a class="reference internal" href="seealso.html#visualization"><span class="std std-ref">here</span></a>.</p>
 <p>Standard geometries can often be parameterized, meaning that a small set parameters is enough to construct the whole
 geometrical model. We have implemented some standard geometries and provide here examples with an illustration and a
-list of the parameters used to produce this illustration. The parameters can be passed through json interface and are
+list of the parameters used to produce this illustration. The parameters can be passed through json interface and aref
 described in some more detail in the <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonSchemas/Geometry.schema.json">geometry json schema</a>.</p>
 <section id="batterygeneratorp2d">
 <h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGeneratorP2D.m">BatteryGeneratorP2D</a><a class="headerlink" href="#batterygeneratorp2d" title="Link to this heading"></a></h2>
 <p>The geometrical model is 1D. Here, for the sake of the illustration, we plot a corresponding 3D model.</p>
-<a class="reference internal image-reference" href="_images/1dmodel.png"><img alt="_images/1dmodel.png" src="_images/1dmodel.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="_images/1dmodel.png"><img alt="_images/1dmodel.png" src="_images/1dmodel.png" style="width: 80%;" />
+</a>
 <table class="docutils align-default" id="id2">
 <caption><span class="caption-text">Parameters with values used in plot above</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
 <thead>
@@ -262,7 +304,8 @@ described in some more detail in the <a class="reference external" href="https:/
 <section id="batterygeneratorp3d">
 <span id="dgeometry"></span><h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGeneratorP3D.m">BatteryGeneratorP3D</a><a class="headerlink" href="#batterygeneratorp3d" title="Link to this heading"></a></h2>
 <p>The geometrical model is 2D.</p>
-<a class="reference internal image-reference" href="_images/runbattery2d.png"><img alt="_images/runbattery2d.png" src="_images/runbattery2d.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="_images/runbattery2d.png"><img alt="_images/runbattery2d.png" src="_images/runbattery2d.png" style="width: 80%;" />
+</a>
 <table class="docutils align-default" id="id3">
 <caption><span class="caption-text">Parameters with values used in plot above</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
 <thead>
@@ -326,9 +369,11 @@ described in some more detail in the <a class="reference external" href="https:/
 <section id="batterygeneratorp4d">
 <span id="id1"></span><h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGeneratorP4D.m">BatteryGeneratorP4D</a><a class="headerlink" href="#batterygeneratorp4d" title="Link to this heading"></a></h2>
 <p>A 3D geometrical model consising only of one layer with one tab on each current collector.</p>
-<a class="reference internal image-reference" href="_images/runbattery3d.png"><img alt="_images/runbattery3d.png" src="_images/runbattery3d.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="_images/runbattery3d.png"><img alt="_images/runbattery3d.png" src="_images/runbattery3d.png" style="width: 80%;" />
+</a>
 <p>An illustration with different scalings for each axes which shows the different component:</p>
-<a class="reference internal image-reference" href="_images/3dmodel.png"><img alt="_images/3dmodel.png" src="_images/3dmodel.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="_images/3dmodel.png"><img alt="_images/3dmodel.png" src="_images/3dmodel.png" style="width: 80%;" />
+</a>
 <table class="docutils align-default" id="id4">
 <caption><span class="caption-text">Parameters with values used in plot above</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
 <thead>
@@ -432,7 +477,8 @@ described in some more detail in the <a class="reference external" href="https:/
 <section id="spiralbatterygenerator">
 <span id="jellyroll"></span><h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/SpiralBatteryGenerator.m">SpiralBatteryGenerator</a><a class="headerlink" href="#spiralbatterygenerator" title="Link to this heading"></a></h2>
 <p>A geometry model for jelly rolls. Here, we have used parameters corresponding to th 4680 model.</p>
-<a class="reference internal image-reference" href="_images/jellyrollmodel.png"><img alt="_images/jellyrollmodel.png" src="_images/jellyrollmodel.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="_images/jellyrollmodel.png"><img alt="_images/jellyrollmodel.png" src="_images/jellyrollmodel.png" style="width: 80%;" />
+</a>
 <table class="docutils align-default" id="id5">
 <caption><span class="caption-text">Thickness and discretization number (<strong>N</strong>) are passed through the dictionaries <code class="code docutils literal notranslate"><span class="pre">widthDict</span></code> and <code class="code docutils literal notranslate"><span class="pre">nrDict</span></code>, with values used in plot above.</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
 <thead>
@@ -503,17 +549,18 @@ described in some more detail in the <a class="reference external" href="https:/
 </table>
 <p>There are parameters for the tabs that we do not detail here, see <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonSchemas/Geometry.schema.json#L242">json
 schema</a>. The json source is available
-<a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/scripts/jsonfiles/4680-geometry.json">here</a>.</p>
+<a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/Documentation/jsonfiles/4680-geometry.json">here</a>.</p>
 </section>
 <section id="coincellbatterygenerator">
 <span id="coincell"></span><h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/CoinCellBatteryGenerator.m">CoinCellBatteryGenerator</a><a class="headerlink" href="#coincellbatterygenerator" title="Link to this heading"></a></h2>
 <p>A geometrical model for a coin cell.</p>
-<a class="reference internal image-reference" href="_images/coincell.png"><img alt="_images/coincell.png" src="_images/coincell.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="_images/coincell.png"><img alt="_images/coincell.png" src="_images/coincell.png" style="width: 80%;" />
+</a>
 <table class="docutils align-default" id="id7">
 <caption><span class="caption-text">Parameters for each component : thickness, diameter, number of cell layers (Nl), with the values used in the plot above (a CR 2016 coin cell)</span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Component</p></th>
-<th class="head"><p>Name</p></th>
+<th class="head"><p>Key name</p></th>
 <th class="head"><p>Thickness</p></th>
 <th class="head"><p>Diameter</p></th>
 <th class="head"><p>Nl</p></th>
@@ -571,6 +618,97 @@ schema</a>. The json source is available
 </tr>
 </tbody>
 </table>
+</section>
+<section id="batterygeneratormultilayerpouch">
+<h2><a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Battery/BatteryGeometry/BatteryGeneratorMultilayerPouch.m">BatteryGeneratorMultilayerPouch</a><a class="headerlink" href="#batterygeneratormultilayerpouch" title="Link to this heading"></a></h2>
+<p>A geometrical model for a multi-layer pouch cell.</p>
+<a class="reference internal image-reference" href="_images/multilayerpouch.png"><img alt="_images/multilayerpouch.png" src="_images/multilayerpouch.png" style="width: 80%;" />
+</a>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">Parameters for each component : thickness and number of cell (Nl) for a layer, with the values used in the plot above</span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Thickness</p></th>
+<th class="head"><p>Nl</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Negative electrode current collector</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">NegativeCurrentCollector</span></code></p></td>
+<td><p>10 µm</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Negative electrode coating</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">NegativeCoating</span></code></p></td>
+<td><p>100 µm</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>Separator</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">Separator</span></code></p></td>
+<td><p>50 μm</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Positive electrode coating</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">PositiveCoating</span></code></p></td>
+<td><p>80 μm</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>Positive electrode current collector</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">PositiveCurrentCollector</span></code></p></td>
+<td><p>10 µm</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text">Other parameters, with values used in plot above</span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Number of Layers</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">nLayers</span></code></p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Width of the cell</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">width</span></code></p></td>
+<td><p>10 cm</p></td>
+</tr>
+<tr class="row-even"><td><p>Length of the cell</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">length</span></code></p></td>
+<td><p>10 cm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Discretization number for width</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">Electrolyte.Nx</span></code></p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>Discretization number for length outside the tab</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">Electrolyte.Ny</span></code></p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tabs width (same for negative and positive)</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">tab.width</span></code></p></td>
+<td><p>5 cm</p></td>
+</tr>
+<tr class="row-even"><td><p>Tabs discretization number</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">tab.Nx</span></code></p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tab lenght of negative electrode</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">tab.NegativeElectrode.length</span></code></p></td>
+<td><p>4 cm</p></td>
+</tr>
+<tr class="row-even"><td><p>Tab length of positive electrode</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">tab.PositiveElectrode.length</span></code></p></td>
+<td><p>2 cm</p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/JsonDataFiles/geometryMultiLayerPouch.json">json source file</a> for this example.</p>
 </section>
 </section>
 

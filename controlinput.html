@@ -1,25 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Control models &mdash; BattMo  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sphinx_collapse.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/battmologo.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_collapse.css?v=226d88b4" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=c92655ae" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="_static/battmologo.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -68,16 +70,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="intermediate.html">Intermediate usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#pseudo-four-dimensional-p4d-model">Pseudo-Four-Dimensional (P4D) Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#setup-a-p4d-model-using-mergejsonstructs">Setup a P4D Model using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#define-parameters">Define Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#run-simulation">Run Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate.html#visualize-results">Visualize Results</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="intermediate.html#direct-insertion-using-parsebattmojson">Direct insertion using <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="intermediate.html#merge-function-using-mergejsonstructs">Merge function using <code class="code docutils literal notranslate"><span class="pre">mergeJsonStructs</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="intermediate.html#file-links-and-insertions-with-parsebattmojson">File links and insertions with <code class="code docutils literal notranslate"><span class="pre">parseBattmoJson</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">BattMo Model Architecture</a></li>
@@ -111,6 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratorp4d">BatteryGeneratorP4D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#spiralbatterygenerator">SpiralBatteryGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometryinput.html#coincellbatterygenerator">CoinCellBatteryGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometryinput.html#batterygeneratormultilayerpouch">BatteryGeneratorMultilayerPouch</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="advancedtopics.html">Advanced Usage</a><ul class="current">
@@ -127,20 +127,28 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="soliddiffusion.html">Solid Diffusion Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parsets.html">Parameter sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="units.html#converting-units-in-battmo">Converting units in BattMo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="units.html#units-and-json-input">Units and JSON input</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="thermal.html">Thermal Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimisation.html">Optimization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="optimisation.html#parameter-identification-example">Parameter identification example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimisation.html#optimization-example">Optimization example</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="octave.html">Octave</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="juliabridge.html">BattMo Julia bridge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="juliabridge.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#setup-and-use">Setup and Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#start-server">Start Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#send-simulation-parameters">Send simulation parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#run-the-simulation">Run the simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="juliabridge.html#post-process-the-output">Post process the output</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishedExamples/runElectrolyser.html">Electrolyser simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#load-mrst-modules">Load MRST modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#setup-input">Setup input</a></li>
@@ -153,9 +161,42 @@
 <li class="toctree-l2"><a class="reference internal" href="publishedExamples/runElectrolyser.html#ph-distribution-plot">pH distribution plot</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html">Protonic Membrane</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#model-overview">Model overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#governing-equations">Governing equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#boundary-conditions">Boundary conditions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#load-and-parse-input-from-given-json-files">Load and parse input from given json files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#input-structure-setup">Input structure setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#model-setup">Model setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#initial-state-setup">Initial state setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#schedule-schedule">Schedule schedule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#simulation">Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publishedExamples/runProtonicMembrane.html#plotting">Plotting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">BattMo App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gui_features.html">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#use-default-materials">Use default materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#define-your-own-materials">Define your own materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#visualize-your-geometry">Visualize your geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#download-your-input-data">Download your input data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui_features.html#visualize-and-download-your-results">Visualize and download your results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gui_calculations.html">Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui_troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui_troubleshooting.html#unnatural-artifacts-in-your-results">Unnatural artifacts in your results</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="seealso.html#mrst">MRST</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="seealso.html#mrst-page">Visualization Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seealso.html#visualization">Visualization Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seealso.html#id2">Grid Factory Tutorial</a></li>
 </ul>
 </li>
@@ -230,7 +271,8 @@ where the current is gradually increased from zero to the targeted given input c
 <p>For the dataset given <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json">here</a>, we obtain the
 following result.</p>
 <figure class="align-center" id="id1">
-<a class="reference external image-reference" href="_images/controlExampleCCDischarge.png"><img alt="_images/controlExampleCCDischarge.png" src="_images/controlExampleCCDischarge.png" style="width: 70%;" /></a>
+<a class="reference external image-reference" href="_images/controlExampleCCDischarge.png"><img alt="_images/controlExampleCCDischarge.png" src="_images/controlExampleCCDischarge.png" style="width: 70%;" />
+</a>
 <figcaption>
 <p><span class="caption-text">Constant Current Discharge control</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
@@ -250,7 +292,8 @@ this case, we can include a rampup time. As an example,</p>
 <p>For the dataset given <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json">here</a>, we obtain the
 following result.</p>
 <figure class="align-center" id="id2">
-<a class="reference external image-reference" href="_images/controlExampleCCCharge.png"><img alt="_images/controlExampleCCCharge.png" src="_images/controlExampleCCCharge.png" style="width: 70%;" /></a>
+<a class="reference external image-reference" href="_images/controlExampleCCCharge.png"><img alt="_images/controlExampleCCCharge.png" src="_images/controlExampleCCCharge.png" style="width: 70%;" />
+</a>
 <figcaption>
 <p><span class="caption-text">Constant Current Charge control</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
@@ -283,12 +326,13 @@ this value is lower than <code class="code docutils literal notranslate"><span c
 <p>We iterate this process for the given number of cycles. For the dataset given <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/ParameterData/BatteryCellParameters/LithiumIonBatteryCell/lithium_ion_battery_nmc_graphite.json">here</a>, we obtain the
 following result.</p>
 <figure class="align-center" id="id3">
-<a class="reference external image-reference" href="_images/controlExampleCCCV.png"><img alt="_images/controlExampleCCCV.png" src="_images/controlExampleCCCV.png" style="width: 70%;" /></a>
+<a class="reference external image-reference" href="_images/controlExampleCCCV.png"><img alt="_images/controlExampleCCCV.png" src="_images/controlExampleCCCV.png" style="width: 70%;" />
+</a>
 <figcaption>
 <p><span class="caption-text">CCCV control</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>The script used to generate the figures is available <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/scripts/plotControlExamples.m">here</a>.</p>
+<p>The script used to generate the figures is available <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/Documentation/plotControlExamples_doc.m">here</a>.</p>
 </section>
 <section id="control-model-description">
 <h2>Control model description<a class="headerlink" href="#control-model-description" title="Link to this heading"></a></h2>
@@ -325,7 +369,7 @@ control.</p>
 </div>
 <p>We have to setup a model and an initial state. We use the function <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Utilities/JsonUtils/setupModelFromJson.m">setupModelFromJson</a> to setup the model from
 a given json input. We load the sample input function we have used before, see source
-<a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/jsondatafiles/sample_input.json">here</a>. We replace the <code class="code docutils literal notranslate"><span class="pre">Control</span></code> field with a structure with
+<a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/JsonDataFiles/sample_input.json">here</a>. We replace the <code class="code docutils literal notranslate"><span class="pre">Control</span></code> field with a structure with
 a <code class="code docutils literal notranslate"><span class="pre">controlPolicy</span></code> given by a current control (<code class="code docutils literal notranslate"><span class="pre">CC</span></code>). We change the initial state of charge value (SOC) to
 0.5 so that we do not hit the upper current voltage value (the SOC given in the sample json is 0.99).</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">jsonstruct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parseBattmoJson</span><span class="p">(</span><span class="s">&#39;Examples/jsondatafiles/sample_input.json&#39;</span><span class="p">);</span>
@@ -346,9 +390,10 @@ a <code class="code docutils literal notranslate"><span class="pre">controlPolic
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">~</span><span class="p">,</span><span class="w"> </span><span class="n">states</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">simulateScheduleAD</span><span class="p">(</span><span class="n">initstate</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">schedule</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The complete source can be found here <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Documentation/scripts/exampleControl.m">exampleControl</a>.</p>
+<p>The complete source can be found here <a class="reference external" href="https://github.com/BattMoTeam/BattMo/blob/dev/Examples/Documentation/exampleControl_doc.m">exampleControl_doc</a>.</p>
 <figure class="align-center">
-<a class="reference external image-reference" href="_images/exampleControl.png"><img alt="_images/exampleControl.png" src="_images/exampleControl.png" style="width: 70%;" /></a>
+<a class="reference external image-reference" href="_images/exampleControl.png"><img alt="_images/exampleControl.png" src="_images/exampleControl.png" style="width: 70%;" />
+</a>
 </figure>
 </section>
 </section>

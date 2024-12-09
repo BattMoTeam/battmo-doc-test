@@ -90,13 +90,13 @@ The grid (or mesh) is one of the most used properties of the model, which can be
 
 .. code:: matlab
 
-   output.model.G
+   output.model.grid
 
 We can see that the grid is stored as a structure with information about the cells, faces, nodes, etc. The values of the state quantities (e.g. concentration and electric potential) are calculated at the centroids of the cells. To plot the positions of the centroids, we can use the following commands:
 
 .. code:: matlab
 
-   x = output.model.G.cells.centroids;
+   x = output.model.grid.cells.centroids;
    plot(x, zeros(size(x)), 'o')
    xlabel('Position  /  m')
 
@@ -106,9 +106,9 @@ For example, if we want to plot the grid associated with the different submodels
 
 .. code:: matlab
 
-   x_ne = output.model.NegativeElectrode.G.cells.centroids;
-   x_sep = output.model.Separator.G.cells.centroids;
-   x_pe = output.model.PositiveElectrode.G.cells.centroids;
+   x_ne  = output.model.NegativeElectrode.grid.cells.centroids;
+   x_sep = output.model.Separator.grid.cells.centroids;
+   x_pe  = output.model.PositiveElectrode.grid.cells.centroids;
 
    plot(x_ne, zeros(size(x_ne)), 'o')
    hold on
@@ -162,7 +162,7 @@ Let's plot the concentration in the electrolyte at timestep 10. We can plot the 
 
 .. code:: matlab
 
-   x = output.model.G.cells.centroids
+   x = output.model.grid.cells.centroids
    c = output.states{10}.Electrolyte.c
 
    plot(x,c)
@@ -175,7 +175,7 @@ Let's plot the concentration in the electrolyte at timestep 10. We can plot the 
 
    timestep = 10
 
-   plotCellData(output.model.G, output.states{timestep}.Electrolyte.c)
+   plotCellData(output.model.grid, output.states{timestep}.Electrolyte.c)
    xlabel('Position  /  m')
    ylabel('Concentration  /  mol \cdot m^{-3}')
 
@@ -186,7 +186,9 @@ Change Control Parameters
 
 Let's try simulating the discharge of the cell at different C-Rates.
 
-Once the JSON parameter file has been read into MATLAB as a jsonstruct, its properties can be modified programmatically. For example, we can define a vector of different C-Rates and then use a for-loop to replace that value in the jsonstruct and re-run the simulation.
+Once the JSON parameter file has been read into MATLAB as a jsonstruct, its properties can be modified
+programmatically. For example, we can define a vector of different C-Rates and then use a for-loop to replace that value
+in the jsonstruct and re-run the simulation.
 
 .. code:: matlab
 
@@ -198,13 +200,11 @@ Once the JSON parameter file has been read into MATLAB as a jsonstruct, its prop
 
        states = output.states;
        time = cellfun(@(state) state.time, states);
-       voltage = cellfun(@(state) state.('Control').E, states);
+       voltage = cellfun(@(state) state.Control.E, states);
        plot((time/hour), voltage, '-', 'linewidth', 3)
        hold on
    end
    hold off
-
-[TODO: fix :code:`plotResult`] For this example, we have written a :code:`plotResult` function which extracts and plots from the output the time and voltage values, see :ref:`here <plotResult>`.
 
 .. figure:: img/crates.png
    :target: _images/crates.png
@@ -212,6 +212,7 @@ Once the JSON parameter file has been read into MATLAB as a jsonstruct, its prop
    :align: center
 
    A comparison of cell voltage curves at different C-Rates
+
 
 Change Structural Parameters
 ============================
@@ -240,9 +241,6 @@ From these results we can see that for thin negative electrode coatings, the cap
 
 Change Material Parameters
 ==========================
-
-.. note::
-  TODO: Make this easier / more elegnant.
 
 Finally, let's try changing active materials in the model.
 
@@ -300,48 +298,48 @@ We have written and published matlab notebooks in the `Live Code File Format
 
 They basically go through the material described above in the interactive manner.
 
-The notebooks can be found in the :battmofile:`Examples/Basic` directory or downloaded from here.
+The notebooks can be found in the :battmofile:`Examples/Notebooks` directory or downloaded from here.
 
 .. list-table::
-   
+
    * - Tutorial 1
      - **Your first BattMo model**
      - `view <_static/notebooks/tutorial_1_a_simple_p2d_model_live.html>`__
-     - :battmorawfile:`download <Examples/Basic/tutorial_1_a_simple_p2d_model_live.mlx>`
+     - :battmorawfile:`download <Examples/Notebooks/tutorial_1_a_simple_p2d_model_live.mlx>`
    * - Tutorial 2
      - **Change the Control Protocol**
      - `view <_static/notebooks/tutorial_2_changing_control_protocol_live.html>`__
-     - :battmorawfile:`download <Examples/Basic/tutorial_2_changing_control_protocol_live.mlx>`
+     - :battmorawfile:`download <Examples/Notebooks/tutorial_2_changing_control_protocol_live.mlx>`
    * - Tutorial 3
      - **Modify Structural Parameters**
      - `view <_static/notebooks/tutorial_3_modify_structural_parameters_live.html>`__
-     - :battmorawfile:`download <Examples/Basic/tutorial_3_modify_structural_parameters_live.mlx>`
+     - :battmorawfile:`download <Examples/Notebooks/tutorial_3_modify_structural_parameters_live.mlx>`
    * - Tutorial 4
      - **Modify Material Parameters**
      - `view <_static/notebooks/tutorial_4_modify_material_parameters_live.html>`__
-     - :battmorawfile:`download <Examples/Basic/tutorial_4_modify_material_parameters_live.mlx>`
+     - :battmorawfile:`download <Examples/Notebooks/tutorial_4_modify_material_parameters_live.mlx>`
    * - Tutorial 5
      - **Simulate CC-CV cycling**
      - `view <_static/notebooks/tutorial_5_simulate_CCCV_cycling_live.html>`__
-     - :battmorawfile:`download <Examples/Basic/tutorial_5_simulate_CCCV_cycling_live.mlx>`
+     - :battmorawfile:`download <Examples/Notebooks/tutorial_5_simulate_CCCV_cycling_live.mlx>`
    * - Tutorial 6
      - **Simulate Thermal Performance**
      - `view <_static/notebooks/tutorial_6_simulate_thermal_performance_live.html>`__
-     - :battmorawfile:`download <Examples/Basic/tutorial_6_simulate_thermal_performance_live.mlx>`
+     - :battmorawfile:`download <Examples/Notebooks/tutorial_6_simulate_thermal_performance_live.mlx>`
    * - Tutorial 7
      - **A Simple P4D Simulation**
      - `view <_static/notebooks/tutorial_7_a_simple_p4d_model_live.html>`__
-     - :battmorawfile:`download <Examples/Basic/tutorial_7_a_simple_p4d_model_live.mlx>`
+     - :battmorawfile:`download <Examples/Notebooks/tutorial_7_a_simple_p4d_model_live.mlx>`
    * - Tutorial 8
      - **Simulate a Multi-Layer Pouch cell**
      - `view <_static/notebooks/tutorial_8_simulate_a_multilayer_pouch_cell_live.html>`__
-     - :battmorawfile:`download <Examples/Basic/tutorial_8_simulate_a_multilayer_pouch_cell_live.mlx>`
+     - :battmorawfile:`download <Examples/Notebooks/tutorial_8_simulate_a_multilayer_pouch_cell_live.mlx>`
    * - Tutorial 9
      - **Simulate a Cylindrical Cell**
      - `view <_static/notebooks/tutorial_9_simulate_a_cylindrical_cell_live.html>`__
-     - :battmorawfile:`download <Examples/Basic/tutorial_9_simulate_a_cylindrical_cell_live.mlx>`
+     - :battmorawfile:`download <Examples/Notebooks/tutorial_9_simulate_a_cylindrical_cell_live.mlx>`
 
-   
+
 Next Steps
 ==========
 
